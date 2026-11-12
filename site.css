@@ -826,11 +826,13 @@ body.is-placing-bookmark {
 }
 .tin-overlay[hidden] { display: none !important; }
 .tin-panel {
-  width: min(960px, 100%);
-  background: linear-gradient(180deg, #102445, #0a1833);
-  border: 1px solid rgba(230, 193, 90, 0.28);
+  width: min(980px, 100%);
+  background:
+    radial-gradient(80% 50% at 50% 0%, rgba(230,193,90,.12), transparent 55%),
+    linear-gradient(180deg, #142a4d, #0a1730 70%, #1a1230);
+  border: 1px solid rgba(230, 193, 90, 0.32);
   border-radius: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,.04) inset;
   padding: 1rem 1rem 1.1rem;
 }
 .tin-head {
