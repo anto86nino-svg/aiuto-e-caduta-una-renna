@@ -289,8 +289,8 @@
   ];
 
   const HIT_X = 0.22;
-  const PERFECT = 28;
-  const GOOD = 54;
+  const PERFECT = 36;
+  const GOOD = 72; // finestra più generosa: si giudica l’allineamento, non il pixel sulla testa
   const KEY_ROOT = { C: 60, G: 67, F: 65, D: 62, A: 69, E: 64 };
   const MIDI_LO = 55;
   const MIDI_HI = 81;
@@ -544,8 +544,19 @@
     if (combo >= 10) bri.mood = 'dance';
     else if (combo >= 5) bri.mood = 'happy';
     else if (combo >= 2) bri.mood = 'proud';
-    else if (misses + whiffs > perfects + goods && started) bri.mood = 'sad';
     else bri.mood = 'walk';
+  }
+
+  function briBox(W, H) {
+    // renna a destra, lontano dalla linea d’oro: non interferisce coi click
+    const w = Math.min(140, W * 0.18);
+    const h = Math.min(120, H * 0.22);
+    return { x: W - w - W * 0.04, y: H - h - H * 0.03, w, h };
+  }
+
+  function pointInBri(mx, my, W, H) {
+    const b = briBox(W, H);
+    return mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h;
   }
 
   function playMissSound() {
@@ -621,13 +632,13 @@
     chordStep = 0;
     shake = 0;
     flashRed = 0;
-    msg = 'Clicca le note sulla linea d’oro — i click a vuoto tolgono punti!';
+    msg = 'Clicca quando la nota è sulla linea d’oro';
     msgT = 2.8;
     particles = [];
     setBriMood('walk', 0);
     if (titleEl()) titleEl().textContent = `Tin! · ${song.title}`;
     if (helpEl()) {
-      helpEl().innerHTML = `<strong>${song.title}</strong> — ${song.composer} (${song.cat}). L’orchestra suona la melodia; tu la conduci sulla <strong>linea d’oro</strong>. Click sbagliati: −25 ★ e Briciola inciampa!`;
+      helpEl().innerHTML = `<strong>${song.title}</strong> — ${song.composer} (${song.cat}). Clicca (o Spazio) <strong>sulla linea d’oro</strong> quando arriva la nota. Briciola reagisce solo se clicchi <em>fuori</em> dall’allineamento.`;
     }
   }
 
@@ -676,10 +687,13 @@
     if (n.judged) return;
     n.judged = true;
     n.miss = true;
-    penalize(15, 'Persa! −15', n.x, n.y);
+    // nota passata senza click: piccolo costo, senza far “inciampare” Briciola ogni volta
+    combo = 0;
+    misses += 1;
+    score = Math.max(0, score - 8);
   }
 
-  function judgeAt(fromSpace = false) {
+  function nearestNoteToHitLine() {
     const cv = canvas();
     const hitLine = cv.width * HIT_X;
     let best = null;
@@ -692,51 +706,48 @@
         best = n;
       }
     });
-    if (!best || bestDist > GOOD) {
-      whiffs += 1;
-      const hx = hitLine;
-      const hy = staffLayout(cv.height).top + staffLayout(cv.height).gap * 2;
-      penalize(25, fromSpace ? 'Vuoto! −25' : 'Click a vuoto! −25', hx, hy);
+    return { best, bestDist, hitLine };
+  }
+
+  function judgeAt(fromSpace = false) {
+    const { best, bestDist, hitLine } = nearestNoteToHitLine();
+    if (best && bestDist <= GOOD) {
+      markHit(best, bestDist <= PERFECT);
       return;
     }
-    markHit(best, bestDist <= PERFECT);
+    // nella zona di gioco ma nessuna nota allineata: invito, non punizione pesante
+    if (best && bestDist <= GOOD * 2.2) {
+      msg = best.x > hitLine ? 'Ancora un attimo…' : 'Un filo in ritardo…';
+      msgT = 0.45;
+      return;
+    }
+    msg = fromSpace ? 'Aspetta la nota…' : 'Aspetta la linea d’oro…';
+    msgT = 0.4;
   }
 
   function clickNote(mx, my) {
     const cv = canvas();
-    const hitLine = cv.width * HIT_X;
-    const layout = staffLayout(cv.height);
-    // click troppo lontano dal rigo = errore
-    if (my < layout.minY - 30 || my > layout.maxY + 40) {
-      whiffs += 1;
-      penalize(25, 'Fuori dal rigo! −25', mx, my);
+    const W = cv.width;
+    const H = cv.height;
+    const hitLine = W * HIT_X;
+    const layout = staffLayout(H);
+
+    // click sulla renna: ignora del tutto (non è un errore)
+    if (pointInBri(mx, my, W, H)) return;
+
+    const inHitColumn = Math.abs(mx - hitLine) <= GOOD * 2.4;
+    const inStaffBand = my >= layout.minY - 24 && my <= layout.maxY + 28;
+    const inPlayZone = inHitColumn || inStaffBand;
+
+    if (inPlayZone) {
+      // si giudica SOLO l’allineamento con la linea d’oro (come Space)
+      judgeAt(false);
       return;
     }
-    let best = null;
-    let bestScore = 1e9;
-    notes.forEach((n) => {
-      if (n.judged) return;
-      // solo note vicine alla linea d'oro contano come bersaglio
-      if (Math.abs(n.x - hitLine) > GOOD * 1.35) return;
-      const dist = Math.hypot(n.x - mx, n.y - my);
-      if (dist < 52 && dist < bestScore) {
-        bestScore = dist;
-        best = n;
-      }
-    });
-    if (best) {
-      const d = Math.abs(best.x - hitLine);
-      if (d <= GOOD) markHit(best, d <= PERFECT);
-      else {
-        best.judged = true;
-        best.miss = true;
-        penalize(20, 'Fuori tempo! −20', best.x, best.y);
-      }
-      return;
-    }
-    // nessun bersaglio valido vicino al click
+
+    // fuori dall’allineamento / fuori dal rigo: qui sì errore + Briciola reagisce
     whiffs += 1;
-    penalize(25, 'Click a vuoto! −25', mx, my);
+    penalize(25, 'Fuori allineamento! −25', mx, my);
   }
 
   function drawNoteHead(ctx, n, r, gap, hx) {
@@ -826,17 +837,21 @@
   }
 
   function drawBriciola(ctx, W, H) {
-    const x = W * 0.11;
-    const y = H * 0.88 + (bri.mood === 'oops' ? Math.sin(bri.phase * 20) * 3 : 0) - bri.bounce;
-    const s = Math.min(0.42, W / 1100);
+    const box = briBox(W, H);
+    const x = box.x + box.w * 0.5;
+    const y = box.y + box.h * 0.55 + (bri.mood === 'oops' ? Math.sin(bri.phase * 20) * 3 : 0) - bri.bounce;
+    const s = Math.min(0.38, W / 1200);
     const bw = 240 * s;
     const bh = 212 * s;
     ctx.save();
+    // palco a destra
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    roundRect(ctx, box.x, box.y, box.w, box.h, 14);
+    ctx.fill();
     ctx.translate(x, y);
     if (bri.mood === 'dance') ctx.rotate(Math.sin(bri.phase * 8) * 0.12);
-    else if (bri.mood === 'oops') ctx.rotate(-0.18 + Math.sin(bri.phase * 18) * 0.05);
-    else if (bri.mood === 'sad') ctx.rotate(-0.08);
-    else ctx.rotate(bri.ear * 0.4);
+    else if (bri.mood === 'oops') ctx.rotate(-0.16 + Math.sin(bri.phase * 18) * 0.05);
+    else ctx.rotate(bri.ear * 0.35);
     if (bri.mood === 'dance' || bri.mood === 'happy') {
       ctx.shadowColor = 'rgba(230,193,90,0.55)';
       ctx.shadowBlur = 18;
@@ -850,21 +865,19 @@
       ctx.fill();
     }
     ctx.shadowBlur = 0;
-    // alone umore
     ctx.fillStyle =
       bri.mood === 'dance' ? '#ffe08a' :
       bri.mood === 'happy' ? '#b6f0c8' :
       bri.mood === 'oops' ? '#ff9a9a' :
-      bri.mood === 'sad' ? '#9fb0cc' : '#e6c15a';
-    ctx.font = `800 ${Math.round(H * 0.028)}px "Avenir Next", sans-serif`;
+      bri.mood === 'proud' ? '#e6c15a' : '#c9d7f0';
+    ctx.font = `800 ${Math.round(H * 0.024)}px "Avenir Next", sans-serif`;
     ctx.textAlign = 'center';
     const label =
       bri.mood === 'dance' ? '✦ saltella!' :
       bri.mood === 'happy' ? 'brava!' :
       bri.mood === 'proud' ? 'così!' :
-      bri.mood === 'oops' ? 'ahi…' :
-      bri.mood === 'sad' ? 'riprova' : 'tin tin';
-    ctx.fillText(label, 0, bh * 0.55);
+      bri.mood === 'oops' ? 'fuori linea!' : 'ascolta';
+    ctx.fillText(label, 0, bh * 0.52);
     ctx.restore();
   }
 
@@ -898,11 +911,6 @@
     ctx.fillStyle = 'rgba(90,20,40,0.22)';
     ctx.fillRect(0, 0, W * 0.035, H);
     ctx.fillRect(W * 0.965, 0, W * 0.035, H);
-
-    // palco sotto Briciola
-    ctx.fillStyle = 'rgba(255,255,255,0.05)';
-    roundRect(ctx, W * 0.04, H * 0.78, W * 0.2, H * 0.16, 16);
-    ctx.fill();
 
     ctx.strokeStyle = 'rgba(232,240,255,0.5)';
     ctx.lineWidth = 2;
