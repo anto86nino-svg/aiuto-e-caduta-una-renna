@@ -219,14 +219,20 @@ LEVELS.forEach((l, i) => {
   l.roof = l.towers ? [130, 230] : [105, 200];
   l.num = i + 1;
   l.img = 'c' + (i + 1);
-  l.len = 6400 + i * 420;
+  // percorso un po’ più corto e chiaro: la barra di avanzamento = fine livello
+  l.len = 5200 + i * 380;
   l.letterObj = l.letter ? LETTERE[l.letter] : null;
   l.diff = i + 1;
+  // difficoltà progressiva: ogni livello superato è sensibilmente più impegnativo
+  l.speed = Math.round(120 + i * 7 + (i > 7 ? (i - 7) * 3 : 0));
+  l.chim = Math.min(0.78, 0.40 + i * 0.028);
+  l.wires = Math.min(0.34, (l.wires || 0.1) + i * 0.012);
+  l.gulls = Math.min(6, (l.gulls || 0) + Math.floor(i / 3));
   const feel = CHAPTER_FEEL[i] || CHAPTER_FEEL[0];
   l.base = feel.base; l.runLine = feel.run; l.liftLine = feel.lift;
   l.failLines = feel.fail; l.winLines = feel.win;
-  l.bombs = Math.max(0, Math.floor(i / 2));
-  l.antennas = Math.max(1, Math.floor(i / 2));
+  l.bombs = Math.max(0, Math.floor(i / 2) + Math.floor(i / 5));
+  l.antennas = Math.max(1, Math.floor(i / 2) + Math.floor(i / 4));
   l.wishes = 2 + Math.floor(i / 3);
 });
 const BELL_TARGET = 140;
@@ -377,7 +383,7 @@ function fillWorldSegment(x0, x1, R) {
   let starsLeft = L.stars || 3;
   let bombsLeft = L.bombs != null ? L.bombs : Math.max(0, Math.floor(L.diff / 2) - 1);
   let wishesLeft = L.wishes != null ? L.wishes : 2 + Math.floor(L.diff / 4);
-  const spacing = Math.max(130, 220 - L.diff * 6);
+  const spacing = Math.max(108, 230 - L.diff * 9);
   while (ix < x1 - 120) {
     const yPath = 290 + Math.sin(ix / 380 + (L.diff || 1)) * (110 + L.diff * 2) + Math.sin(ix / 140) * 28;
     if (L.letterObj && !letterPlaced && ix > letterAt && mode === 'story') {
@@ -613,7 +619,11 @@ function update(dt) {
     if (g.sx < -150) g.gone = true;
     if (!g.hit && bri.hurt <= 0) { const dx = g.sx - bri.x, dy = g.yy - bri.y; if (dx * dx + dy * dy < 50 * 50) steal(g); }
   }
-  if (mode !== 'infinite' && dist >= L.len) {
+  // Fine livello = barra di avanzamento piena (tutto il percorso percorso)
+  if (mode !== 'infinite' && !endPhase && !overlay && dist >= L.len) {
+    dist = L.len;
+    pops.push({ x: bri.x, y: bri.y - 56, s: 'Fine percorso!', t: 0, c: '#ffe08a' });
+    SFX.fanfare();
     if (L.finale) { endPhase = 'molo'; endT = 0; }
     else { endPhase = 'land'; endT = 0; }
   }
@@ -1127,21 +1137,31 @@ function hud() {
   const cx = W - 24; ctx.font = `bold 17px ${FONT}`;
   let x = cx; const row = [['' + desideri, miniLetter], ['' + notes, miniNote], ['' + cart, miniCart], ['' + risate, miniDeco]];
   for (const [v, ic] of row) { const tw = ctx.measureText(v).width; text(v, x, 30, 17, '#fff', 'right'); x -= tw + 16; ic(x, 30); x -= 22; }
+  // Barra principale = avanzamento del livello (a 100% il livello finisce)
   const bx = 22, bw = W - 84;
-  ctx.fillStyle = 'rgba(255,255,255,0.22)'; rr(bx, 56, bw, 16, 8); ctx.fill();
-  const g = ctx.createLinearGradient(bx, 0, bx + bw, 0); g.addColorStop(0, '#cfe9ff'); g.addColorStop(1, '#ffffff');
-  ctx.fillStyle = g; rr(bx, 56, Math.max(16, bw * Math.min(1, bell / BELL_TARGET)), 16, 8); ctx.fill();
-  text(mode === 'infinite' ? 'Distanza' : 'Sonaglio', bx + 8, 64, 11, '#1f3a7a', 'left', 'bold');
-  bellIcon(W - 40, 62, bellRing);
-  const title = mode === 'infinite' ? ('∞  ' + Math.floor(dist) + ' m · tier ' + ((L && L.tier) || 0)) : (L.num + '. ' + L.name);
+  const prog = mode === 'infinite'
+    ? ((dist % 7000) / 7000)
+    : clamp(dist / Math.max(1, L.len), 0, 1);
+  ctx.fillStyle = 'rgba(255,255,255,0.22)'; rr(bx, 52, bw, 18, 9); ctx.fill();
+  const g = ctx.createLinearGradient(bx, 0, bx + bw, 0);
+  g.addColorStop(0, '#7dffb0'); g.addColorStop(0.55, '#ffe27a'); g.addColorStop(1, '#ffb84a');
+  ctx.fillStyle = g; rr(bx, 52, Math.max(14, bw * prog), 18, 9); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 1.5; rr(bx, 52, bw, 18, 9); ctx.stroke();
+  const pct = Math.round(prog * 100);
+  text(
+    mode === 'infinite' ? ('Distanza · ' + Math.floor(dist) + ' m') : ('Percorso · ' + pct + '%'),
+    bx + 10, 61, 12, '#1f3a7a', 'left', 'bold'
+  );
+  // Sonaglio piccolo a destra (bonus, non decide la fine del livello)
+  bellIcon(W - 40, 61, bellRing);
+  const title = mode === 'infinite' ? ('∞  tier ' + ((L && L.tier) || 0)) : (L.num + '/14 · ' + L.name);
   text(title, 16, 150, 14, '#fff', 'left', 'bold', 'rgba(10,20,60,0.7)', 4);
-  if (mode !== 'infinite') {
-    const prog = clamp(dist / Math.max(1, L.len), 0, 1);
-    ctx.fillStyle = 'rgba(10,18,60,0.45)'; rr(16, 164, 160, 10, 5); ctx.fill();
-    ctx.fillStyle = '#7dffb0'; rr(16, 164, Math.max(8, 160 * prog), 10, 5); ctx.fill();
-  } else {
-    ctx.fillStyle = 'rgba(10,18,60,0.45)'; rr(16, 164, 160, 10, 5); ctx.fill();
-    ctx.fillStyle = '#ffe27a'; rr(16, 164, Math.max(8, 160 * ((dist % 7000) / 7000)), 10, 5); ctx.fill();
+  // mini sonaglio sotto il titolo
+  {
+    const sbx = 16, sbw = 160;
+    ctx.fillStyle = 'rgba(10,18,60,0.45)'; rr(sbx, 164, sbw, 10, 5); ctx.fill();
+    ctx.fillStyle = '#cfe9ff'; rr(sbx, 164, Math.max(6, sbw * Math.min(1, bell / BELL_TARGET)), 10, 5); ctx.fill();
+    text('Sonaglio', sbx + 6, 169, 9, '#e8eeff', 'left', 'bold');
   }
   if (magnetT > 0) text('Calamita ' + magnetT.toFixed(1) + 's', W / 2, 118, 16, '#9ad0ff', 'center', 'bold', 'rgba(10,20,60,0.65)', 4);
   const lives = maxHits();
