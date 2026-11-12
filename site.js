@@ -420,6 +420,22 @@
     if (!gameLoaded || q.has('level') || blank || !String(frame.src).includes('gioca/index.html')) {
       frame.src = src;
       gameLoaded = true;
+      frame.addEventListener(
+        'load',
+        () => {
+          try {
+            frame.focus();
+            frame.contentWindow?.focus?.();
+            frame.contentDocument?.getElementById('c')?.focus?.();
+          } catch (_) {}
+        },
+        { once: true },
+      );
+    } else {
+      try {
+        frame.focus();
+        frame.contentWindow?.focus?.();
+      } catch (_) {}
     }
   }
 
@@ -1180,6 +1196,29 @@
       if (!frame) return;
       if (frame.requestFullscreen) frame.requestFullscreen();
       else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
+    });
+
+    // Briciola nell’iframe non riceve lo Space se il focus è sulla pagina padre:
+    // inoltra i tasti di salto quando la vista gioco è aperta.
+    window.addEventListener('keydown', (e) => {
+      if (currentView() !== 'gioca') return;
+      if (e.repeat) return;
+      const code = e.code || e.key;
+      const isJump =
+        code === 'Space' ||
+        code === ' ' ||
+        code === 'ArrowUp' ||
+        code === 'KeyW' ||
+        code === 'Enter';
+      if (!isJump) return;
+      const frame = $('#game-frame');
+      if (!frame) return;
+      e.preventDefault();
+      try {
+        frame.contentWindow?.__BV_KEY?.(code === ' ' ? 'Space' : code);
+        frame.contentWindow?.focus?.();
+        frame.focus?.();
+      } catch (_) {}
     });
 
     window.addEventListener('hashchange', route);

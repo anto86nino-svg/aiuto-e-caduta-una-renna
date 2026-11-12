@@ -454,24 +454,50 @@ function safeYAt(wx) { let y = H - 100; for (const h of houses) if (wx > h.x - 4
 
 // ---------- input ----------
 function toLogical(e) { const r = cv.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width * W, y: (e.clientY - r.top) / r.height * H }; }
-cv.addEventListener('pointerdown', e => { e.preventDefault(); audioInit(); const p = toLogical(e); press(p.x, p.y); }, { passive: false });
-window.addEventListener('keydown', e => {
-  if (e.repeat) return;
-  if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW') {
-    e.preventDefault(); audioInit();
+function focusPlay() {
+  try { cv.focus({ preventScroll: true }); } catch (_) { try { cv.focus(); } catch (_) {} }
+}
+function handleJumpKey(code) {
+  audioInit();
+  if (code === 'Enter') { primary(); return; }
+  if (code === 'KeyM') { setMuted(!muted); return; }
+  if (code === 'Space' || code === 'ArrowUp' || code === 'KeyW' || code === ' ') {
     if (state === 'play' && !overlay) hic();
     else if (state === 'takeoff') { /* lascia finire la rincorsa */ }
     else primary();
   }
-  else if (e.code === 'Enter') { audioInit(); primary(); }
-  else if (e.code === 'KeyM') { setMuted(!muted); }
-});
+}
+// Esposto al sito padre (iframe): lo Space spesso resta fuori dall’iframe
+window.__BV_KEY = (code) => handleJumpKey(code);
+cv.addEventListener('pointerdown', e => {
+  e.preventDefault();
+  focusPlay();
+  audioInit();
+  const p = toLogical(e);
+  press(p.x, p.y);
+}, { passive: false });
+function onKeyDown(e) {
+  if (e.repeat) return;
+  const code = e.code || e.key;
+  if (code === 'Space' || code === ' ' || code === 'ArrowUp' || code === 'KeyW' || code === 'Enter') {
+    e.preventDefault();
+    handleJumpKey(code === ' ' ? 'Space' : code);
+  } else if (code === 'KeyM') {
+    handleJumpKey(code);
+  }
+}
+window.addEventListener('keydown', onKeyDown);
+document.addEventListener('keydown', onKeyDown);
+cv.addEventListener('keydown', onKeyDown);
+window.addEventListener('load', focusPlay);
+focusPlay();
 function press(x, y) {
   for (const b of buttons) if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) { b.fn(); return; }
   if (state === 'play' && !overlay) hic();
 }
 function primary() { const b = buttons.find(b => b.primary); if (b) b.fn(); }
 function hic() {
+  if (!bri) return;
   if (endPhase === 'fly' || endPhase === 'done' || endPhase === 'molo' || endPhase === 'away') return;
   bri.vy = -340; bri.wob = 1; SFX.hic();
   pops.push({ x: bri.x - 30, y: bri.y - 40, s: 'hic!', t: 0, c: '#fff' });
