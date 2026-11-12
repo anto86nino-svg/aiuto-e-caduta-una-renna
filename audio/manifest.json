@@ -1,0 +1,2629 @@
+{
+  "title": "Aiuto, è caduta una renna!",
+  "author": "Antonino Campanella",
+  "voiceId": "aura-2-cesare-it",
+  "voiceLabel": "Narratore Scripto Video · Cesare",
+  "provider": "deepgram",
+  "model": "aura-2-cesare-it",
+  "tempo": 0.92,
+  "generatedAt": "2026-11-12T20:22:30.899Z",
+  "partial": false,
+  "sections": [
+    {
+      "id": "s1",
+      "kind": "titlepage",
+      "chapter": null,
+      "title": "Aiuto, è caduta una renna!",
+      "src": "audio/frontespizio.mp3",
+      "durationSec": 60.39,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 0,
+          "end": 2.207
+        },
+        {
+          "blockIndex": 1,
+          "start": 2.957,
+          "end": 9.658
+        },
+        {
+          "blockIndex": 2,
+          "start": 10.408,
+          "end": 20.582
+        },
+        {
+          "blockIndex": 3,
+          "start": 21.332,
+          "end": 29.844
+        },
+        {
+          "blockIndex": 4,
+          "start": 30.594,
+          "end": 54.244
+        },
+        {
+          "blockIndex": 5,
+          "start": 54.994,
+          "end": 59.635
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "note",
+      "chapter": null,
+      "title": "Nota dell'autore",
+      "src": "audio/nota.mp3",
+      "durationSec": 89.88,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.334,
+          "end": 4.581
+        },
+        {
+          "blockIndex": 1,
+          "start": 5.331,
+          "end": 26.752
+        },
+        {
+          "blockIndex": 2,
+          "start": 27.502,
+          "end": 56.432
+        },
+        {
+          "blockIndex": 3,
+          "start": 57.182,
+          "end": 82.26
+        },
+        {
+          "blockIndex": 4,
+          "start": 83.01,
+          "end": 86.427
+        },
+        {
+          "blockIndex": 5,
+          "start": 87.177,
+          "end": 89.128
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "kind": "chapter",
+      "chapter": 1,
+      "title": "1. Un tonfo sulla pasticceria",
+      "src": "audio/cap-01.mp3",
+      "durationSec": 457.88,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.817,
+          "end": 6.16
+        },
+        {
+          "blockIndex": 1,
+          "start": 6.91,
+          "end": 45.547
+        },
+        {
+          "blockIndex": 2,
+          "start": 46.297,
+          "end": 58.117
+        },
+        {
+          "blockIndex": 3,
+          "start": 58.867,
+          "end": 104.071
+        },
+        {
+          "blockIndex": 4,
+          "start": 104.821,
+          "end": 119.198
+        },
+        {
+          "blockIndex": 5,
+          "start": 119.948,
+          "end": 124.697
+        },
+        {
+          "blockIndex": 6,
+          "start": 125.447,
+          "end": 177.207
+        },
+        {
+          "blockIndex": 7,
+          "start": 177.957,
+          "end": 197.64
+        },
+        {
+          "blockIndex": 8,
+          "start": 198.39,
+          "end": 203.81
+        },
+        {
+          "blockIndex": 9,
+          "start": 204.56,
+          "end": 224.121
+        },
+        {
+          "blockIndex": 10,
+          "start": 224.871,
+          "end": 226.736
+        },
+        {
+          "blockIndex": 11,
+          "start": 227.486,
+          "end": 228.563
+        },
+        {
+          "blockIndex": 12,
+          "start": 229.313,
+          "end": 243.699
+        },
+        {
+          "blockIndex": 13,
+          "start": 244.449,
+          "end": 254.689
+        },
+        {
+          "blockIndex": 14,
+          "start": 255.439,
+          "end": 261.648
+        },
+        {
+          "blockIndex": 15,
+          "start": 262.398,
+          "end": 294.996
+        },
+        {
+          "blockIndex": 16,
+          "start": 295.746,
+          "end": 314.82
+        },
+        {
+          "blockIndex": 17,
+          "start": 315.57,
+          "end": 319.427
+        },
+        {
+          "blockIndex": 18,
+          "start": 320.177,
+          "end": 325.48
+        },
+        {
+          "blockIndex": 19,
+          "start": 326.23,
+          "end": 349.509
+        },
+        {
+          "blockIndex": 20,
+          "start": 350.259,
+          "end": 354.25
+        },
+        {
+          "blockIndex": 21,
+          "start": 355,
+          "end": 356.641
+        },
+        {
+          "blockIndex": 22,
+          "start": 357.391,
+          "end": 396.777
+        },
+        {
+          "blockIndex": 23,
+          "start": 397.527,
+          "end": 427.438
+        },
+        {
+          "blockIndex": 24,
+          "start": 428.188,
+          "end": 434.024
+        },
+        {
+          "blockIndex": 25,
+          "start": 434.774,
+          "end": 450.637
+        },
+        {
+          "blockIndex": 26,
+          "start": 451.387,
+          "end": 457.133
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "kind": "chapter",
+      "chapter": 2,
+      "title": "2. Non è un cane",
+      "src": "audio/cap-02.mp3",
+      "durationSec": 510.63,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.42,
+          "end": 11.123
+        },
+        {
+          "blockIndex": 1,
+          "start": 11.873,
+          "end": 20.752
+        },
+        {
+          "blockIndex": 2,
+          "start": 21.502,
+          "end": 24.533
+        },
+        {
+          "blockIndex": 3,
+          "start": 25.283,
+          "end": 30.099
+        },
+        {
+          "blockIndex": 4,
+          "start": 30.849,
+          "end": 39.33
+        },
+        {
+          "blockIndex": 5,
+          "start": 40.08,
+          "end": 44.739
+        },
+        {
+          "blockIndex": 6,
+          "start": 45.489,
+          "end": 88.572
+        },
+        {
+          "blockIndex": 7,
+          "start": 89.322,
+          "end": 122.059
+        },
+        {
+          "blockIndex": 8,
+          "start": 122.809,
+          "end": 129.015
+        },
+        {
+          "blockIndex": 9,
+          "start": 129.765,
+          "end": 173.259
+        },
+        {
+          "blockIndex": 10,
+          "start": 174.009,
+          "end": 176.69
+        },
+        {
+          "blockIndex": 11,
+          "start": 177.44,
+          "end": 184.226
+        },
+        {
+          "blockIndex": 12,
+          "start": 184.976,
+          "end": 221.377
+        },
+        {
+          "blockIndex": 13,
+          "start": 222.127,
+          "end": 261.949
+        },
+        {
+          "blockIndex": 14,
+          "start": 262.699,
+          "end": 267.965
+        },
+        {
+          "blockIndex": 15,
+          "start": 268.715,
+          "end": 284.882
+        },
+        {
+          "blockIndex": 16,
+          "start": 285.632,
+          "end": 306.478
+        },
+        {
+          "blockIndex": 17,
+          "start": 307.228,
+          "end": 313.495
+        },
+        {
+          "blockIndex": 18,
+          "start": 314.245,
+          "end": 338.867
+        },
+        {
+          "blockIndex": 19,
+          "start": 339.617,
+          "end": 344.228
+        },
+        {
+          "blockIndex": 20,
+          "start": 344.978,
+          "end": 357.957
+        },
+        {
+          "blockIndex": 21,
+          "start": 358.707,
+          "end": 373.642
+        },
+        {
+          "blockIndex": 22,
+          "start": 374.392,
+          "end": 379.533
+        },
+        {
+          "blockIndex": 23,
+          "start": 380.283,
+          "end": 384.851
+        },
+        {
+          "blockIndex": 24,
+          "start": 385.601,
+          "end": 414.221
+        },
+        {
+          "blockIndex": 25,
+          "start": 414.971,
+          "end": 446.211
+        },
+        {
+          "blockIndex": 26,
+          "start": 446.961,
+          "end": 452.054
+        },
+        {
+          "blockIndex": 27,
+          "start": 452.804,
+          "end": 464.608
+        },
+        {
+          "blockIndex": 28,
+          "start": 465.358,
+          "end": 468.264
+        },
+        {
+          "blockIndex": 29,
+          "start": 469.014,
+          "end": 470.561
+        },
+        {
+          "blockIndex": 30,
+          "start": 471.311,
+          "end": 474.345
+        },
+        {
+          "blockIndex": 31,
+          "start": 475.095,
+          "end": 482.409
+        },
+        {
+          "blockIndex": 32,
+          "start": 483.159,
+          "end": 503.11
+        },
+        {
+          "blockIndex": 33,
+          "start": 503.86,
+          "end": 509.881
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "kind": "chapter",
+      "chapter": 3,
+      "title": "3. Nonno Tonino non ci sente",
+      "src": "audio/cap-03.mp3",
+      "durationSec": 521.54,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.293,
+          "end": 39.303
+        },
+        {
+          "blockIndex": 1,
+          "start": 40.053,
+          "end": 50.002
+        },
+        {
+          "blockIndex": 2,
+          "start": 50.752,
+          "end": 52.523
+        },
+        {
+          "blockIndex": 3,
+          "start": 53.273,
+          "end": 82.196
+        },
+        {
+          "blockIndex": 4,
+          "start": 82.946,
+          "end": 85.803
+        },
+        {
+          "blockIndex": 5,
+          "start": 86.553,
+          "end": 116.518
+        },
+        {
+          "blockIndex": 6,
+          "start": 117.268,
+          "end": 120.606
+        },
+        {
+          "blockIndex": 7,
+          "start": 121.356,
+          "end": 131.415
+        },
+        {
+          "blockIndex": 8,
+          "start": 132.165,
+          "end": 141.999
+        },
+        {
+          "blockIndex": 9,
+          "start": 142.749,
+          "end": 166.304
+        },
+        {
+          "blockIndex": 10,
+          "start": 167.054,
+          "end": 174.571
+        },
+        {
+          "blockIndex": 11,
+          "start": 175.321,
+          "end": 193.149
+        },
+        {
+          "blockIndex": 12,
+          "start": 193.899,
+          "end": 199.278
+        },
+        {
+          "blockIndex": 13,
+          "start": 200.028,
+          "end": 205.41
+        },
+        {
+          "blockIndex": 14,
+          "start": 206.16,
+          "end": 249.862
+        },
+        {
+          "blockIndex": 15,
+          "start": 250.612,
+          "end": 258.063
+        },
+        {
+          "blockIndex": 16,
+          "start": 258.813,
+          "end": 278.906
+        },
+        {
+          "blockIndex": 17,
+          "start": 279.656,
+          "end": 290.574
+        },
+        {
+          "blockIndex": 18,
+          "start": 291.324,
+          "end": 300.171
+        },
+        {
+          "blockIndex": 19,
+          "start": 300.921,
+          "end": 328.306
+        },
+        {
+          "blockIndex": 20,
+          "start": 329.056,
+          "end": 344.597
+        },
+        {
+          "blockIndex": 21,
+          "start": 345.347,
+          "end": 365.333
+        },
+        {
+          "blockIndex": 22,
+          "start": 366.083,
+          "end": 371.137
+        },
+        {
+          "blockIndex": 23,
+          "start": 371.887,
+          "end": 378.156
+        },
+        {
+          "blockIndex": 24,
+          "start": 378.906,
+          "end": 408.569
+        },
+        {
+          "blockIndex": 25,
+          "start": 409.319,
+          "end": 439.636
+        },
+        {
+          "blockIndex": 26,
+          "start": 440.386,
+          "end": 467.985
+        },
+        {
+          "blockIndex": 27,
+          "start": 468.735,
+          "end": 471.592
+        },
+        {
+          "blockIndex": 28,
+          "start": 472.342,
+          "end": 476.78
+        },
+        {
+          "blockIndex": 29,
+          "start": 477.53,
+          "end": 495.131
+        },
+        {
+          "blockIndex": 30,
+          "start": 495.881,
+          "end": 507.731
+        },
+        {
+          "blockIndex": 31,
+          "start": 508.481,
+          "end": 520.786
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "kind": "chapter",
+      "chapter": 4,
+      "title": "4. Il sonaglio perduto",
+      "src": "audio/cap-04.mp3",
+      "durationSec": 603.92,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.597,
+          "end": 8.363
+        },
+        {
+          "blockIndex": 1,
+          "start": 9.113,
+          "end": 48.447
+        },
+        {
+          "blockIndex": 2,
+          "start": 49.197,
+          "end": 53.836
+        },
+        {
+          "blockIndex": 3,
+          "start": 54.586,
+          "end": 79.57
+        },
+        {
+          "blockIndex": 4,
+          "start": 80.32,
+          "end": 87.859
+        },
+        {
+          "blockIndex": 5,
+          "start": 88.609,
+          "end": 129.944
+        },
+        {
+          "blockIndex": 6,
+          "start": 130.694,
+          "end": 134.591
+        },
+        {
+          "blockIndex": 7,
+          "start": 135.341,
+          "end": 176.678
+        },
+        {
+          "blockIndex": 8,
+          "start": 177.428,
+          "end": 195.384
+        },
+        {
+          "blockIndex": 9,
+          "start": 196.134,
+          "end": 204.314
+        },
+        {
+          "blockIndex": 10,
+          "start": 205.064,
+          "end": 244.969
+        },
+        {
+          "blockIndex": 11,
+          "start": 245.719,
+          "end": 258.326
+        },
+        {
+          "blockIndex": 12,
+          "start": 259.076,
+          "end": 266.253
+        },
+        {
+          "blockIndex": 13,
+          "start": 267.003,
+          "end": 312.52
+        },
+        {
+          "blockIndex": 14,
+          "start": 313.27,
+          "end": 315.739
+        },
+        {
+          "blockIndex": 15,
+          "start": 316.489,
+          "end": 332.748
+        },
+        {
+          "blockIndex": 16,
+          "start": 333.498,
+          "end": 347.844
+        },
+        {
+          "blockIndex": 17,
+          "start": 348.594,
+          "end": 376.381
+        },
+        {
+          "blockIndex": 18,
+          "start": 377.131,
+          "end": 386.658
+        },
+        {
+          "blockIndex": 19,
+          "start": 387.408,
+          "end": 391.793
+        },
+        {
+          "blockIndex": 20,
+          "start": 392.543,
+          "end": 425.67
+        },
+        {
+          "blockIndex": 21,
+          "start": 426.42,
+          "end": 447.158
+        },
+        {
+          "blockIndex": 22,
+          "start": 447.908,
+          "end": 477.653
+        },
+        {
+          "blockIndex": 23,
+          "start": 478.403,
+          "end": 483.482
+        },
+        {
+          "blockIndex": 24,
+          "start": 484.232,
+          "end": 486.964
+        },
+        {
+          "blockIndex": 25,
+          "start": 487.714,
+          "end": 530.375
+        },
+        {
+          "blockIndex": 26,
+          "start": 531.125,
+          "end": 534.769
+        },
+        {
+          "blockIndex": 27,
+          "start": 535.519,
+          "end": 542.574
+        },
+        {
+          "blockIndex": 28,
+          "start": 543.324,
+          "end": 553.895
+        },
+        {
+          "blockIndex": 29,
+          "start": 554.645,
+          "end": 581.031
+        },
+        {
+          "blockIndex": 30,
+          "start": 581.781,
+          "end": 584.596
+        },
+        {
+          "blockIndex": 31,
+          "start": 585.346,
+          "end": 586.772
+        },
+        {
+          "blockIndex": 32,
+          "start": 587.522,
+          "end": 596.115
+        },
+        {
+          "blockIndex": 33,
+          "start": 596.865,
+          "end": 603.168
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "kind": "chapter",
+      "chapter": 5,
+      "title": "5. Un cane molto, molto grosso",
+      "src": "audio/cap-05.mp3",
+      "durationSec": 472.14,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.72,
+          "end": 31.486
+        },
+        {
+          "blockIndex": 1,
+          "start": 32.236,
+          "end": 38.894
+        },
+        {
+          "blockIndex": 2,
+          "start": 39.644,
+          "end": 50.412
+        },
+        {
+          "blockIndex": 3,
+          "start": 51.162,
+          "end": 93.885
+        },
+        {
+          "blockIndex": 4,
+          "start": 94.635,
+          "end": 97.012
+        },
+        {
+          "blockIndex": 5,
+          "start": 97.762,
+          "end": 122.394
+        },
+        {
+          "blockIndex": 6,
+          "start": 123.144,
+          "end": 128.517
+        },
+        {
+          "blockIndex": 7,
+          "start": 129.267,
+          "end": 131.3
+        },
+        {
+          "blockIndex": 8,
+          "start": 132.05,
+          "end": 133.126
+        },
+        {
+          "blockIndex": 9,
+          "start": 133.876,
+          "end": 140.757
+        },
+        {
+          "blockIndex": 10,
+          "start": 141.507,
+          "end": 147.815
+        },
+        {
+          "blockIndex": 11,
+          "start": 148.565,
+          "end": 150.515
+        },
+        {
+          "blockIndex": 12,
+          "start": 151.265,
+          "end": 153.123
+        },
+        {
+          "blockIndex": 13,
+          "start": 153.873,
+          "end": 159.12
+        },
+        {
+          "blockIndex": 14,
+          "start": 159.87,
+          "end": 162.555
+        },
+        {
+          "blockIndex": 15,
+          "start": 163.305,
+          "end": 213.164
+        },
+        {
+          "blockIndex": 16,
+          "start": 213.914,
+          "end": 216.692
+        },
+        {
+          "blockIndex": 17,
+          "start": 217.442,
+          "end": 223.82
+        },
+        {
+          "blockIndex": 18,
+          "start": 224.57,
+          "end": 280.718
+        },
+        {
+          "blockIndex": 19,
+          "start": 281.468,
+          "end": 289.541
+        },
+        {
+          "blockIndex": 20,
+          "start": 290.291,
+          "end": 290.767
+        },
+        {
+          "blockIndex": 21,
+          "start": 291.517,
+          "end": 298.366
+        },
+        {
+          "blockIndex": 22,
+          "start": 299.116,
+          "end": 302.015
+        },
+        {
+          "blockIndex": 23,
+          "start": 302.765,
+          "end": 307.728
+        },
+        {
+          "blockIndex": 24,
+          "start": 308.478,
+          "end": 325.054
+        },
+        {
+          "blockIndex": 25,
+          "start": 325.804,
+          "end": 328.266
+        },
+        {
+          "blockIndex": 26,
+          "start": 329.016,
+          "end": 343.084
+        },
+        {
+          "blockIndex": 27,
+          "start": 343.834,
+          "end": 349.45
+        },
+        {
+          "blockIndex": 28,
+          "start": 350.2,
+          "end": 353.933
+        },
+        {
+          "blockIndex": 29,
+          "start": 354.683,
+          "end": 356.802
+        },
+        {
+          "blockIndex": 30,
+          "start": 357.552,
+          "end": 376.636
+        },
+        {
+          "blockIndex": 31,
+          "start": 377.386,
+          "end": 379.766
+        },
+        {
+          "blockIndex": 32,
+          "start": 380.516,
+          "end": 390.908
+        },
+        {
+          "blockIndex": 33,
+          "start": 391.658,
+          "end": 403.489
+        },
+        {
+          "blockIndex": 34,
+          "start": 404.239,
+          "end": 405.321
+        },
+        {
+          "blockIndex": 35,
+          "start": 406.071,
+          "end": 442.575
+        },
+        {
+          "blockIndex": 36,
+          "start": 443.325,
+          "end": 455.397
+        },
+        {
+          "blockIndex": 37,
+          "start": 456.147,
+          "end": 458.612
+        },
+        {
+          "blockIndex": 38,
+          "start": 459.362,
+          "end": 471.391
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "kind": "chapter",
+      "chapter": 6,
+      "title": "6. Il gabbiano che rubava le stelle",
+      "src": "audio/cap-06.mp3",
+      "durationSec": 485.17,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.678,
+          "end": 44.18
+        },
+        {
+          "blockIndex": 1,
+          "start": 44.93,
+          "end": 60.083
+        },
+        {
+          "blockIndex": 2,
+          "start": 60.833,
+          "end": 64.606
+        },
+        {
+          "blockIndex": 3,
+          "start": 65.356,
+          "end": 68.084
+        },
+        {
+          "blockIndex": 4,
+          "start": 68.834,
+          "end": 109.132
+        },
+        {
+          "blockIndex": 5,
+          "start": 109.882,
+          "end": 123.611
+        },
+        {
+          "blockIndex": 6,
+          "start": 124.361,
+          "end": 143.436
+        },
+        {
+          "blockIndex": 7,
+          "start": 144.186,
+          "end": 160.853
+        },
+        {
+          "blockIndex": 8,
+          "start": 161.603,
+          "end": 164.675
+        },
+        {
+          "blockIndex": 9,
+          "start": 165.425,
+          "end": 173.104
+        },
+        {
+          "blockIndex": 10,
+          "start": 173.854,
+          "end": 181.779
+        },
+        {
+          "blockIndex": 11,
+          "start": 182.529,
+          "end": 219.751
+        },
+        {
+          "blockIndex": 12,
+          "start": 220.501,
+          "end": 225.267
+        },
+        {
+          "blockIndex": 13,
+          "start": 226.017,
+          "end": 245.031
+        },
+        {
+          "blockIndex": 14,
+          "start": 245.781,
+          "end": 281.752
+        },
+        {
+          "blockIndex": 15,
+          "start": 282.502,
+          "end": 309.631
+        },
+        {
+          "blockIndex": 16,
+          "start": 310.381,
+          "end": 319.561
+        },
+        {
+          "blockIndex": 17,
+          "start": 320.311,
+          "end": 321.381
+        },
+        {
+          "blockIndex": 18,
+          "start": 322.131,
+          "end": 351.778
+        },
+        {
+          "blockIndex": 19,
+          "start": 352.528,
+          "end": 371.929
+        },
+        {
+          "blockIndex": 20,
+          "start": 372.679,
+          "end": 377.115
+        },
+        {
+          "blockIndex": 21,
+          "start": 377.865,
+          "end": 391.27
+        },
+        {
+          "blockIndex": 22,
+          "start": 392.02,
+          "end": 411.55
+        },
+        {
+          "blockIndex": 23,
+          "start": 412.3,
+          "end": 417.589
+        },
+        {
+          "blockIndex": 24,
+          "start": 418.339,
+          "end": 421.977
+        },
+        {
+          "blockIndex": 25,
+          "start": 422.727,
+          "end": 452.521
+        },
+        {
+          "blockIndex": 26,
+          "start": 453.271,
+          "end": 458.084
+        },
+        {
+          "blockIndex": 27,
+          "start": 458.834,
+          "end": 461.387
+        },
+        {
+          "blockIndex": 28,
+          "start": 462.137,
+          "end": 476.986
+        },
+        {
+          "blockIndex": 29,
+          "start": 477.736,
+          "end": 484.421
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "kind": "chapter",
+      "chapter": 7,
+      "title": "7. Su per il campanile",
+      "src": "audio/cap-07.mp3",
+      "durationSec": 580.25,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.595,
+          "end": 38.81
+        },
+        {
+          "blockIndex": 1,
+          "start": 39.56,
+          "end": 56.621
+        },
+        {
+          "blockIndex": 2,
+          "start": 57.371,
+          "end": 75.86
+        },
+        {
+          "blockIndex": 3,
+          "start": 76.61,
+          "end": 83.613
+        },
+        {
+          "blockIndex": 4,
+          "start": 84.363,
+          "end": 93.907
+        },
+        {
+          "blockIndex": 5,
+          "start": 94.657,
+          "end": 98.163
+        },
+        {
+          "blockIndex": 6,
+          "start": 98.913,
+          "end": 108.183
+        },
+        {
+          "blockIndex": 7,
+          "start": 108.933,
+          "end": 111.574
+        },
+        {
+          "blockIndex": 8,
+          "start": 112.324,
+          "end": 114.359
+        },
+        {
+          "blockIndex": 9,
+          "start": 115.109,
+          "end": 123.183
+        },
+        {
+          "blockIndex": 10,
+          "start": 123.933,
+          "end": 131.596
+        },
+        {
+          "blockIndex": 11,
+          "start": 132.346,
+          "end": 156.022
+        },
+        {
+          "blockIndex": 12,
+          "start": 156.772,
+          "end": 204.11
+        },
+        {
+          "blockIndex": 13,
+          "start": 204.86,
+          "end": 214.795
+        },
+        {
+          "blockIndex": 14,
+          "start": 215.545,
+          "end": 218.099
+        },
+        {
+          "blockIndex": 15,
+          "start": 218.849,
+          "end": 259.181
+        },
+        {
+          "blockIndex": 16,
+          "start": 259.931,
+          "end": 265.871
+        },
+        {
+          "blockIndex": 17,
+          "start": 266.621,
+          "end": 287.407
+        },
+        {
+          "blockIndex": 18,
+          "start": 288.157,
+          "end": 334.901
+        },
+        {
+          "blockIndex": 19,
+          "start": 335.651,
+          "end": 351.391
+        },
+        {
+          "blockIndex": 20,
+          "start": 352.141,
+          "end": 358.669
+        },
+        {
+          "blockIndex": 21,
+          "start": 359.419,
+          "end": 362.406
+        },
+        {
+          "blockIndex": 22,
+          "start": 363.156,
+          "end": 390.865
+        },
+        {
+          "blockIndex": 23,
+          "start": 391.615,
+          "end": 419.003
+        },
+        {
+          "blockIndex": 24,
+          "start": 419.753,
+          "end": 423.524
+        },
+        {
+          "blockIndex": 25,
+          "start": 424.274,
+          "end": 431.502
+        },
+        {
+          "blockIndex": 26,
+          "start": 432.252,
+          "end": 476.648
+        },
+        {
+          "blockIndex": 27,
+          "start": 477.398,
+          "end": 482.559
+        },
+        {
+          "blockIndex": 28,
+          "start": 483.309,
+          "end": 492.345
+        },
+        {
+          "blockIndex": 29,
+          "start": 493.095,
+          "end": 522.668
+        },
+        {
+          "blockIndex": 30,
+          "start": 523.418,
+          "end": 531.984
+        },
+        {
+          "blockIndex": 31,
+          "start": 532.734,
+          "end": 545.114
+        },
+        {
+          "blockIndex": 32,
+          "start": 545.864,
+          "end": 579.503
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "kind": "chapter",
+      "chapter": 8,
+      "title": "8. Una telefonata dai Caraibi",
+      "src": "audio/cap-08.mp3",
+      "durationSec": 575.27,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.033,
+          "end": 37.388
+        },
+        {
+          "blockIndex": 1,
+          "start": 38.138,
+          "end": 82.526
+        },
+        {
+          "blockIndex": 2,
+          "start": 83.276,
+          "end": 91.102
+        },
+        {
+          "blockIndex": 3,
+          "start": 91.852,
+          "end": 119.699
+        },
+        {
+          "blockIndex": 4,
+          "start": 120.449,
+          "end": 173.916
+        },
+        {
+          "blockIndex": 5,
+          "start": 174.666,
+          "end": 191.712
+        },
+        {
+          "blockIndex": 6,
+          "start": 192.462,
+          "end": 198.368
+        },
+        {
+          "blockIndex": 7,
+          "start": 199.118,
+          "end": 237.782
+        },
+        {
+          "blockIndex": 8,
+          "start": 238.532,
+          "end": 244.538
+        },
+        {
+          "blockIndex": 9,
+          "start": 245.288,
+          "end": 274.772
+        },
+        {
+          "blockIndex": 10,
+          "start": 275.522,
+          "end": 282.078
+        },
+        {
+          "blockIndex": 11,
+          "start": 282.828,
+          "end": 313.345
+        },
+        {
+          "blockIndex": 12,
+          "start": 314.095,
+          "end": 316.079
+        },
+        {
+          "blockIndex": 13,
+          "start": 316.829,
+          "end": 322.911
+        },
+        {
+          "blockIndex": 14,
+          "start": 323.661,
+          "end": 371.205
+        },
+        {
+          "blockIndex": 15,
+          "start": 371.955,
+          "end": 377.183
+        },
+        {
+          "blockIndex": 16,
+          "start": 377.933,
+          "end": 387.063
+        },
+        {
+          "blockIndex": 17,
+          "start": 387.813,
+          "end": 390.236
+        },
+        {
+          "blockIndex": 18,
+          "start": 390.986,
+          "end": 408.291
+        },
+        {
+          "blockIndex": 19,
+          "start": 409.041,
+          "end": 417.399
+        },
+        {
+          "blockIndex": 20,
+          "start": 418.149,
+          "end": 447.325
+        },
+        {
+          "blockIndex": 21,
+          "start": 448.075,
+          "end": 454.42
+        },
+        {
+          "blockIndex": 22,
+          "start": 455.17,
+          "end": 471.138
+        },
+        {
+          "blockIndex": 23,
+          "start": 471.888,
+          "end": 489.028
+        },
+        {
+          "blockIndex": 24,
+          "start": 489.778,
+          "end": 508.981
+        },
+        {
+          "blockIndex": 25,
+          "start": 509.731,
+          "end": 521.495
+        },
+        {
+          "blockIndex": 26,
+          "start": 522.245,
+          "end": 558.554
+        },
+        {
+          "blockIndex": 27,
+          "start": 559.304,
+          "end": 566.567
+        },
+        {
+          "blockIndex": 28,
+          "start": 567.317,
+          "end": 574.523
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "kind": "chapter",
+      "chapter": 9,
+      "title": "9. Il pesce più strano del mercato",
+      "src": "audio/cap-09.mp3",
+      "durationSec": 467.86,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.202,
+          "end": 10.322
+        },
+        {
+          "blockIndex": 1,
+          "start": 11.072,
+          "end": 54.655
+        },
+        {
+          "blockIndex": 2,
+          "start": 55.405,
+          "end": 60.678
+        },
+        {
+          "blockIndex": 3,
+          "start": 61.428,
+          "end": 66.788
+        },
+        {
+          "blockIndex": 4,
+          "start": 67.538,
+          "end": 72.154
+        },
+        {
+          "blockIndex": 5,
+          "start": 72.904,
+          "end": 100.801
+        },
+        {
+          "blockIndex": 6,
+          "start": 101.551,
+          "end": 132.189
+        },
+        {
+          "blockIndex": 7,
+          "start": 132.939,
+          "end": 140.814
+        },
+        {
+          "blockIndex": 8,
+          "start": 141.564,
+          "end": 144.946
+        },
+        {
+          "blockIndex": 9,
+          "start": 145.696,
+          "end": 148.777
+        },
+        {
+          "blockIndex": 10,
+          "start": 149.527,
+          "end": 174.714
+        },
+        {
+          "blockIndex": 11,
+          "start": 175.464,
+          "end": 221.085
+        },
+        {
+          "blockIndex": 12,
+          "start": 221.835,
+          "end": 234.298
+        },
+        {
+          "blockIndex": 13,
+          "start": 235.048,
+          "end": 242.932
+        },
+        {
+          "blockIndex": 14,
+          "start": 243.682,
+          "end": 247.943
+        },
+        {
+          "blockIndex": 15,
+          "start": 248.693,
+          "end": 263.012
+        },
+        {
+          "blockIndex": 16,
+          "start": 263.762,
+          "end": 264.84
+        },
+        {
+          "blockIndex": 17,
+          "start": 265.59,
+          "end": 267.451
+        },
+        {
+          "blockIndex": 18,
+          "start": 268.201,
+          "end": 269.8
+        },
+        {
+          "blockIndex": 19,
+          "start": 270.55,
+          "end": 272.573
+        },
+        {
+          "blockIndex": 20,
+          "start": 273.323,
+          "end": 314.877
+        },
+        {
+          "blockIndex": 21,
+          "start": 315.627,
+          "end": 322.889
+        },
+        {
+          "blockIndex": 22,
+          "start": 323.639,
+          "end": 328.073
+        },
+        {
+          "blockIndex": 23,
+          "start": 328.823,
+          "end": 341.329
+        },
+        {
+          "blockIndex": 24,
+          "start": 342.079,
+          "end": 344.197
+        },
+        {
+          "blockIndex": 25,
+          "start": 344.947,
+          "end": 363.172
+        },
+        {
+          "blockIndex": 26,
+          "start": 363.922,
+          "end": 366.126
+        },
+        {
+          "blockIndex": 27,
+          "start": 366.876,
+          "end": 379.071
+        },
+        {
+          "blockIndex": 28,
+          "start": 379.821,
+          "end": 388.076
+        },
+        {
+          "blockIndex": 29,
+          "start": 388.826,
+          "end": 420.214
+        },
+        {
+          "blockIndex": 30,
+          "start": 420.964,
+          "end": 430.337
+        },
+        {
+          "blockIndex": 31,
+          "start": 431.087,
+          "end": 443.937
+        },
+        {
+          "blockIndex": 32,
+          "start": 444.687,
+          "end": 452.414
+        },
+        {
+          "blockIndex": 33,
+          "start": 453.164,
+          "end": 467.108
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "kind": "chapter",
+      "chapter": 10,
+      "title": "10. Il presepe vivente più vivente del mondo",
+      "src": "audio/cap-10.mp3",
+      "durationSec": 571.5,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 4.16,
+          "end": 10.845
+        },
+        {
+          "blockIndex": 1,
+          "start": 11.595,
+          "end": 55.201
+        },
+        {
+          "blockIndex": 2,
+          "start": 55.951,
+          "end": 68.094
+        },
+        {
+          "blockIndex": 3,
+          "start": 68.844,
+          "end": 72.485
+        },
+        {
+          "blockIndex": 4,
+          "start": 73.235,
+          "end": 97.656
+        },
+        {
+          "blockIndex": 5,
+          "start": 98.406,
+          "end": 113.688
+        },
+        {
+          "blockIndex": 6,
+          "start": 114.438,
+          "end": 118.949
+        },
+        {
+          "blockIndex": 7,
+          "start": 119.699,
+          "end": 131.07
+        },
+        {
+          "blockIndex": 8,
+          "start": 131.82,
+          "end": 162.086
+        },
+        {
+          "blockIndex": 9,
+          "start": 162.836,
+          "end": 196.881
+        },
+        {
+          "blockIndex": 10,
+          "start": 197.631,
+          "end": 199.499
+        },
+        {
+          "blockIndex": 11,
+          "start": 200.249,
+          "end": 237.699
+        },
+        {
+          "blockIndex": 12,
+          "start": 238.449,
+          "end": 248.758
+        },
+        {
+          "blockIndex": 13,
+          "start": 249.508,
+          "end": 256.037
+        },
+        {
+          "blockIndex": 14,
+          "start": 256.787,
+          "end": 294.096
+        },
+        {
+          "blockIndex": 15,
+          "start": 294.846,
+          "end": 299.59
+        },
+        {
+          "blockIndex": 16,
+          "start": 300.34,
+          "end": 302.8
+        },
+        {
+          "blockIndex": 17,
+          "start": 303.55,
+          "end": 328.789
+        },
+        {
+          "blockIndex": 18,
+          "start": 329.539,
+          "end": 331.664
+        },
+        {
+          "blockIndex": 19,
+          "start": 332.414,
+          "end": 359.27
+        },
+        {
+          "blockIndex": 20,
+          "start": 360.02,
+          "end": 361.097
+        },
+        {
+          "blockIndex": 21,
+          "start": 361.847,
+          "end": 403.146
+        },
+        {
+          "blockIndex": 22,
+          "start": 403.896,
+          "end": 412.859
+        },
+        {
+          "blockIndex": 23,
+          "start": 413.609,
+          "end": 422.182
+        },
+        {
+          "blockIndex": 24,
+          "start": 422.932,
+          "end": 432.436
+        },
+        {
+          "blockIndex": 25,
+          "start": 433.186,
+          "end": 437.547
+        },
+        {
+          "blockIndex": 26,
+          "start": 438.297,
+          "end": 462.217
+        },
+        {
+          "blockIndex": 27,
+          "start": 462.967,
+          "end": 470.955
+        },
+        {
+          "blockIndex": 28,
+          "start": 471.705,
+          "end": 495.112
+        },
+        {
+          "blockIndex": 29,
+          "start": 495.862,
+          "end": 517.838
+        },
+        {
+          "blockIndex": 30,
+          "start": 518.588,
+          "end": 521.142
+        },
+        {
+          "blockIndex": 31,
+          "start": 521.892,
+          "end": 547.153
+        },
+        {
+          "blockIndex": 32,
+          "start": 547.903,
+          "end": 555.713
+        },
+        {
+          "blockIndex": 33,
+          "start": 556.463,
+          "end": 570.753
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "kind": "chapter",
+      "chapter": 11,
+      "title": "11. Il segreto del vigile Spinaci",
+      "src": "audio/cap-11.mp3",
+      "durationSec": 570.78,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.119,
+          "end": 8.982
+        },
+        {
+          "blockIndex": 1,
+          "start": 9.732,
+          "end": 51.8
+        },
+        {
+          "blockIndex": 2,
+          "start": 52.55,
+          "end": 73.484
+        },
+        {
+          "blockIndex": 3,
+          "start": 74.234,
+          "end": 81.962
+        },
+        {
+          "blockIndex": 4,
+          "start": 82.712,
+          "end": 85.615
+        },
+        {
+          "blockIndex": 5,
+          "start": 86.365,
+          "end": 115.377
+        },
+        {
+          "blockIndex": 6,
+          "start": 116.127,
+          "end": 123.496
+        },
+        {
+          "blockIndex": 7,
+          "start": 124.246,
+          "end": 142.1
+        },
+        {
+          "blockIndex": 8,
+          "start": 142.85,
+          "end": 146.233
+        },
+        {
+          "blockIndex": 9,
+          "start": 146.983,
+          "end": 161.875
+        },
+        {
+          "blockIndex": 10,
+          "start": 162.625,
+          "end": 176.803
+        },
+        {
+          "blockIndex": 11,
+          "start": 177.553,
+          "end": 189.056
+        },
+        {
+          "blockIndex": 12,
+          "start": 189.806,
+          "end": 202.741
+        },
+        {
+          "blockIndex": 13,
+          "start": 203.491,
+          "end": 223.458
+        },
+        {
+          "blockIndex": 14,
+          "start": 224.208,
+          "end": 235.835
+        },
+        {
+          "blockIndex": 15,
+          "start": 236.585,
+          "end": 285.926
+        },
+        {
+          "blockIndex": 16,
+          "start": 286.676,
+          "end": 292.342
+        },
+        {
+          "blockIndex": 17,
+          "start": 293.092,
+          "end": 326.993
+        },
+        {
+          "blockIndex": 18,
+          "start": 327.743,
+          "end": 329.166
+        },
+        {
+          "blockIndex": 19,
+          "start": 329.916,
+          "end": 337.617
+        },
+        {
+          "blockIndex": 20,
+          "start": 338.367,
+          "end": 394.612
+        },
+        {
+          "blockIndex": 21,
+          "start": 395.362,
+          "end": 401.631
+        },
+        {
+          "blockIndex": 22,
+          "start": 402.381,
+          "end": 415.567
+        },
+        {
+          "blockIndex": 23,
+          "start": 416.317,
+          "end": 434.293
+        },
+        {
+          "blockIndex": 24,
+          "start": 435.043,
+          "end": 448.022
+        },
+        {
+          "blockIndex": 25,
+          "start": 448.772,
+          "end": 470.422
+        },
+        {
+          "blockIndex": 26,
+          "start": 471.172,
+          "end": 477.877
+        },
+        {
+          "blockIndex": 27,
+          "start": 478.627,
+          "end": 485.44
+        },
+        {
+          "blockIndex": 28,
+          "start": 486.19,
+          "end": 507.473
+        },
+        {
+          "blockIndex": 29,
+          "start": 508.223,
+          "end": 537.134
+        },
+        {
+          "blockIndex": 30,
+          "start": 537.884,
+          "end": 542.564
+        },
+        {
+          "blockIndex": 31,
+          "start": 543.314,
+          "end": 556.064
+        },
+        {
+          "blockIndex": 32,
+          "start": 556.814,
+          "end": 565.857
+        },
+        {
+          "blockIndex": 33,
+          "start": 566.607,
+          "end": 570.035
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "kind": "chapter",
+      "chapter": 12,
+      "title": "12. Il sonaglio che non suona",
+      "src": "audio/cap-12.mp3",
+      "durationSec": 508.74,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.945,
+          "end": 9.717
+        },
+        {
+          "blockIndex": 1,
+          "start": 10.467,
+          "end": 48.89
+        },
+        {
+          "blockIndex": 2,
+          "start": 49.64,
+          "end": 62.54
+        },
+        {
+          "blockIndex": 3,
+          "start": 63.29,
+          "end": 68.464
+        },
+        {
+          "blockIndex": 4,
+          "start": 69.214,
+          "end": 77.649
+        },
+        {
+          "blockIndex": 5,
+          "start": 78.399,
+          "end": 84.055
+        },
+        {
+          "blockIndex": 6,
+          "start": 84.805,
+          "end": 104.308
+        },
+        {
+          "blockIndex": 7,
+          "start": 105.058,
+          "end": 107.172
+        },
+        {
+          "blockIndex": 8,
+          "start": 107.922,
+          "end": 111.839
+        },
+        {
+          "blockIndex": 9,
+          "start": 112.589,
+          "end": 130.849
+        },
+        {
+          "blockIndex": 10,
+          "start": 131.599,
+          "end": 138.292
+        },
+        {
+          "blockIndex": 11,
+          "start": 139.042,
+          "end": 166.898
+        },
+        {
+          "blockIndex": 12,
+          "start": 167.648,
+          "end": 209.972
+        },
+        {
+          "blockIndex": 13,
+          "start": 210.722,
+          "end": 220.308
+        },
+        {
+          "blockIndex": 14,
+          "start": 221.058,
+          "end": 228.787
+        },
+        {
+          "blockIndex": 15,
+          "start": 229.537,
+          "end": 259.296
+        },
+        {
+          "blockIndex": 16,
+          "start": 260.046,
+          "end": 261.821
+        },
+        {
+          "blockIndex": 17,
+          "start": 262.571,
+          "end": 264.775
+        },
+        {
+          "blockIndex": 18,
+          "start": 265.525,
+          "end": 292.117
+        },
+        {
+          "blockIndex": 19,
+          "start": 292.867,
+          "end": 308.069
+        },
+        {
+          "blockIndex": 20,
+          "start": 308.819,
+          "end": 311.105
+        },
+        {
+          "blockIndex": 21,
+          "start": 311.855,
+          "end": 315.8
+        },
+        {
+          "blockIndex": 22,
+          "start": 316.55,
+          "end": 336.143
+        },
+        {
+          "blockIndex": 23,
+          "start": 336.893,
+          "end": 355.127
+        },
+        {
+          "blockIndex": 24,
+          "start": 355.877,
+          "end": 382.648
+        },
+        {
+          "blockIndex": 25,
+          "start": 383.398,
+          "end": 441.131
+        },
+        {
+          "blockIndex": 26,
+          "start": 441.881,
+          "end": 448.909
+        },
+        {
+          "blockIndex": 27,
+          "start": 449.659,
+          "end": 459.942
+        },
+        {
+          "blockIndex": 28,
+          "start": 460.692,
+          "end": 466.203
+        },
+        {
+          "blockIndex": 29,
+          "start": 466.953,
+          "end": 482.334
+        },
+        {
+          "blockIndex": 30,
+          "start": 483.084,
+          "end": 487.831
+        },
+        {
+          "blockIndex": 31,
+          "start": 488.581,
+          "end": 492.678
+        },
+        {
+          "blockIndex": 32,
+          "start": 493.428,
+          "end": 501.197
+        },
+        {
+          "blockIndex": 33,
+          "start": 501.947,
+          "end": 507.994
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "kind": "chapter",
+      "chapter": 13,
+      "title": "13. Mezzanotte sul molo",
+      "src": "audio/cap-13.mp3",
+      "durationSec": 707.71,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 3.205,
+          "end": 14.103
+        },
+        {
+          "blockIndex": 1,
+          "start": 14.853,
+          "end": 18.273
+        },
+        {
+          "blockIndex": 2,
+          "start": 19.023,
+          "end": 55.804
+        },
+        {
+          "blockIndex": 3,
+          "start": 56.554,
+          "end": 72.238
+        },
+        {
+          "blockIndex": 4,
+          "start": 72.988,
+          "end": 122.187
+        },
+        {
+          "blockIndex": 5,
+          "start": 122.937,
+          "end": 134.547
+        },
+        {
+          "blockIndex": 6,
+          "start": 135.297,
+          "end": 162.814
+        },
+        {
+          "blockIndex": 7,
+          "start": 163.564,
+          "end": 182.436
+        },
+        {
+          "blockIndex": 8,
+          "start": 183.186,
+          "end": 198.367
+        },
+        {
+          "blockIndex": 9,
+          "start": 199.117,
+          "end": 205.287
+        },
+        {
+          "blockIndex": 10,
+          "start": 206.037,
+          "end": 209.633
+        },
+        {
+          "blockIndex": 11,
+          "start": 210.383,
+          "end": 230.648
+        },
+        {
+          "blockIndex": 12,
+          "start": 231.398,
+          "end": 231.821
+        },
+        {
+          "blockIndex": 13,
+          "start": 232.571,
+          "end": 264.013
+        },
+        {
+          "blockIndex": 14,
+          "start": 264.763,
+          "end": 270.33
+        },
+        {
+          "blockIndex": 15,
+          "start": 271.08,
+          "end": 314.098
+        },
+        {
+          "blockIndex": 16,
+          "start": 314.848,
+          "end": 345.561
+        },
+        {
+          "blockIndex": 17,
+          "start": 346.311,
+          "end": 349.605
+        },
+        {
+          "blockIndex": 18,
+          "start": 350.355,
+          "end": 361.659
+        },
+        {
+          "blockIndex": 19,
+          "start": 362.409,
+          "end": 391.953
+        },
+        {
+          "blockIndex": 20,
+          "start": 392.703,
+          "end": 409.591
+        },
+        {
+          "blockIndex": 21,
+          "start": 410.341,
+          "end": 449.264
+        },
+        {
+          "blockIndex": 22,
+          "start": 450.014,
+          "end": 454.351
+        },
+        {
+          "blockIndex": 23,
+          "start": 455.101,
+          "end": 457.223
+        },
+        {
+          "blockIndex": 24,
+          "start": 457.973,
+          "end": 488.955
+        },
+        {
+          "blockIndex": 25,
+          "start": 489.705,
+          "end": 497.107
+        },
+        {
+          "blockIndex": 26,
+          "start": 497.857,
+          "end": 508.034
+        },
+        {
+          "blockIndex": 27,
+          "start": 508.784,
+          "end": 546.672
+        },
+        {
+          "blockIndex": 28,
+          "start": 547.422,
+          "end": 565.931
+        },
+        {
+          "blockIndex": 29,
+          "start": 566.681,
+          "end": 586.879
+        },
+        {
+          "blockIndex": 30,
+          "start": 587.629,
+          "end": 602.411
+        },
+        {
+          "blockIndex": 31,
+          "start": 603.161,
+          "end": 625.169
+        },
+        {
+          "blockIndex": 32,
+          "start": 625.919,
+          "end": 661.787
+        },
+        {
+          "blockIndex": 33,
+          "start": 662.537,
+          "end": 686.84
+        },
+        {
+          "blockIndex": 34,
+          "start": 687.59,
+          "end": 691.542
+        },
+        {
+          "blockIndex": 35,
+          "start": 692.292,
+          "end": 696.552
+        },
+        {
+          "blockIndex": 36,
+          "start": 697.302,
+          "end": 706.964
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "kind": "chapter",
+      "chapter": 14,
+      "title": "14. Farina sulle spalle",
+      "src": "audio/cap-14.mp3",
+      "durationSec": 650.57,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.556,
+          "end": 7.589
+        },
+        {
+          "blockIndex": 1,
+          "start": 8.339,
+          "end": 43.683
+        },
+        {
+          "blockIndex": 2,
+          "start": 44.433,
+          "end": 51.13
+        },
+        {
+          "blockIndex": 3,
+          "start": 51.88,
+          "end": 79.584
+        },
+        {
+          "blockIndex": 4,
+          "start": 80.334,
+          "end": 101.391
+        },
+        {
+          "blockIndex": 5,
+          "start": 102.141,
+          "end": 138.628
+        },
+        {
+          "blockIndex": 6,
+          "start": 139.378,
+          "end": 147.974
+        },
+        {
+          "blockIndex": 7,
+          "start": 148.724,
+          "end": 150.663
+        },
+        {
+          "blockIndex": 8,
+          "start": 151.413,
+          "end": 155.604
+        },
+        {
+          "blockIndex": 9,
+          "start": 156.354,
+          "end": 191.493
+        },
+        {
+          "blockIndex": 10,
+          "start": 192.243,
+          "end": 194.659
+        },
+        {
+          "blockIndex": 11,
+          "start": 195.409,
+          "end": 204.831
+        },
+        {
+          "blockIndex": 12,
+          "start": 205.581,
+          "end": 212.18
+        },
+        {
+          "blockIndex": 13,
+          "start": 212.93,
+          "end": 234.402
+        },
+        {
+          "blockIndex": 14,
+          "start": 235.152,
+          "end": 271.03
+        },
+        {
+          "blockIndex": 15,
+          "start": 271.78,
+          "end": 279.66
+        },
+        {
+          "blockIndex": 16,
+          "start": 280.41,
+          "end": 324.387
+        },
+        {
+          "blockIndex": 17,
+          "start": 325.137,
+          "end": 334.428
+        },
+        {
+          "blockIndex": 18,
+          "start": 335.178,
+          "end": 375.292
+        },
+        {
+          "blockIndex": 19,
+          "start": 376.042,
+          "end": 379.417
+        },
+        {
+          "blockIndex": 20,
+          "start": 380.167,
+          "end": 416.413
+        },
+        {
+          "blockIndex": 21,
+          "start": 417.163,
+          "end": 423.722
+        },
+        {
+          "blockIndex": 22,
+          "start": 424.472,
+          "end": 430.127
+        },
+        {
+          "blockIndex": 23,
+          "start": 430.877,
+          "end": 440.283
+        },
+        {
+          "blockIndex": 24,
+          "start": 441.033,
+          "end": 460.717
+        },
+        {
+          "blockIndex": 25,
+          "start": 461.467,
+          "end": 479.629
+        },
+        {
+          "blockIndex": 26,
+          "start": 480.379,
+          "end": 521.938
+        },
+        {
+          "blockIndex": 27,
+          "start": 522.688,
+          "end": 548.617
+        },
+        {
+          "blockIndex": 28,
+          "start": 549.367,
+          "end": 578.161
+        },
+        {
+          "blockIndex": 29,
+          "start": 578.911,
+          "end": 585.725
+        },
+        {
+          "blockIndex": 30,
+          "start": 586.475,
+          "end": 596.346
+        },
+        {
+          "blockIndex": 31,
+          "start": 597.096,
+          "end": 621.793
+        },
+        {
+          "blockIndex": 32,
+          "start": 622.543,
+          "end": 623.617
+        },
+        {
+          "blockIndex": 33,
+          "start": 624.367,
+          "end": 640.771
+        },
+        {
+          "blockIndex": 34,
+          "start": 641.521,
+          "end": 642.605
+        },
+        {
+          "blockIndex": 35,
+          "start": 643.355,
+          "end": 644.957
+        },
+        {
+          "blockIndex": 36,
+          "start": 645.707,
+          "end": 649.821
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "kind": "augurio",
+      "chapter": null,
+      "title": "Un augurio di Natale",
+      "src": "audio/auguri.mp3",
+      "durationSec": 127.66,
+      "cues": [
+        {
+          "blockIndex": 0,
+          "start": 2.774,
+          "end": 5.594
+        },
+        {
+          "blockIndex": 1,
+          "start": 6.344,
+          "end": 23.54
+        },
+        {
+          "blockIndex": 2,
+          "start": 24.29,
+          "end": 39.57
+        },
+        {
+          "blockIndex": 3,
+          "start": 40.32,
+          "end": 62.255
+        },
+        {
+          "blockIndex": 4,
+          "start": 63.005,
+          "end": 82.967
+        },
+        {
+          "blockIndex": 5,
+          "start": 83.717,
+          "end": 100.44
+        },
+        {
+          "blockIndex": 6,
+          "start": 101.19,
+          "end": 119.945
+        },
+        {
+          "blockIndex": 7,
+          "start": 120.695,
+          "end": 124.118
+        },
+        {
+          "blockIndex": 8,
+          "start": 124.868,
+          "end": 126.909
+        }
+      ]
+    }
+  ],
+  "totalDurationSec": 7961.89
+}

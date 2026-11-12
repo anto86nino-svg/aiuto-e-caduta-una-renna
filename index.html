@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aiuto, è caduta una renna! · Antonino Campanella</title>
+<meta name="description" content="Un racconto di Natale gratuito e illustrato di Antonino Campanella, con il gioco interattivo «Briciola vola!». Leggi i 14 capitoli, apri gli auguri e vola con Briciola.">
+<meta name="author" content="Antonino Campanella">
+<meta name="theme-color" content="#071428">
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="no-referrer">
+<meta property="og:title" content="Aiuto, è caduta una renna! · Antonino Campanella">
+<meta property="og:description" content="Libro di Natale gratuito + gioco interattivo. Un capitolo per sera, e poi si vola con Briciola.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/copertina.jpg">
+<link rel="icon" href="assets/icona.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<canvas id="neve" aria-hidden="true"></canvas>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="top">
+  <a class="brand" href="#home" data-nav="home">
+    <img src="assets/icona.png" alt="" width="36" height="36">
+    <span>Aiuto, è caduta una renna!</span>
+  </a>
+  <nav class="nav" aria-label="Principale">
+    <a href="#home" data-nav="home">Inizio</a>
+    <a href="#leggi" data-nav="leggi">Leggi</a>
+    <a href="#auguri" data-nav="auguri">Auguri</a>
+    <a href="#gioca" data-nav="gioca" class="nav-play">Gioca</a>
+  </nav>
+  <button type="button" id="btn-suono" class="icon-btn" aria-pressed="false" title="Attiva i suoni di festa">♪</button>
+</header>
+
+<main id="main">
+
+  <!-- HOME -->
+  <section id="view-home" class="view view-home" hidden>
+    <div class="hero">
+      <div class="hero-art">
+        <img src="assets/copertina.jpg" alt="Copertina del libro Aiuto, è caduta una renna!">
+        <button type="button" class="sonaglio" id="btn-tin" aria-label="Apri il pentagramma di Natale">tin ✦</button>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Edizione gratuita · Natale 2026</p>
+        <h1>Aiuto, è caduta una renna!</h1>
+        <p class="by">di <strong>Antonino Campanella</strong></p>
+        <p class="lede">A Torre Pinella non nevica mai. Poi, una notte, una piccola renna apprendista cade sul tetto della pasticceria… e tutto cambia.</p>
+        <p class="lede soft">Quattordici capitoli brevi, uno per sera. Illustrazioni a colori. E, per i bambini, un gioco completo per volare con Briciola — anche mentre leggete.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#leggi" data-nav="leggi">Inizia a leggere</a>
+          <button type="button" class="btn btn-secondary" id="btn-ascolta-tutto">Ascolta il capitolo 1</button>
+          <a class="btn btn-ghost" href="#gioca" data-nav="gioca">Gioca con Briciola</a>
+          <a class="btn btn-ghost" href="#auguri" data-nav="auguri">Auguri di Natale</a>
+        </div>
+        <ul class="chips" aria-label="Cosa trovi qui">
+          <li>14 capitoli</li>
+          <li>Voce narratore Scripto</li>
+          <li>Pentagramma Tin!</li>
+          <li>Gioco Briciola</li>
+          <li>Niente pubblicità</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGGI -->
+  <section id="view-leggi" class="view view-leggi" hidden>
+    <aside class="toc" aria-label="Indice">
+      <div class="toc-head">
+        <h2>Indice</h2>
+        <p class="progress-label">Lettura: <span id="progress-pct">0%</span></p>
+        <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+      </div>
+      <ol id="toc-list"></ol>
+      <div class="toc-foot">
+        <button type="button" class="btn btn-secondary btn-block" id="btn-ascolta-qui">▶ Ascolta questo capitolo</button>
+        <button type="button" class="btn btn-bookmark btn-block" id="btn-vai-segnalibro" hidden>🔖 Vai al segnalibro</button>
+        <p class="toc-hint">Controlli in alto: Ascolta, capitolo successivo, segnalibro. Un capitolo alla volta.</p>
+        <a class="btn btn-ghost btn-block" href="#auguri" data-nav="auguri">Un augurio di Natale</a>
+        <a class="btn btn-primary btn-block" href="#gioca" data-nav="gioca">Apri il gioco completo</a>
+      </div>
+    </aside>
+
+    <article class="reader" id="reader" tabindex="-1">
+      <div id="narrator-bar" class="narrator-bar" hidden>
+        <div class="narrator-inner">
+          <button type="button" id="narr-prev" class="icon-btn" title="Capitolo precedente" aria-label="Capitolo precedente">‹</button>
+          <button type="button" id="narr-play" class="narr-play" aria-label="Ascolta o metti in pausa">▶</button>
+          <button type="button" id="narr-next" class="icon-btn" title="Capitolo successivo" aria-label="Capitolo successivo">›</button>
+          <div class="narr-meta">
+            <strong id="narr-title">Narratore Scripto Video · Cesare</strong>
+            <span id="narr-sub">Ascolta in alto · un capitolo alla volta</span>
+          </div>
+          <div class="narr-time"><span id="narr-cur">0:00</span> / <span id="narr-dur">0:00</span></div>
+          <input id="narr-seek" type="range" min="0" max="1000" value="0" aria-label="Posizione lettura">
+          <button type="button" id="narr-close" class="icon-btn" title="Chiudi ascolto" aria-label="Chiudi ascolto">✕</button>
+        </div>
+        <audio id="narr-audio" preload="metadata"></audio>
+      </div>
+      <div id="reader-body" class="reader-body">
+        <p class="loading">Sto aprendo il libro…</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- AUGURI -->
+  <section id="view-auguri" class="view view-auguri" hidden>
+    <div class="auguri-card">
+      <p class="eyebrow">Dall’autore · per voi</p>
+      <h1>Un augurio di Natale</h1>
+      <div id="auguri-body" class="auguri-body"></div>
+      <div class="cta">
+        <button type="button" class="btn btn-listen" id="btn-ascolta-auguri">▶ Ascolta gli auguri</button>
+        <a class="btn btn-primary" href="#gioca" data-nav="gioca">Ora voliamo con Briciola</a>
+        <a class="btn btn-ghost" href="#leggi" data-nav="leggi">Torna al libro</a>
+      </div>
+      <button type="button" class="sonaglio big" id="btn-tin-auguri" aria-label="Suona il sonaglio">tin ✦</button>
+    </div>
+  </section>
+
+  <!-- GIOCA -->
+  <section id="view-gioca" class="view view-gioca" hidden>
+    <div class="gioca-shell">
+      <div class="gioca-bar">
+        <div>
+          <h1>Briciola vola!</h1>
+          <p>Il gioco completo del libro · 14 livelli, uno per capitolo</p>
+        </div>
+        <div class="gioca-actions">
+          <a class="btn btn-ghost" href="#leggi" data-nav="leggi">Torna a leggere</a>
+          <button type="button" class="btn btn-secondary" id="btn-fullscreen">Schermo intero</button>
+        </div>
+      </div>
+      <iframe
+        id="game-frame"
+        title="Briciola vola! — gioco interattivo"
+        src="about:blank"
+        allow="autoplay"
+        loading="lazy"></iframe>
+      <p class="gioca-hint">Tocca lo schermo o premi spazio: Briciola fa «hic!» e vola. Funziona su telefono, tablet e computer.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>© 2026 <strong>Antonino Campanella</strong>. Edizione gratuita, non in vendita.</p>
+  <p>Illustrazioni realizzate con l’aiuto di strumenti di intelligenza artificiale. Melodie del pentagramma: brani di Natale di pubblico dominio. «Briciola vola!» include «Jingle Bells» (J. L. Pierpont, 1857).</p>
+  <p class="tiny">Niente cookie, niente tracciamenti, niente account. Il segno di lettura resta solo sul vostro dispositivo.</p>
+</footer>
+
+<div id="tin-overlay" class="tin-overlay" hidden>
+  <div class="tin-panel" role="dialog" aria-modal="true" aria-labelledby="tin-title">
+    <div class="tin-head">
+      <div>
+        <p class="eyebrow">Sonaglio magico</p>
+        <h2 id="tin-title">Tin! · Pentagramma di Natale</h2>
+      </div>
+      <div class="tin-actions">
+        <button type="button" class="btn btn-secondary btn-sm" id="tin-next">Altra melodia</button>
+        <button type="button" class="icon-btn" id="tin-close" aria-label="Chiudi">✕</button>
+      </div>
+    </div>
+    <div id="tin-stage" class="tin-stage">
+      <canvas id="tin-canvas" width="900" height="480" aria-label="Pentagramma interattivo: clicca le note sulla linea d'oro"></canvas>
+    </div>
+    <p class="tin-help">Le note scorrono sul pentagramma. Cliccale (o premi spazio) quando arrivano sulla <strong>linea d’oro</strong>. Ogni giro cambia canzone: Jingle Bells, Astro del ciel, Deck the Halls e tante altre.</p>
+  </div>
+</div>
+
+<script src="site.js" defer></script>
+<script src="tin-game.js" defer></script>
+</body>
+</html>

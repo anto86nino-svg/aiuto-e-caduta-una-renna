@@ -1,0 +1,2141 @@
+{
+  "title": "Aiuto, è caduta una renna!",
+  "author": "Antonino Campanella",
+  "cover": "assets/copertina.jpg",
+  "sections": [
+    {
+      "id": "s1",
+      "kind": "titlepage",
+      "chapter": null,
+      "title": "Aiuto, è caduta una renna!",
+      "image": null,
+      "blocks": [
+        {
+          "type": "p",
+          "html": "<strong>Antonino Campanella</strong>"
+        },
+        {
+          "type": "p",
+          "html": "© 2026 Antonino Campanella. Tutti i diritti riservati."
+        },
+        {
+          "type": "p",
+          "html": "Edizione gratuita, non in vendita. Questo libro è un regalo dell'autore ai suoi lettori e alle loro famiglie."
+        },
+        {
+          "type": "p",
+          "html": "Illustrazioni di copertina e interne realizzate per questa edizione con l'ausilio di strumenti di intelligenza artificiale."
+        },
+        {
+          "type": "p",
+          "html": "Questa è un'opera di fantasia. Torre Pinella non si trova su nessuna carta geografica, e nomi, personaggi e fatti sono frutto dell'immaginazione dell'autore. Ogni somiglianza con persone reali è casuale. Il mare della Puglia, le cartellate e le pettole, invece, sono verissimi."
+        },
+        {
+          "type": "p",
+          "html": "<em>A chi dice «non fa niente», e invece fa tanto.</em>"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "note",
+      "chapter": null,
+      "title": "Nota dell'autore",
+      "image": null,
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Cari lettori,"
+        },
+        {
+          "type": "p",
+          "html": "questo libro è un regalo. Non costa niente e non si vende: l'ho scritto per voi che mi seguite, e per le vostre famiglie. Per le sere di dicembre in cui qualcuno spegne la televisione, si siede sul bordo di un letto e dice: «Allora, dove eravamo rimasti?»."
+        },
+        {
+          "type": "p",
+          "html": "Grazie a chi lo leggerà da solo, sotto le coperte, magari con la torcia. E grazie, soprattutto, a chi lo leggerà ad alta voce ai propri bambini, facendo le voci: quella roca della mamma capitano, quella del nonno che non ci sente quando non gli conviene, e il <em>tin</em> piccolo piccolo di un sonaglio d'argento. Siete voi la parte più bella di questa storia."
+        },
+        {
+          "type": "p",
+          "html": "I capitoli sono quattordici, corti, uno per sera. Come le pettole: uno tira l'altro. E in fondo, dopo l'ultima pagina, vi aspetta un piccolo augurio di Natale, scritto apposta per voi. E subito dopo, per i più piccoli, una sorpresa: un gioco per volare insieme a Briciola."
+        },
+        {
+          "type": "p",
+          "html": "Buona lettura, e grazie di cuore."
+        },
+        {
+          "type": "p",
+          "html": "<em>Antonino Campanella</em>"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "kind": "chapter",
+      "chapter": 1,
+      "title": "1. Un tonfo sulla pasticceria",
+      "image": "assets/cap01.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "A Torre Pinella non nevica mai."
+        },
+        {
+          "type": "p",
+          "html": "È un paese bianco, questo sì. Bianche le case, bianche le scale che scendono al mare, bianche le lenzuola stese tra un balcone e l'altro, bianca la chiesa con il suo campanile storto come un dito che indica qualcosa e poi se ne dimentica. Ma la neve, quella vera, quella che scende dal cielo a fiocchi e fa scricchiolare le scarpe, a Torre Pinella non l'aveva mai vista nessuno. Nemmeno la signora Addolorata, che aveva novantun anni e un binocolo enorme, e diceva di aver visto tutto."
+        },
+        {
+          "type": "p",
+          "html": "Il diciannove dicembre, a Torre Pinella, c'erano quattordici gradi, un vento che sapeva di sale e di frittelle, e un bambino che non riusciva a dormire."
+        },
+        {
+          "type": "p",
+          "html": "Il bambino si chiamava Nico Ferrante. Aveva otto anni, le orecchie un po' a sventola, un ciuffo di capelli neri che stava dritto qualunque cosa succedesse, e un buco davanti, dove fino a martedì c'era stato un dente. Nico parlava moltissimo. Parlava a colazione, parlava a scuola, parlava con i gatti del porto e con le onde. Parlava anche nel sonno, diceva la mamma. Quella notte però non parlava, perché la sua sorellina dormiva nel letto accanto, e svegliare Lalla voleva dire sentirsi ripetere ogni cosa due volte fino all'alba."
+        },
+        {
+          "type": "p",
+          "html": "Lalla aveva cinque anni, due codini corti con gli elastici gialli, e un dinosauro di plastica verde che si chiamava Gino e dormiva sul suo cuscino, a pancia in su, come un re."
+        },
+        {
+          "type": "p",
+          "html": "Nico guardava il soffitto. Pensava al papà."
+        },
+        {
+          "type": "p",
+          "html": "Il papà di Nico e Lalla faceva il cuoco su una nave da crociera, una nave grande come un paese intero, con le piscine sul tetto e i camerieri con i guanti bianchi. In quel momento la nave era dall'altra parte del mondo, in un mare così azzurro che sembrava finto, e il papà stava preparando le lasagne per duemila persone. Sarebbe dovuto tornare a casa per Natale. Poi, una settimana prima, aveva telefonato con una voce strana, e aveva detto che non poteva, che la nave aveva bisogno di lui, che gli dispiaceva tanto, tantissimo. E la mamma aveva detto «Non fa niente, amore», con una voce ancora più strana."
+        },
+        {
+          "type": "p",
+          "html": "Nico aveva detto «Non fa niente» anche lui. Da allora lo ripeteva ogni volta che qualcuno glielo chiedeva. Non fa niente. Era come un sasso liscio che si teneva in tasca, e ogni tanto toccava per controllare che ci fosse ancora."
+        },
+        {
+          "type": "p",
+          "html": "Fu proprio mentre toccava quel sasso invisibile che sentì il rumore."
+        },
+        {
+          "type": "p",
+          "html": "Prima un fischio. Lungo, sottile, come quando la pentola a pressione del nonno sta per fare i capricci. Poi un tintinnio, <em>tin tin tin</em>, che passò sopra il tetto da sinistra a destra. Poi, per un secondo, niente."
+        },
+        {
+          "type": "p",
+          "html": "E poi:"
+        },
+        {
+          "type": "p",
+          "html": "<em>BADABUM.</em>"
+        },
+        {
+          "type": "p",
+          "html": "La casa tremò. I vetri tintinnarono. Gino il dinosauro rotolò giù dal cuscino. Dalla strada, un gatto disse una parolaccia in gattese."
+        },
+        {
+          "type": "p",
+          "html": "Lalla si tirò su a sedere, con gli occhi ancora chiusi. «Il terremoto» disse. «Il terremoto.»"
+        },
+        {
+          "type": "p",
+          "html": "«Non è il terremoto» sussurrò Nico. «Veniva da giù.»"
+        },
+        {
+          "type": "p",
+          "html": "La famiglia Ferrante abitava sopra la pasticceria. La Pasticceria Ferrante era la più vecchia di Torre Pinella: l'aveva aperta il bisnonno, poi l'aveva mandata avanti il nonno, e adesso la mandava avanti ancora il nonno, perché il nonno Tonino diceva che andare in pensione era una cosa da gente che non sapeva fare le cartellate. Il retro della pasticceria aveva un tetto basso di tegole, e sotto il tetto c'era il magazzino della farina."
+        },
+        {
+          "type": "p",
+          "html": "Nico scese dal letto. Lalla scese dal letto. Nico si infilò gli stivali di gomma rossi sopra il pigiama. Lalla si infilò l'impermeabile rosa con le tasche a forma di rana sopra il pigiama, e mise Gino in una tasca."
+        },
+        {
+          "type": "p",
+          "html": "«Tu resta qui» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Io vengo» disse Lalla. «Io vengo.»"
+        },
+        {
+          "type": "p",
+          "html": "Scesero le scale piano piano, saltando il settimo gradino, che cigolava come una nonna arrabbiata. Attraversarono la pasticceria buia, dove i vassoi di pettole aspettavano il mattino sotto i panni bianchi e tutto profumava di miele e di cannella. Arrivarono davanti alla porticina del magazzino."
+        },
+        {
+          "type": "p",
+          "html": "Da sotto la porta usciva una nuvola bianca."
+        },
+        {
+          "type": "p",
+          "html": "Nico aprì."
+        },
+        {
+          "type": "p",
+          "html": "Il magazzino era diventato un'altra cosa. Nel tetto c'era un buco grande come una vasca da bagno, e dal buco si vedevano le stelle. Sul pavimento, sulle mensole, sui sacchi, sulle pareti, dappertutto, c'era farina: farina che galleggiava nell'aria, farina che scendeva piano piano dal buco come se il cielo avesse deciso, almeno per una volta, di nevicare anche su Torre Pinella. E in mezzo alla farina, seduto su un sacco sfondato, con le zampe all'aria e un'espressione molto offesa, c'era un animale."
+        },
+        {
+          "type": "p",
+          "html": "Era grande più o meno come un vitellino. Aveva il pelo marrone chiaro con tante macchioline color panna, due cornine piccole e storte come rametti di rosmarino, un orecchio dritto e uno che pendeva di lato, come se stesse sempre ascoltando qualcosa di triste. Al collo portava un collare rosso, con un gancetto d'argento. Il gancetto era vuoto."
+        },
+        {
+          "type": "p",
+          "html": "L'animale starnutì. Una nuvola di farina gli uscì dalle narici."
+        },
+        {
+          "type": "p",
+          "html": "Poi aprì gli occhi, che erano grandi e scuri e lucidi come olive, guardò Nico, guardò Lalla, guardò Gino che spuntava dalla tasca a forma di rana, e disse, con una vocina educata e un po' tremante:"
+        },
+        {
+          "type": "p",
+          "html": "«Scusate. Per caso, questa è la Lapponia?»"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "kind": "chapter",
+      "chapter": 2,
+      "title": "2. Non è un cane",
+      "image": "assets/cap02.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Per un po' nessuno disse niente. Anche la farina, nell'aria, sembrò fermarsi ad ascoltare."
+        },
+        {
+          "type": "p",
+          "html": "Poi Lalla tirò la manica del pigiama di Nico. «È un cane» sussurrò. «È un cane.»"
+        },
+        {
+          "type": "p",
+          "html": "«Non è un cane» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Non sono un cane» disse l'animale, nello stesso momento."
+        },
+        {
+          "type": "p",
+          "html": "Lalla spalancò la bocca. Gino il dinosauro, dalla tasca, sembrò spalancarla anche lui."
+        },
+        {
+          "type": "p",
+          "html": "«Parla» disse Lalla. «Parla.»"
+        },
+        {
+          "type": "p",
+          "html": "«Certo che parlo» disse l'animale, cercando di rimettersi in piedi. Le zampe gli scivolarono sulla farina, e ricadde sul sacco con un <em>pof</em>. Riprovò. <em>Pof</em>. Al terzo tentativo si alzò, traballando, e fece un piccolo inchino. «Mi chiamo Briciola. Sono una renna. Una renna apprendista, per la precisione. Del reparto Slitta, terza fila, ultimo posto a sinistra.» Poi ci pensò, e aggiunse più piano: «Il posto più piccolo.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico conosceva le renne. Le aveva viste nei cartoni animati, sulle cartoline, sui maglioni brutti che lo zio Peppino regalava ogni anno a tutti. Le renne dei cartoni erano grandi, robuste, con le corna larghe come i rami di un albero e lo sguardo fiero. Briciola aveva le corna come due rametti di rosmarino e lo sguardo di uno che ha appena fatto cadere un vaso."
+        },
+        {
+          "type": "p",
+          "html": "«Le renne vere volano» disse Nico, perché fu la prima cosa che gli venne in mente."
+        },
+        {
+          "type": "p",
+          "html": "«Infatti stavo volando» disse Briciola. «Era il volo di prova. Ogni anno, qualche sera prima della Vigilia, Babbo Natale fa il giro di prova con la slitta, per vedere se le renne sono in forma e se il sacco chiude bene. Quest'anno era il mio primo giro. Il mio primissimo.» Le tremò il labbro. «Stavamo passando sopra il mare. Era tutto bellissimo, c'era la luna, le onde brillavano. Io ero così contenta che mi sono girata a guardare giù. E mentre guardavo giù...»"
+        },
+        {
+          "type": "p",
+          "html": "«Sei caduta» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Mi è venuto il singhiozzo» disse Briciola. «E poi sono caduta.»"
+        },
+        {
+          "type": "p",
+          "html": "Proprio in quel momento, come per dimostrarlo, Briciola fece <em>hic!</em>. E successe una cosa che Nico non avrebbe dimenticato per tutta la vita: la renna si sollevò da terra. Di poco, eh. Una spanna, forse due. Rimase sospesa nell'aria per un secondo, con le zampe penzoloni e la faccia sorpresa, come un palloncino che non ha ancora deciso. Poi ricadde sul sacco. <em>Pof.</em>"
+        },
+        {
+          "type": "p",
+          "html": "«Ogni volta che ho il singhiozzo, mi succede» spiegò, con il naso che diventava piano piano di un colore strano. «È una cosa da renne giovani. Il volo ci scappa fuori quando meno ce lo aspettiamo. Ma un salto col singhiozzo non è volare. Per volare davvero ci vuole...» Si toccò il collare, il gancetto vuoto. E allora il suo naso diventò completamente azzurro. Azzurro come il mare d'estate, azzurro come una lampadina dell'albero di Natale."
+        },
+        {
+          "type": "p",
+          "html": "«Il naso!» disse Lalla. «Il naso!»"
+        },
+        {
+          "type": "p",
+          "html": "«Lo so» disse Briciola, coprendoselo con uno zoccolo. «Diventa azzurro quando mi vergogno. Le altre renne mi prendono in giro. Dicono che sembro un lampeggiante della polizia.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico pensò che no, non sembrava un lampeggiante della polizia. Sembrava la cosa più bella che avesse mai visto in vita sua, a parte forse il mare quando il papà lo portava sulla barca all'alba. Ma non lo disse, perché a otto anni certe cose si pensano e basta."
+        },
+        {
+          "type": "p",
+          "html": "Disse invece: «Ci vuole cosa? Per volare davvero?»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola abbassò la testa. «Il mio sonaglio. Ogni renna ha il suo, appeso qui.» Fece tintinnare il gancetto vuoto, che non tintinnò per niente. «Quando sono caduta, si è staccato. Dev'essere finito da qualche parte qui intorno. E se non lo ritrovo...»"
+        },
+        {
+          "type": "p",
+          "html": "Non finì la frase. Non ce n'era bisogno."
+        },
+        {
+          "type": "p",
+          "html": "Fuori, da qualche parte, abbaiò un cane. Uno vero. Poi si accese la luce in una casa di fronte, e una finestra si aprì cigolando."
+        },
+        {
+          "type": "p",
+          "html": "«Chi è che fa tutto questo baccano a quest'ora?» gracchiò una voce. Era la signora Addolorata. Nico la immaginò sul balcone, in vestaglia nera, con il binocolo già puntato."
+        },
+        {
+          "type": "p",
+          "html": "«Dobbiamo nasconderti» disse Nico. «Subito.»"
+        },
+        {
+          "type": "p",
+          "html": "«Nasconderla» disse Lalla. «Subito.»"
+        },
+        {
+          "type": "p",
+          "html": "Si guardarono intorno. Il magazzino era pieno di sacchi di farina, di sacchi di zucchero, di scatoloni di canditi, di casse di mandorle. Non c'era posto per nascondere una renna, nemmeno una renna piccola. Ma a Nico venne un'idea. Le idee, a Nico, venivano così: tutte insieme, con il rumore di un tappo che salta."
+        },
+        {
+          "type": "p",
+          "html": "Prese un vecchio telo bianco, di quelli che il nonno usava per coprire le torte, e lo buttò sulla schiena di Briciola. Poi lo sistemò bene, tirando di qua e di là. In mezzo al magazzino tutto infarinato, con il telo sopra e la farina dappertutto, Briciola sembrava... un mucchio di farina. Un mucchio di farina un po' più grosso degli altri, con due rametti che spuntavano in cima."
+        },
+        {
+          "type": "p",
+          "html": "«Le corna» disse Lalla. «Le corna.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico ci appoggiò sopra un colino e un mestolo. Adesso sembrava un mucchio di farina con dentro un colino e un mestolo. Era perfetto."
+        },
+        {
+          "type": "p",
+          "html": "«Non respirare» disse a Briciola."
+        },
+        {
+          "type": "p",
+          "html": "«Per quanto?»"
+        },
+        {
+          "type": "p",
+          "html": "«Finché non te lo dico.»"
+        },
+        {
+          "type": "p",
+          "html": "Dal telo uscì una vocina soffocata. «Le renne non sono molto brave a non respirare.»"
+        },
+        {
+          "type": "p",
+          "html": "In quel momento, dalla scala, si sentì un passo pesante. Poi un altro. Il settimo gradino cigolò come una nonna arrabbiata. E una voce bassa e profonda, la voce di uno che ha impastato pane per sessant'anni, chiese al buio:"
+        },
+        {
+          "type": "p",
+          "html": "«Nicolò. Rosalia. Che cos'è successo alla mia farina?»"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "kind": "chapter",
+      "chapter": 3,
+      "title": "3. Nonno Tonino non ci sente",
+      "image": "assets/cap03.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Il nonno Tonino era grande come un armadio a due ante. Aveva una pancia rotonda come una forma di pane, la testa pelata in cima e due ciuffi di capelli bianchi ai lati, che stavano su come le ali di un gabbiano. Ma la cosa più famosa del nonno Tonino erano i baffi. Erano bianchi, enormi, arricciati alle punte come due virgole. A Torre Pinella si diceva che, quando il nonno starnutiva, i baffi giravano su se stessi come le pale di un mulino."
+        },
+        {
+          "type": "p",
+          "html": "Quella notte il nonno era in canottiera, con il grembiule infilato al contrario e una scopa in mano, come se fosse pronto a combattere."
+        },
+        {
+          "type": "p",
+          "html": "Accese la luce."
+        },
+        {
+          "type": "p",
+          "html": "Guardò il buco nel tetto. Guardò la farina sulle pareti, sulle mensole, sul soffitto. Guardò Nico, tutto bianco dalla testa agli stivali rossi. Guardò Lalla, tutta bianca tranne i codini gialli. E poi guardò il mucchio di farina in mezzo al magazzino, quello più grosso degli altri, con il colino e il mestolo in cima."
+        },
+        {
+          "type": "p",
+          "html": "Il mucchio di farina tremava leggermente."
+        },
+        {
+          "type": "p",
+          "html": "«Nonno» cominciò Nico, che quando era nei guai parlava ancora più del solito. «Allora, nonno, è successa una cosa, però non è colpa nostra, cioè, un po' sì perché siamo scesi, ma il buco c'era già, cioè non c'era, poi è arrivato, ha fatto <em>badabum</em>, e noi siamo venuti a vedere, e c'era tutta la farina, e allora...»"
+        },
+        {
+          "type": "p",
+          "html": "Il mucchio di farina fece: <em>hic!</em>"
+        },
+        {
+          "type": "p",
+          "html": "E si sollevò da terra. Una spanna. Con il colino, il mestolo e tutto il telo."
+        },
+        {
+          "type": "p",
+          "html": "Rimase lì, sospeso in mezzo al magazzino, per un lungo, lunghissimo secondo. Poi ricadde. <em>Pof.</em>"
+        },
+        {
+          "type": "p",
+          "html": "Il nonno Tonino non disse niente. Si lisciò il baffo destro. Poi si lisciò il baffo sinistro. Poi si avvicinò al mucchio di farina, sollevò un angolo del telo, e si trovò davanti un muso marrone, due occhi grandi come olive e un naso che stava diventando azzurro a una velocità impressionante."
+        },
+        {
+          "type": "p",
+          "html": "«Buonasera» disse Briciola, con un filo di voce. «Mi dispiace tanto per il tetto.»"
+        },
+        {
+          "type": "p",
+          "html": "Il nonno guardò la renna. La renna guardò il nonno. Nico trattenne il fiato. Lalla trattenne il fiato. Anche Gino, nella tasca a forma di rana, sembrava trattenere il fiato."
+        },
+        {
+          "type": "p",
+          "html": "Poi il nonno si girò verso i bambini e disse, a voce altissima:"
+        },
+        {
+          "type": "p",
+          "html": "«Eh? Come? Non ho sentito niente!»"
+        },
+        {
+          "type": "p",
+          "html": "Il nonno Tonino era sordo dall'orecchio sinistro. Questo lo sapevano tutti, a Torre Pinella. Quello che sapevano in pochi era che il nonno era sordo dall'orecchio sinistro soltanto quando gli conveniva. Era sordo quando la nonna, buonanima, gli diceva di mettersi a dieta. Era sordo quando il vigile Spinaci gli diceva che i tavolini fuori dalla pasticceria occupavano troppo marciapiede. Era sordo quando qualcuno parlava male di qualcun altro. E adesso, a quanto pareva, era sordo anche alle renne che parlano."
+        },
+        {
+          "type": "p",
+          "html": "«Nonno» disse Nico. «Hai visto? È una renna.»"
+        },
+        {
+          "type": "p",
+          "html": "«Una renna? A Torre Pinella? E chi ce l'ha mai vista una renna, a Torre Pinella?» Il nonno si grattò la testa pelata. «Io vedo solo un mucchio di farina un po' strano. Che fra l'altro ha l'aria di avere fame.»"
+        },
+        {
+          "type": "p",
+          "html": "Il mucchio di farina, cioè Briciola, fece un piccolo verso con lo stomaco. Un brontolio lungo e triste, come un tuono lontano."
+        },
+        {
+          "type": "p",
+          "html": "«È vero» ammise. «Sono partita senza cena. Ero troppo emozionata.»"
+        },
+        {
+          "type": "p",
+          "html": "Allora il nonno fece una cosa che Nico non si aspettava. Andò di là, nella pasticceria buia, e tornò con un vassoio. Sul vassoio c'erano le cartellate: quelle spirali croccanti di pasta fritta che il nonno faceva solo a dicembre, tutte lucide di vincotto, che sembravano rose d'oro. Le appoggiò per terra, davanti al muso di Briciola."
+        },
+        {
+          "type": "p",
+          "html": "«Le cartellate della Pasticceria Ferrante» disse, sempre a voce altissima, come se parlasse al muro. «Le migliori di tutta la Puglia. Ma questo un mucchio di farina non lo può sapere.»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola annusò una cartellata. La annusò ancora. Poi la mangiò in un boccone, <em>crunch</em>. E per un attimo chiuse gli occhi, e il suo naso, da azzurro, diventò di un rosa dorato, come il cielo quando sta per spuntare il sole."
+        },
+        {
+          "type": "p",
+          "html": "«Oh» disse. «Oh, oh, oh.»"
+        },
+        {
+          "type": "p",
+          "html": "«Sembra Babbo Natale» disse Lalla. «Sembra Babbo Natale.»"
+        },
+        {
+          "type": "p",
+          "html": "«In Lapponia» disse Briciola, con la bocca piena, «mangiamo solo licheni. I licheni sanno di sedia bagnata.» Ne mangiò un'altra. E un'altra. E un'altra ancora. Alla nona cartellata le venne il singhiozzo, <em>hic!</em>, e si sollevò per aria con una cartellata in bocca, girando lentamente su se stessa come un pesce nell'acquario."
+        },
+        {
+          "type": "p",
+          "html": "Il nonno la guardò salire e scendere. Si lisciò i baffi. E Nico vide, sotto quei baffi enormi, una cosa che non vedeva da quando il papà aveva telefonato per dire che non tornava: il nonno stava sorridendo. Non il sorriso da negozio, quello che faceva ai clienti. Un sorriso vero, piccolo, nascosto, come una mandorla dentro un dolce."
+        },
+        {
+          "type": "p",
+          "html": "«Nicolò» disse il nonno, abbassando finalmente la voce. «Rosalia. Io stanotte non ho visto niente, non ho sentito niente, e soprattutto domani mattina non dirò niente a vostra madre, che torna dal mare tra tre giorni e se trova una renna in magazzino mi fa ripartire con il peschereccio fino in Albania. Siamo d'accordo?»"
+        },
+        {
+          "type": "p",
+          "html": "«D'accordo» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«D'accordo» disse Lalla. «D'accordo.»"
+        },
+        {
+          "type": "p",
+          "html": "«E un'altra cosa.» Il nonno guardò il buco nel tetto, da cui si vedevano ancora le stelle. «Domani lo ripariamo. E ci mettiamo un bel lucernario. Non si sa mai, se cade qualcun altro.»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola smise di masticare. Abbassò l'orecchio dritto, così erano giù tutti e due. E disse, con una voce piccola piccola:"
+        },
+        {
+          "type": "p",
+          "html": "«Non cadrà nessun altro. Le renne cadono solo quando perdono il sonaglio. E io il mio... io il mio l'ho perso.»"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "kind": "chapter",
+      "chapter": 4,
+      "title": "4. Il sonaglio perduto",
+      "image": "assets/cap04.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "La mattina dopo, a Torre Pinella, tutti parlavano del boato."
+        },
+        {
+          "type": "p",
+          "html": "Al bar del porto dicevano che era stato un aereo. In farmacia dicevano che era stato un fulmine. Dal barbiere dicevano che era stato il marito della signora Carmelina, che russava così forte che una volta aveva fatto cadere i quadri dei vicini. Il nonno Tonino, mentre serviva i cornetti, diceva a tutti che era scivolata una tegola e che non era successo niente, e quando qualcuno chiedeva perché allora ci fosse farina perfino sul campanello della pasticceria, il nonno diventava improvvisamente sordo dall'orecchio sinistro."
+        },
+        {
+          "type": "p",
+          "html": "Intanto, nel magazzino, si teneva una riunione segreta."
+        },
+        {
+          "type": "p",
+          "html": "Era domenica, la scuola era chiusa per le vacanze, e Nico aveva preso un quaderno a righe, una matita e un pacco di biscotti al sesamo. Lalla aveva preso Gino. Briciola era seduta su un sacco di zucchero, con una coperta sulle spalle, e masticava una pettola con l'aria di una che ha passato la notte a pensare."
+        },
+        {
+          "type": "p",
+          "html": "«Allora» disse Nico. «Spiegaci tutto. Dall'inizio.»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola si schiarì la voce. «Ogni renna ha un sonaglio. Gli elfi lo fanno con un pezzetto di stella caduta, e lo appendono al collare quando la renna è pronta per la slitta. Il sonaglio è quello che ci fa volare. Non le zampe, non le corna, non la forza. Il sonaglio.» Toccò il gancetto vuoto. «Io il mio l'ho avuto tre giorni fa. Era piccolino, d'argento, con una stellina incisa sopra. Ci avevo dormito abbracciata.»"
+        },
+        {
+          "type": "p",
+          "html": "«E come fa a farti volare?» chiese Nico."
+        },
+        {
+          "type": "p",
+          "html": "Briciola ci pensò. «Il sonaglio suona quando qualcuno ride» disse. «Una risata vera, di bambino. Di quelle che vengono dalla pancia e non si riescono a fermare. Quando il sonaglio sente una risata così, suona, e quando suona, noi voliamo. Per questo Babbo Natale viaggia di notte, sopra le case dove i bambini dormono: perché i bambini ridono anche nel sonno, quando sognano cose belle, e noi voliamo su quelle risate come i gabbiani sul vento.»"
+        },
+        {
+          "type": "p",
+          "html": "Lalla rise. Non perché ci fosse qualcosa di buffo, ma perché le piaceva l'idea. Rise con la pancia, con i codini, con tutta se stessa. Il gancetto vuoto di Briciola, naturalmente, non fece niente."
+        },
+        {
+          "type": "p",
+          "html": "«Senza sonaglio non serve» disse Briciola, triste. «È come avere le ali e niente vento.»"
+        },
+        {
+          "type": "p",
+          "html": "Poi aggiunse, a voce più bassa: «E c'è un'altra cosa. Un sonaglio che cade prende una botta, e si addormenta. Come un gatto che cade dal tetto e poi dorme tutto il giorno, per l'offesa. Per svegliarlo non basta una risata qualunque. Ci vuole una risata speciale: quella di tante persone insieme, tutte nello stesso momento. Oppure quella di qualcuno che non ride da tanto, tanto tempo. E deve sentirla quando è al suo posto, qui, al mio collo.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico se lo appuntò in un angolo della testa. Poi, per il momento, se ne dimenticò: prima di svegliarlo, il sonaglio, bisognava trovarlo."
+        },
+        {
+          "type": "p",
+          "html": "«E la slitta?» chiese Nico. «Babbo Natale non è tornato a prenderti?»"
+        },
+        {
+          "type": "p",
+          "html": "«La slitta va velocissima. Quando sono caduta, nessuno se n'è accorto, perché io ero all'ultimo posto, quello più piccolo, e non mi vedono mai.» Il naso le diventò un po' azzurro. «Ma la notte della Vigilia la slitta ripasserà di qui. Il giro di Natale passa sopra il mare, proprio sopra Torre Pinella, a mezzanotte in punto. Babbo Natale rallenta sempre sopra il mare, per guardare la luna. Se a mezzanotte io sono pronta, con il mio sonaglio al collo, posso saltare su e rimettermi al mio posto. Nessuno saprà mai che sono caduta.»"
+        },
+        {
+          "type": "p",
+          "html": "«E se non sei pronta?»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola non rispose. Guardò il lucernario nuovo, che il nonno aveva montato quella mattina all'alba, brontolando sottovoce in dialetto, e attraverso il quale adesso si vedeva un cielo azzurrissimo, senza neanche una nuvola."
+        },
+        {
+          "type": "p",
+          "html": "«Allora resterò qui» disse. «Per sempre. E non sarò più una renna. Sarò soltanto un animale con le corna in un paese dove non nevica mai.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico guardò il quaderno. Contò sulle dita. Oggi era il venti. La Vigilia era il ventiquattro. Quattro giorni. Quattro giorni per trovare un sonaglio grande come una nocciola, in un paese con trecento tetti, sei vicoli, un porto, una spiaggia e un mare grande come tutto il mondo."
+        },
+        {
+          "type": "p",
+          "html": "Scrisse in cima alla pagina, con la sua calligrafia storta: <em>OPERAZIONE SONAGLIO</em>. Poi sottolineò due volte."
+        },
+        {
+          "type": "p",
+          "html": "«Lo troviamo» disse. «Te lo giuro.»"
+        },
+        {
+          "type": "p",
+          "html": "Cominciarono dal tetto. Il nonno li fece salire con la scala del forno, tenendola ferma con una mano mentre con l'altra serviva un caffè alla signora del tabacchino, che non si accorse di niente. Nico guardò tra le tegole, nella grondaia, nel comignolo. Trovò una pallina da tennis, tre mollette, un aquilone verde che aveva perso due estati prima, e un nido vuoto. Ma nessun sonaglio."
+        },
+        {
+          "type": "p",
+          "html": "Poi cercarono nel cortile. Lalla guardò dentro i vasi del basilico, sotto lo zerbino, dentro le scarpe del nonno lasciate fuori ad asciugare. Gino il dinosauro guardò dentro il secchio della spazzatura, con l'aiuto di Lalla. Niente."
+        },
+        {
+          "type": "p",
+          "html": "Poi cercarono nella strada davanti alla pasticceria, e qui ci fu un problema, perché la strada era piena di gente, e la gente ha gli occhi, e una renna in mezzo alla strada non passa inosservata. Briciola dovette aspettare dentro, con il muso schiacciato contro il vetro della porta di servizio, mentre Nico e Lalla camminavano avanti e indietro a testa bassa, come due galline che cercano i chicchi."
+        },
+        {
+          "type": "p",
+          "html": "Fu allora che, dal balcone di fronte, una voce gracchiò:"
+        },
+        {
+          "type": "p",
+          "html": "«Cercate qualcosa, creature?»"
+        },
+        {
+          "type": "p",
+          "html": "Era la signora Addolorata. Era seduta tra i suoi gerani rossi, vestita di nero come sempre, con un caffè in una mano e, nell'altra, il binocolo più grande che Nico avesse mai visto. Era un binocolo da marinaio, nero e lucido, appartenuto a suo marito, che era stato capitano di lungo corso e aveva visto tutti i mari del mondo. Da quando il capitano non c'era più, la signora Addolorata usava il binocolo per guardare tutti i fatti di Torre Pinella. Diceva che i fatti del paese erano più interessanti dei mari del mondo."
+        },
+        {
+          "type": "p",
+          "html": "«No, signora» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Sì, signora» disse Lalla, nello stesso momento. «Sì, signora.»"
+        },
+        {
+          "type": "p",
+          "html": "La signora Addolorata alzò il binocolo e lo puntò su di loro. Da vicino, i suoi occhi ingranditi sembravano due piattini."
+        },
+        {
+          "type": "p",
+          "html": "«Stanotte» disse lentamente «ho sentito un botto. E stamattina, all'alba, ho visto una cosa luccicare sul vostro tetto. Una cosa piccola. Argentata. Che faceva <em>tin tin</em> col vento.» Abbassò il binocolo. «Poi è arrivato l'Ammiraglio, e se l'è presa.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico sentì il cuore fare una capriola."
+        },
+        {
+          "type": "p",
+          "html": "«Chi è l'Ammiraglio?»"
+        },
+        {
+          "type": "p",
+          "html": "La signora Addolorata sorrise, e il suo sorriso aveva soltanto quattro denti, ma erano quattro denti molto soddisfatti."
+        },
+        {
+          "type": "p",
+          "html": "«Il ladro più grande di Torre Pinella» disse. «E ha le piume.»"
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "kind": "chapter",
+      "chapter": 5,
+      "title": "5. Un cane molto, molto grosso",
+      "image": "assets/cap05.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Per arrivare al porto, dalla pasticceria, bisognava attraversare tutto il paese: scendere per via del Pozzo, girare davanti alla chiesa, passare sotto l'arco dei Santi, attraversare la piazza con la fontana senz'acqua e poi giù, per le scale bianche, fino alle barche. Erano dieci minuti a piedi. Per una renna, erano dieci minuti di pericolo."
+        },
+        {
+          "type": "p",
+          "html": "«Non posso venire» disse Briciola. «Mi vedranno.»"
+        },
+        {
+          "type": "p",
+          "html": "«Devi venire» disse Nico. «Il sonaglio è tuo. Se lo troviamo, solo tu puoi riconoscerlo.»"
+        },
+        {
+          "type": "p",
+          "html": "Fu il nonno a risolvere il problema. Salì in soffitta e tornò con un cappotto di lana a quadri, enorme, che era stato dello zio Peppino quando lo zio Peppino pesava centoventi chili. Lo infilarono a Briciola. Le stava lungo fino agli zoccoli, con le maniche arrotolate sulle zampe davanti. Sopra le corna, Lalla le mise il suo berretto di lana con il pompon, che però era troppo piccolo, e allora il nonno ci aggiunse una sciarpa a righe, avvolta intorno alla testa come un turbante. Infine, al collare rosso, legarono un guinzaglio."
+        },
+        {
+          "type": "p",
+          "html": "Si misero tutti a guardarla."
+        },
+        {
+          "type": "p",
+          "html": "Sembrava un cane. Un cane molto, molto grosso, un po' strano, con le zampe lunghe e un turbante a righe in testa, che indossava il cappotto di uno zio. Ma, se non la si guardava troppo da vicino, e se si era un po' miopi, e se c'era un po' di sole negli occhi, sembrava un cane."
+        },
+        {
+          "type": "p",
+          "html": "«Se qualcuno ti parla» disse Nico «tu abbai.»"
+        },
+        {
+          "type": "p",
+          "html": "«Io non so abbaiare.»"
+        },
+        {
+          "type": "p",
+          "html": "«Prova.»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola si concentrò. Aprì la bocca. E disse: «Mù.»"
+        },
+        {
+          "type": "p",
+          "html": "«Quella è una mucca» disse Lalla. «Una mucca.»"
+        },
+        {
+          "type": "p",
+          "html": "«Bùùù» provò Briciola."
+        },
+        {
+          "type": "p",
+          "html": "«Quello è un fantasma.»"
+        },
+        {
+          "type": "p",
+          "html": "«Bau?» disse Briciola, timidamente, con il punto interrogativo."
+        },
+        {
+          "type": "p",
+          "html": "Nico decise che andava bene così."
+        },
+        {
+          "type": "p",
+          "html": "Uscirono. Nico teneva il guinzaglio, Lalla camminava davanti con Gino in mano come se fosse una torcia, e Briciola trotterellava in mezzo, con il cappotto che strusciava per terra e il pompon che ballava. Per via del Pozzo andò tutto bene: c'era solo un gatto, che guardò Briciola, si spaventò, fece un salto all'indietro e andò a nascondersi sotto una Vespa. Davanti alla chiesa andò bene lo stesso: c'erano solo due vecchiette, che dissero «Che bel cane!» e poi «Ma che razza è?» e Nico rispose «Pastore lappone» con grande sicurezza, e le vecchiette annuirono come se lo sapessero."
+        },
+        {
+          "type": "p",
+          "html": "Il guaio arrivò in piazza."
+        },
+        {
+          "type": "p",
+          "html": "In mezzo alla piazza, accanto alla fontana senz'acqua, c'era il vigile Spinaci."
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Pasquale Spinaci era l'uomo più piccolo di Torre Pinella. Era basso, tondo, con due guanti bianchi immacolati e un berretto da vigile così grande che gli scendeva fino alle sopracciglia, e per vedere dove andava doveva camminare con la testa all'indietro. Aveva un fischietto d'argento appeso al collo, un blocchetto delle multe sempre in mano e una bicicletta nera, vecchissima, che teneva lucida come uno specchio. Il vigile Spinaci faceva multe a tutti. Alle auto parcheggiate male, alle Vespe senza casco, ai gatti che attraversavano fuori dalle strisce. Una volta aveva fatto la multa a un'onda, perché aveva bagnato il molo. L'onda non l'aveva mai pagata."
+        },
+        {
+          "type": "p",
+          "html": "Quando vide arrivare Nico, Lalla e il cane molto, molto grosso, il vigile Spinaci soffiò nel fischietto."
+        },
+        {
+          "type": "p",
+          "html": "<em>Fiiiiii!</em>"
+        },
+        {
+          "type": "p",
+          "html": "«Alt!» disse. «Fermi tutti! Quel cane ha la museruola?»"
+        },
+        {
+          "type": "p",
+          "html": "«Non morde» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Non morde» disse Lalla. «Non morde.»"
+        },
+        {
+          "type": "p",
+          "html": "«Lo dicono tutti.» Il vigile si avvicinò, con la testa all'indietro per vedere da sotto il berretto. Girò intorno a Briciola, lentamente, scrivendo qualcosa sul blocchetto. «Che razza è?»"
+        },
+        {
+          "type": "p",
+          "html": "«Pastore lappone.»"
+        },
+        {
+          "type": "p",
+          "html": "«Mai sentito.» Il vigile si chinò a guardare le zampe. Gli zoccoli spuntavano da sotto il cappotto. «Ha delle zampe strane, questo pastore lappone.»"
+        },
+        {
+          "type": "p",
+          "html": "«Sono scarpe» disse Nico. «Per il freddo.»"
+        },
+        {
+          "type": "p",
+          "html": "«A Torre Pinella ci sono quattordici gradi.»"
+        },
+        {
+          "type": "p",
+          "html": "«È un cane molto freddoloso.»"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci si raddrizzò. Guardò il turbante a righe. Guardò il pompon. Guardò il muso di Briciola, che lo fissava con gli occhi grandi come olive e il naso che stava diventando, piano piano, sempre più azzurro."
+        },
+        {
+          "type": "p",
+          "html": "«E perché ha il naso blu?»"
+        },
+        {
+          "type": "p",
+          "html": "«È...» Nico cercò disperatamente una risposta. Per la prima volta in vita sua, non gli veniva niente da dire."
+        },
+        {
+          "type": "p",
+          "html": "Fu Briciola a salvarlo. Aprì la bocca, si concentrò con tutte le sue forze, e disse, forte e chiaro, in mezzo alla piazza:"
+        },
+        {
+          "type": "p",
+          "html": "«BAU.»"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci fece un salto indietro. Il berretto gli scivolò sugli occhi. Mentre se lo rimetteva a posto, a Briciola venne il singhiozzo, per lo spavento. <em>Hic!</em> Si sollevò da terra di una spanna, con il cappotto, il turbante e il guinzaglio. E quando il vigile riuscì finalmente a vedere di nuovo, la renna era già ricaduta sulle quattro zampe, e Nico e Lalla stavano correndo verso le scale del porto, trascinandola dietro come un aquilone."
+        },
+        {
+          "type": "p",
+          "html": "«Fermi!» gridò il vigile. «Vi faccio la multa! Cane senza museruola, cane con scarpe, cane con naso non regolamentare!»"
+        },
+        {
+          "type": "p",
+          "html": "Ma loro erano già lontani."
+        },
+        {
+          "type": "p",
+          "html": "Dal suo balcone, che si vedeva da tutta la piazza, la signora Addolorata abbassò il binocolo, si versò un altro caffè e rise così forte che i gerani tremarono."
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "kind": "chapter",
+      "chapter": 6,
+      "title": "6. Il gabbiano che rubava le stelle",
+      "image": "assets/cap06.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Il porto di Torre Pinella era piccolo e colorato come una scatola di pastelli. C'erano le barche dei pescatori, azzurre, gialle, rosse, verdi, con i nomi dipinti a mano sulla prua: <em>Santa Rita</em>, <em>Mamma Concetta</em>, <em>Speranza Seconda</em> (la <em>Speranza Prima</em> era affondata, ma senza nessuno sopra, e ne parlavano ancora tutti come di una cosa molto divertente). C'erano le reti stese ad asciugare, i gatti che dormivano sulle cassette, l'odore di mare e di gasolio e di ricci appena aperti."
+        },
+        {
+          "type": "p",
+          "html": "E c'erano i gabbiani. Tantissimi gabbiani. Bianchi e grigi, seduti sui pali, sulle barche, sui lampioni, che gridavano tutti insieme come una classe quando la maestra esce."
+        },
+        {
+          "type": "p",
+          "html": "«Quale sarà l'Ammiraglio?» sussurrò Nico."
+        },
+        {
+          "type": "p",
+          "html": "Non dovettero chiederselo a lungo."
+        },
+        {
+          "type": "p",
+          "html": "Sopra la cabina della <em>Mamma Concetta</em>, la barca più grande del porto, c'era un gabbiano più grande di tutti gli altri. Era grosso come un tacchino, con il petto bianco gonfio e le ali grigie piegate dietro la schiena come le mani di un generale. Aveva un occhio giallo e cattivo, e l'altro pure. Alla coda gli mancava una piuma, proprio in mezzo, e questo gli dava un'aria da pirata che ha appena fatto a botte. Gli altri gabbiani gli stavano lontani, con rispetto. Quando lui si muoveva, loro si spostavano."
+        },
+        {
+          "type": "p",
+          "html": "«È lui» disse Briciola. Il suo naso era diventato azzurro scuro, quasi blu notte. «Lo sento. Ha qualcosa che mi appartiene.»"
+        },
+        {
+          "type": "p",
+          "html": "Mastro Ciccillo, il pescatore più vecchio del porto, stava rammendando una rete seduto su una cassetta capovolta. Aveva le mani grandi come pale e una faccia così piena di rughe che sembrava una mappa. Quando vide Nico, sorrise."
+        },
+        {
+          "type": "p",
+          "html": "«Il nipote di Tonino! E la piccolina! E questo...» Guardò Briciola, con il turbante, il pompon e il cappotto. Ci pensò un po'. «...questo bel cane.»"
+        },
+        {
+          "type": "p",
+          "html": "«Pastore lappone» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Si vede» disse Mastro Ciccillo, che non vedeva più bene da vent'anni ma non lo diceva a nessuno."
+        },
+        {
+          "type": "p",
+          "html": "Nico indicò il gabbiano sulla <em>Mamma Concetta</em>. «Mastro Ciccillo, quello è l'Ammiraglio?»"
+        },
+        {
+          "type": "p",
+          "html": "Il vecchio sputò per terra, con disprezzo. «Quello è il diavolo con le piume. Ruba tutto quello che luccica. Gli ami, le monete, i cucchiaini del bar. Una volta ha rubato gli occhiali al sindaco mentre faceva il discorso di Ferragosto. Un'altra volta ha rubato la fede di compare Totò, e compare Totò ha dovuto dire alla moglie che l'aveva persa in mare, e lei non gli ha parlato per un mese. Quell'uccello ha più tesori di un re.»"
+        },
+        {
+          "type": "p",
+          "html": "«E dove li tiene?» chiese Nico, con il cuore che batteva."
+        },
+        {
+          "type": "p",
+          "html": "Mastro Ciccillo alzò il dito, lentamente, e lo puntò in alto, oltre le barche, oltre le case bianche, oltre i tetti. Lo puntò verso il campanile storto della chiesa, quello che indicava qualcosa e poi se ne dimenticava."
+        },
+        {
+          "type": "p",
+          "html": "«Lassù» disse. «Ha il nido in cima al campanile, sopra le campane. Da lassù vede tutto il paese, e quando vede una cosa che luccica, scende e se la prende. Ci ha provato zi' Nunzio, il sacrestano, a mandarlo via. Gli ha tirato le scope, gli ha messo gli spaventapasseri, ha suonato le campane a mezzanotte per un mese. L'Ammiraglio è rimasto. Zi' Nunzio invece è diventato un po' sordo.»"
+        },
+        {
+          "type": "p",
+          "html": "In quel momento l'Ammiraglio girò la testa e guardò verso di loro. Guardò Nico. Guardò Lalla. Guardò Briciola. E Nico avrebbe giurato che, per un istante, l'occhio giallo e cattivo del gabbiano si fosse posato proprio sul collare rosso della renna, sul gancetto vuoto, come se lo riconoscesse."
+        },
+        {
+          "type": "p",
+          "html": "Poi il gabbiano aprì il becco e fece un verso. Un verso lungo, rauco, che sembrava una risata."
+        },
+        {
+          "type": "p",
+          "html": "<em>Ah-ah-ah-ah-aaah!</em>"
+        },
+        {
+          "type": "p",
+          "html": "Aprì le ali, enormi, e si alzò in volo. Passò sopra le loro teste così basso che il vento delle sue piume fece volare via il pompon dal berretto di Briciola. Lalla lanciò un gridolino e si strinse Gino al petto. L'Ammiraglio fece un giro sopra il porto, come per farsi ammirare, e poi volò via dritto verso il campanile, e sparì tra le campane."
+        },
+        {
+          "type": "p",
+          "html": "Nico raccolse il pompon da terra. Lo rimise in testa a Briciola. Poi guardò il campanile, lassù, bianco contro il cielo azzurro, con i suoi centoventi gradini di pietra e la sua porta chiusa con un catenaccio grosso come un braccio."
+        },
+        {
+          "type": "p",
+          "html": "«Domani mattina» disse. «Andiamo lassù.»"
+        },
+        {
+          "type": "p",
+          "html": "«Lassù» disse Lalla, guardando in alto, con la bocca aperta. Questa volta lo disse una volta sola. Anche lei, per una volta, era rimasta senza fiato."
+        },
+        {
+          "type": "p",
+          "html": "Quella notte, nel magazzino della farina, Briciola non riusciva a dormire. Nico lo sapeva perché nemmeno lui riusciva a dormire, e allora era sceso piano piano, saltando il settimo gradino, e si era seduto accanto a lei sul sacco di zucchero."
+        },
+        {
+          "type": "p",
+          "html": "Restarono un po' in silenzio, a guardare le stelle dal lucernario nuovo."
+        },
+        {
+          "type": "p",
+          "html": "«Ti manca casa?» chiese Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Un po'» disse Briciola. «Mi mancano le altre renne. Anche quelle che mi prendono in giro. Mi manca la neve. Mi manca Babbo Natale, che la sera passa nella stalla a darci la buonanotte e ci gratta dietro le orecchie. Anche dietro quella storta.» Sospirò. «E a te? Ti manca qualcuno?»"
+        },
+        {
+          "type": "p",
+          "html": "Nico toccò, nella tasca del pigiama, il sasso invisibile."
+        },
+        {
+          "type": "p",
+          "html": "«Non fa niente» disse."
+        },
+        {
+          "type": "p",
+          "html": "Briciola lo guardò a lungo, con i suoi occhi grandi come olive. Poi, senza dire niente, gli appoggiò il muso sulla spalla. Era caldo e profumava di cartellate."
+        },
+        {
+          "type": "p",
+          "html": "E rimasero così, tutti e due, a guardare le stelle, finché non si addormentarono."
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "kind": "chapter",
+      "chapter": 7,
+      "title": "7. Su per il campanile",
+      "image": "assets/cap07.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Zi' Nunzio, il sacrestano, era magro come un manico di scopa e vecchio come la chiesa. Portava sempre una coppola grigia calata sugli occhi e, appeso alla cintura, un mazzo di chiavi così grande e pesante che quando camminava suonava come una mandria di capre. Le chiavi aprivano tutto: la chiesa, la sacrestia, l'armadio dei paramenti, la cassetta delle offerte, la cantina del vino della messa. E la porta del campanile."
+        },
+        {
+          "type": "p",
+          "html": "«No» disse zi' Nunzio. «Il campanile è chiuso. È pericoloso. Ci sono centoventi gradini, e lassù c'è quel diavolo con le piume. No, no e no.»"
+        },
+        {
+          "type": "p",
+          "html": "Lalla si fece avanti. Aveva in mano un sacchetto di carta della Pasticceria Ferrante. Dentro c'erano sei pettole ancora calde, morbide e tonde, spolverate di zucchero, che il nonno aveva fritto alle sei del mattino apposta."
+        },
+        {
+          "type": "p",
+          "html": "«Per lei» disse Lalla, con la sua voce più dolce. «Per lei.»"
+        },
+        {
+          "type": "p",
+          "html": "Zi' Nunzio guardò il sacchetto. Annusò. La coppola gli si sollevò di un centimetro."
+        },
+        {
+          "type": "p",
+          "html": "«Le pettole di Tonino» mormorò."
+        },
+        {
+          "type": "p",
+          "html": "«Ce le ha date per lei» disse Nico. «Ha detto che le fa con il lievito di sua nonna, che ha centoquarant'anni.»"
+        },
+        {
+          "type": "p",
+          "html": "«Il lievito o la nonna?»"
+        },
+        {
+          "type": "p",
+          "html": "«Il lievito.»"
+        },
+        {
+          "type": "p",
+          "html": "Zi' Nunzio sospirò, prese il sacchetto, e staccò dal mazzo una chiave lunga come un mestolo."
+        },
+        {
+          "type": "p",
+          "html": "«Dieci minuti» disse. «E se l'Ammiraglio vi becca, io non vi ho mai visto.»"
+        },
+        {
+          "type": "p",
+          "html": "Il catenaccio si aprì con un cigolio lunghissimo, come uno sbadiglio di drago. Dentro, il campanile era buio e fresco e odorava di pietra vecchia e di piume. Una scala a chiocciola saliva girando su se stessa, stretta, ripida, consumata nel mezzo da centinaia di anni di sacrestani."
+        },
+        {
+          "type": "p",
+          "html": "Salirono. Nico davanti, Lalla in mezzo, Briciola dietro, con il cappotto dello zio Peppino tirato su con le zampe come una signora che attraversa una pozzanghera. Al trentesimo gradino Lalla disse che aveva le gambe stanche. Al cinquantesimo disse che aveva le gambe stanche due volte. Al settantesimo Nico se la mise sulle spalle. All'ottantesimo a Briciola venne il singhiozzo per la fatica, <em>hic!</em>, e per un attimo si sollevò e fece tre gradini senza toccarli, e disse «Oh, questo è comodo», e da quel momento cercò di farsi venire il singhiozzo apposta."
+        },
+        {
+          "type": "p",
+          "html": "Al centoventesimo gradino c'era una botola. Nico la spinse con la testa. La botola si aprì sul cielo."
+        },
+        {
+          "type": "p",
+          "html": "Erano in cima al mondo."
+        },
+        {
+          "type": "p",
+          "html": "Da lassù si vedeva tutto: i tetti bianchi di Torre Pinella, uno attaccato all'altro come zollette di zucchero; le stradine che scendevano al mare; il porto con le barche colorate, piccole come giocattoli; la spiaggia; gli ulivi verdi e argento che andavano fino all'orizzonte da una parte; e il mare, dall'altra, enorme, azzurro, scintillante, che arrivava fino al cielo e lì si confondeva. Si vedeva perfino il balcone della signora Addolorata, con i gerani, e la signora Addolorata che salutava con il binocolo."
+        },
+        {
+          "type": "p",
+          "html": "Accanto alle due grandi campane di bronzo, in un angolo, c'era il nido."
+        },
+        {
+          "type": "p",
+          "html": "Non era un nido normale. Era un nido da re. Era fatto di rametti, di alghe secche, di pezzi di rete e di nastri colorati, ed era grande come una vasca da bagno. E dentro, sparsi come in una vetrina, c'erano i tesori dell'Ammiraglio."
+        },
+        {
+          "type": "p",
+          "html": "C'erano cucchiaini, decine di cucchiaini, di tutti i bar del paese. C'erano ami da pesca, monete, tappi di bottiglia, chiavi. C'erano un paio di occhiali con la montatura d'oro, che dovevano essere quelli del sindaco. C'era un anello, piccolo, d'oro, con una scritta dentro: <em>Totò e Lucia per sempre</em>. C'era un'armonica a bocca. C'era una medaglia del concorso di briscola del millenovecentottantadue. C'erano tre bottoni a forma di ancora, un orologio fermo alle cinque e un quarto, e una pallina dell'albero di Natale, rossa, intera, che chissà come ci era arrivata."
+        },
+        {
+          "type": "p",
+          "html": "Briciola infilò il muso nel nido e cominciò a cercare. Spostò i cucchiaini. Spostò le monete. Spostò le chiavi. Il suo naso diventava sempre più azzurro."
+        },
+        {
+          "type": "p",
+          "html": "«Non c'è» disse alla fine, con la voce rotta. «Non c'è.»"
+        },
+        {
+          "type": "p",
+          "html": "Fu in quel momento che il cielo si oscurò."
+        },
+        {
+          "type": "p",
+          "html": "Un'ombra enorme passò sopra di loro. Un grido rauco squarciò l'aria, <em>ah-ah-ah-ah-aaah!</em>, e l'Ammiraglio piombò giù dal cielo come un aereo da guerra, con le ali spalancate e il becco aperto. Si posò sul bordo del campanile, gonfiò il petto, e li guardò con il suo occhio giallo e cattivo, e poi con l'altro, ancora più cattivo."
+        },
+        {
+          "type": "p",
+          "html": "Lalla strinse Gino. Nico si mise davanti a lei. E Briciola, la renna più piccola, quella dell'ultimo posto a sinistra, quella che le altre prendevano in giro, fece una cosa che nessuno si aspettava. Si mise davanti a tutti e due. Abbassò le cornine come rametti di rosmarino. E guardò il gabbiano dritto negli occhi."
+        },
+        {
+          "type": "p",
+          "html": "«Dov'è il mio sonaglio?» disse."
+        },
+        {
+          "type": "p",
+          "html": "L'Ammiraglio inclinò la testa. Poi aprì il becco e rise, <em>ah-ah-ah</em>."
+        },
+        {
+          "type": "p",
+          "html": "A Briciola venne il singhiozzo. Ma non di paura. Di rabbia. <em>Hic!</em> Si sollevò di colpo, più in alto di quanto si fosse mai sollevata, e il suo cappotto a quadri si aprì nel vento come un mantello, e il turbante si srotolò e volò via, e le sue cornine sbatterono, <em>tonk</em>, proprio sul becco dell'Ammiraglio. Il gabbiano lanciò un grido indignato, perse l'equilibrio, sbatté le ali all'impazzata e volò via verso il mare, strillando e perdendo per strada un'altra piuma della coda. Adesso gliene mancavano due."
+        },
+        {
+          "type": "p",
+          "html": "Briciola ricadde, <em>pof</em>, nel nido, in mezzo ai cucchiaini."
+        },
+        {
+          "type": "p",
+          "html": "Dalla botola spuntò la coppola di zi' Nunzio, che era salito di corsa, con il fiatone e lo zucchero delle pettole sui baffi."
+        },
+        {
+          "type": "p",
+          "html": "«L'avete cacciato!» disse, incredulo. «In quarant'anni, nessuno ci era mai riuscito!» Poi guardò meglio, e il suo sguardo si posò su Briciola, senza turbante, con le cornine in bella vista e il naso azzurro come un fanale. Zi' Nunzio si tolse la coppola. Si fece il segno della croce. Si rimise la coppola."
+        },
+        {
+          "type": "p",
+          "html": "«Io» disse «sono vecchio, e ci vedo poco. E secondo me questo è un cane.»"
+        },
+        {
+          "type": "p",
+          "html": "Poi si chinò sul nido e prese una cosa che luccicava, in mezzo alle alghe: un pezzetto di nastro rosso, legato a un fiocco, con un filo d'argento."
+        },
+        {
+          "type": "p",
+          "html": "«Se cercate qualcosa che faceva <em>tin tin</em>» disse «ieri all'alba ho sentito suonare qualcosa, qui sopra. Un suono piccolo piccolo, mai sentito. Poi ho visto quel diavolo volare giù verso il porto con qualcosa nel becco. E l'ha lasciato cadere sulla banchina, in mezzo alle cassette impilate per il mercato di Natale. Restano lì fino a dopodomani. Poi, al mercato, vendono tutto.»"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "kind": "chapter",
+      "chapter": 8,
+      "title": "8. Una telefonata dai Caraibi",
+      "image": "assets/cap08.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Prima di scendere dal campanile, riempirono le tasche. Nico prese gli occhiali del sindaco, l'anello di compare Totò, la medaglia della briscola e i cucchiaini del bar del porto. Lalla prese la pallina rossa dell'albero di Natale, perché disse che era triste lassù da sola. Quel pomeriggio, mentre Briciola dormiva nel magazzino sognando cartellate, Nico e Lalla fecero il giro del paese a restituire i tesori."
+        },
+        {
+          "type": "p",
+          "html": "Il sindaco, quando riebbe gli occhiali, disse «Finalmente vedo!» e poi guardò meglio sua moglie e disse «Oh», e non si capì se fosse contento o no. Il barista del porto contò i cucchiaini e scoprì che erano più di quelli che aveva perso. E compare Totò, quando vide l'anello, si mise a piangere come un bambino, e corse a casa a chiamare sua moglie Lucia, e Lucia corse fuori in grembiule e lo abbracciò in mezzo alla strada, e tutti e due si misero a ballare davanti al fruttivendolo, e il fruttivendolo applaudì con due carciofi."
+        },
+        {
+          "type": "p",
+          "html": "Il giorno dopo era il ventidue dicembre. E quella sera tornava la mamma."
+        },
+        {
+          "type": "p",
+          "html": "La mattina, per prima cosa, Nico e Lalla corsero alla banchina a cercare tra le cassette del mercato. Ma le cassette erano impilate alte come una casa, sotto un telone legato stretto, e Peppe Sardella, che le sorvegliava seduto su un secchio, fumando la pipa, disse che fino al mercato lì non si toccava niente. Nemmeno con gli occhi."
+        },
+        {
+          "type": "p",
+          "html": "La mamma di Nico e Lalla si chiamava Carmela, ed era il capitano della <em>Stella di Mare</em>, il peschereccio più veloce di Torre Pinella. Era alta, aveva i capelli scuri raccolti dietro la testa, le braccia forti come le cime d'ormeggio e una cerata gialla che si vedeva da un chilometro. Stava in mare tre giorni e tornava con la barca piena di pesce, i capelli pieni di sale e la voce roca a forza di gridare ordini al vento. Quando tornava, la prima cosa che faceva era abbracciare i figli così forte che le costole facevano <em>crac</em>. La seconda era farsi una doccia lunga un'ora. La terza era addormentarsi sul divano con la bocca aperta."
+        },
+        {
+          "type": "p",
+          "html": "Quella sera la mamma abbracciò Nico e Lalla, <em>crac</em>, e poi si fece la doccia, e poi, prima di addormentarsi sul divano, accese il computer sul tavolo della cucina. Perché era l'ora della telefonata."
+        },
+        {
+          "type": "p",
+          "html": "Sullo schermo, dopo un po' di fruscii e di quadratini colorati, apparve il papà."
+        },
+        {
+          "type": "p",
+          "html": "Il papà di Nico e Lalla aveva la barba corta e castana, gli occhi che ridevano anche quando la bocca era seria, e in testa un cappello da cuoco così alto che usciva dallo schermo. Dietro di lui si vedeva una cucina enorme, tutta d'acciaio, con le pentole grandi come vasche da bagno e i cuochi che correvano avanti e indietro. Da una finestrella rotonda si vedeva il mare. Ma non il mare di Torre Pinella. Un altro mare, di un azzurro impossibile, con le palme in lontananza."
+        },
+        {
+          "type": "p",
+          "html": "«Ciao, ciurma!» disse il papà. «Come va a Torre Pinella?»"
+        },
+        {
+          "type": "p",
+          "html": "Lalla si buttò sullo schermo e gli raccontò tutto, due volte, mescolando il dinosauro Gino, le pettole e i cucchiaini del bar. Per fortuna parlava così veloce che il papà non capì nemmeno una parola, e rideva, e diceva «Ma davvero?», e «Ma pensa!», e la mamma, dal divano, rideva anche lei con gli occhi chiusi."
+        },
+        {
+          "type": "p",
+          "html": "«E quando torni?» chiese Lalla alla fine. «Quando torni?»"
+        },
+        {
+          "type": "p",
+          "html": "«Eh, ciurma...» Il papà si aggiustò il cappello. «Siamo in mezzo all'oceano. Il prossimo scalo è tra un mese, e questa nave non si ferma per nessuno.» Fece una smorfia buffa. «L'unica cosa che ogni tanto si ferma è il motore. Da due giorni tossisce come il nonno quando mangia le pettole troppo calde. Ma il capitano dice che non è niente.»"
+        },
+        {
+          "type": "p",
+          "html": "Poi toccò a Nico."
+        },
+        {
+          "type": "p",
+          "html": "«E tu, capitano?» disse il papà. «Tutto bene?»"
+        },
+        {
+          "type": "p",
+          "html": "Nico aveva tante cose da dire. Avrebbe voluto dire che era caduta una renna sulla pasticceria. Che si chiamava Briciola e aveva il naso che diventava azzurro. Che aveva cacciato via l'Ammiraglio. Che lui era salito in cima al campanile e da lassù si vedeva tutto, perfino la strada da cui il papà tornava quando tornava. Avrebbe voluto dire che gli mancava. Che gli mancava tanto da far male alla pancia. Che quest'anno non voleva nessun regalo, nessuno, voleva solo che lui fosse lì, alla Vigilia, a fare le pettole con il nonno e a sbagliare le canzoni di Natale."
+        },
+        {
+          "type": "p",
+          "html": "«Tutto bene» disse invece. «Non fa niente.»"
+        },
+        {
+          "type": "p",
+          "html": "Il papà lo guardò, dallo schermo, dall'altra parte del mondo. Per un secondo i suoi occhi smisero di ridere."
+        },
+        {
+          "type": "p",
+          "html": "«Nico...» cominciò."
+        },
+        {
+          "type": "p",
+          "html": "Ma proprio in quel momento la connessione saltò. Lo schermo diventò tutto a quadretti, la voce del papà si spezzò in tanti pezzettini metallici, e poi la faccia del papà si bloccò con la bocca aperta e un occhio chiuso, e poi sparì."
+        },
+        {
+          "type": "p",
+          "html": "Nico chiuse il computer piano piano. Disse che andava a letto. Ma non andò a letto."
+        },
+        {
+          "type": "p",
+          "html": "Scese le scale, saltando il settimo gradino, attraversò la pasticceria buia e aprì la porticina del magazzino. Briciola era sveglia, sul suo sacco di zucchero, e lo stava aspettando. Non gli chiese niente. Si spostò un po', per fargli posto. Nico si sedette accanto a lei, appoggiò la testa sul suo fianco caldo e chiuse gli occhi."
+        },
+        {
+          "type": "p",
+          "html": "Restarono così per un po'. Poi la porta del magazzino si aprì di nuovo."
+        },
+        {
+          "type": "p",
+          "html": "Sulla soglia c'era la mamma. In pigiama, con i capelli bagnati, il telefono in mano. Era scesa a cercare Nico, e lo aveva trovato. Appoggiato a una renna."
+        },
+        {
+          "type": "p",
+          "html": "La mamma guardò Nico. Guardò Briciola. Guardò il lucernario nuovo, le cornine come rametti di rosmarino, il collare rosso, il naso che stava diventando azzurro a una velocità mai vista."
+        },
+        {
+          "type": "p",
+          "html": "Nico si preparò al peggio. Si preparò alle urla, alle domande, al «Tonino! Vieni subito qui!». Si preparò a vedere Briciola cacciata in strada, o chiusa in un recinto, o consegnata al vigile Spinaci."
+        },
+        {
+          "type": "p",
+          "html": "Invece la mamma sospirò. Si sedette su un sacco di farina, di fronte a loro. E disse, con la sua voce roca da capitano:"
+        },
+        {
+          "type": "p",
+          "html": "«Sai, in mare se ne vedono di tutti i colori. Una volta ho visto un delfino che sembrava ridere. Un'altra volta ho visto una tartaruga grande come una porta. E una notte, tanti anni fa, quando tuo padre mi ha chiesto di sposarlo, sulla <em>Stella di Mare</em>, ho visto una luce passare nel cielo, piccola, veloce, che faceva <em>tin tin</em>.» Guardò Briciola, e sorrise. «Non pensavo di rivederla.»"
+        },
+        {
+          "type": "p",
+          "html": "Poi allungò una mano e grattò Briciola dietro l'orecchio. Quello storto."
+        },
+        {
+          "type": "p",
+          "html": "E Briciola chiuse gli occhi, e il suo naso, da azzurro, diventò del colore di un tramonto."
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "kind": "chapter",
+      "chapter": 9,
+      "title": "9. Il pesce più strano del mercato",
+      "image": "assets/cap09.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Il mercato del pesce di Natale, a Torre Pinella, era la cosa più rumorosa del mondo."
+        },
+        {
+          "type": "p",
+          "html": "Si faceva la mattina del ventitré, sulla banchina del porto, e ci veniva gente da tutti i paesi vicini, perché il pesce di Torre Pinella era il più fresco della Puglia, e la vigilia di Natale, in Puglia, senza pesce non è vigilia. C'erano decine di banchi coperti di ghiaccio, e sul ghiaccio c'erano le orate e le spigole, i polpi arricciati, i gamberi rossi come lampadine, le cozze nere, i ricci con gli aculei, le seppie con l'inchiostro, le anguille che si muovevano ancora. E c'erano i pescivendoli che gridavano, ognuno più forte dell'altro."
+        },
+        {
+          "type": "p",
+          "html": "«Orate! Orate vive, che ancora ti salutano!»"
+        },
+        {
+          "type": "p",
+          "html": "«Gamberi! Gamberi rossi, dolci come lo zucchero!»"
+        },
+        {
+          "type": "p",
+          "html": "«Cozze! Cozze che se le mangi diventi bello!»"
+        },
+        {
+          "type": "p",
+          "html": "E c'erano le signore che contrattavano, i bambini che toccavano i polpi e strillavano, i gatti che si aggiravano tra i banchi con l'aria innocente, e i gabbiani sopra, che aspettavano. L'Ammiraglio non c'era. Dopo la cornata sul becco, raccontava Mastro Ciccillo, se ne stava offeso su uno scoglio in mezzo al mare e non voleva vedere nessuno."
+        },
+        {
+          "type": "p",
+          "html": "Nico, Lalla e Briciola arrivarono alle sette in punto. Questa volta c'era anche la mamma, con la cerata gialla e il berretto da capitano, e c'era il nonno Tonino, con la borsa della spesa e i baffi arricciati per l'occasione. Briciola era di nuovo travestita da cane, con il cappotto dello zio Peppino, ma con un turbante nuovo, più sicuro, fatto con un asciugamano della mamma."
+        },
+        {
+          "type": "p",
+          "html": "«Il sonaglio è finito in una cassetta di pesce» disse Nico. «Dobbiamo guardare in tutte le cassette.»"
+        },
+        {
+          "type": "p",
+          "html": "«Ci sono duecento banchi» disse la mamma."
+        },
+        {
+          "type": "p",
+          "html": "«Allora guardiamo in duecento banchi.»"
+        },
+        {
+          "type": "p",
+          "html": "Si divisero. La mamma prese la fila di destra, il nonno quella di sinistra, Nico e Lalla quella in mezzo. Briciola andava avanti e indietro annusando l'aria, con il naso che si accendeva e si spegneva come una lucina, cercando di sentire, in mezzo all'odore del mare, il profumo di stella del suo sonaglio."
+        },
+        {
+          "type": "p",
+          "html": "Cercarono tra le orate. Niente. Tra le spigole. Niente. Lalla infilò la mano in una cassetta di cozze e ne tirò fuori una vecchia scarpa, che il pescivendolo disse che costava due euro come le cozze. Il nonno sollevò un polpo enorme per guardarci sotto, e il polpo gli si attaccò ai baffi, e ci vollero tre persone e un limone per staccarlo. La mamma interrogò tutti i pescivendoli del porto, uno per uno, con la voce da capitano, e loro rispondevano «Sissignora» e «Nossignora» come marinai."
+        },
+        {
+          "type": "p",
+          "html": "Fu a metà mattina, quando ormai erano stanchi e infreddoliti e Lalla aveva cominciato a dire che voleva tornare a casa, due volte, che Briciola si fermò."
+        },
+        {
+          "type": "p",
+          "html": "Alzò il muso. Il suo orecchio storto, per la prima volta da quando era caduta, si drizzò."
+        },
+        {
+          "type": "p",
+          "html": "«Lo sento» sussurrò. «È qui vicino.»"
+        },
+        {
+          "type": "p",
+          "html": "Dall'altra parte della banchina, oltre i banchi, si sentì un suono. Piccolo, piccolissimo, quasi coperto dalle grida dei pescivendoli. Ma chiaro come una goccia d'acqua."
+        },
+        {
+          "type": "p",
+          "html": "<em>Tin.</em>"
+        },
+        {
+          "type": "p",
+          "html": "E poi, ancora:"
+        },
+        {
+          "type": "p",
+          "html": "<em>Tin tin.</em>"
+        },
+        {
+          "type": "p",
+          "html": "Si girarono tutti."
+        },
+        {
+          "type": "p",
+          "html": "Accanto al banco di Peppe Sardella, il pescivendolo più grosso del mercato, c'era una bicicletta nera, vecchissima, lucida come uno specchio. E sul manubrio, legato con un pezzo di spago, c'era un campanello. Ma non era un campanello normale. Era piccolo, tondo, d'argento, con una stellina incisa sopra. E brillava. Brillava anche all'ombra, come se avesse dentro un pezzo di sole. Ogni volta che il vento lo muoveva, faceva <em>tin</em>, e quel <em>tin</em> entrava nelle orecchie e scendeva fino al cuore."
+        },
+        {
+          "type": "p",
+          "html": "«Il mio sonaglio» disse Briciola, con la voce tremante. «Il mio sonaglio!»"
+        },
+        {
+          "type": "p",
+          "html": "Fece un passo avanti. Poi un altro."
+        },
+        {
+          "type": "p",
+          "html": "E in quel momento, da dietro il banco di Peppe Sardella, con un sacchetto di gamberi in una mano e il blocchetto delle multe nell'altra, spuntò il proprietario della bicicletta."
+        },
+        {
+          "type": "p",
+          "html": "Era il vigile Spinaci."
+        },
+        {
+          "type": "p",
+          "html": "Il vigile vide Nico. Vide Lalla. Vide il cane molto, molto grosso con il turbante. Vide il naso azzurro. E i suoi occhi, sotto il berretto troppo grande, si strinsero come due fessure."
+        },
+        {
+          "type": "p",
+          "html": "«Voi» disse."
+        },
+        {
+          "type": "p",
+          "html": "«Signor vigile» disse Nico, con la voce più gentile che aveva. «Quel campanello, sulla sua bicicletta... dove l'ha preso?»"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci appoggiò una mano guantata sul manubrio, proprio sopra il sonaglio, come per proteggerlo."
+        },
+        {
+          "type": "p",
+          "html": "«L'ho trovato ieri sera» disse. «Qui, sulla banchina, mentre spostavano le cassette di Peppe Sardella per preparare i banchi. Nessuno l'ha reclamato. Quindi, secondo il regolamento comunale, articolo quattordici, comma tre, è un oggetto smarrito sotto la mia custodia.» Raddrizzò il berretto. «E io lo custodisco. Sulla mia bicicletta.»"
+        },
+        {
+          "type": "p",
+          "html": "«Ma è nostro!» disse Nico. «Cioè, è suo!» Indicò Briciola. «È del cane!»"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile guardò il cane. Il cane guardò il vigile. Il naso del cane era diventato di un azzurro così intenso che sembrava un lampeggiante della polizia."
+        },
+        {
+          "type": "p",
+          "html": "«I cani» disse il vigile Spinaci, lentamente «non portano i campanelli da bicicletta.»"
+        },
+        {
+          "type": "p",
+          "html": "Poi salì in sella, suonò il sonaglio una volta, <em>tin</em>, e se ne andò pedalando lungo la banchina, con il berretto che gli copriva gli occhi e i gamberi che dondolavano dal manubrio."
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "kind": "chapter",
+      "chapter": 10,
+      "title": "10. Il presepe vivente più vivente del mondo",
+      "image": "assets/cap10.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Ogni anno, la sera del ventitré dicembre, Torre Pinella faceva il presepe vivente."
+        },
+        {
+          "type": "p",
+          "html": "Non era un presepe qualunque. Era il presepe più famoso della costa. Si faceva nel paese vecchio, tra le case bianche e le scalinate, e ogni vicolo diventava un pezzo di Betlemme. C'erano il fabbro che batteva il ferro e il fornaio che sfornava il pane vero. C'erano le lavandaie alla fontana, i pastori con le pecore, il venditore di olive e la signora che filava la lana. C'erano le fiaccole accese su tutti i gradini, e la gente veniva da tutta la Puglia a guardare, camminando piano tra i vicoli con la bocca aperta, come se fosse entrata in una storia."
+        },
+        {
+          "type": "p",
+          "html": "In fondo al paese vecchio, nella grotta sotto la chiesa, c'era la capanna. Con Maria, Giuseppe, la mangiatoia, il bue e l'asinello."
+        },
+        {
+          "type": "p",
+          "html": "Quell'anno, però, c'era un problema."
+        },
+        {
+          "type": "p",
+          "html": "«L'asinello ha il raffreddore» disse zi' Nunzio, che organizzava tutto, torcendosi la coppola tra le mani. «Pasqualina ha la febbre a trentanove e il veterinario dice che non può uscire. Il presepe comincia tra un'ora. Senza asinello, che presepe è?»"
+        },
+        {
+          "type": "p",
+          "html": "Il nonno Tonino si lisciò i baffi. Guardò Nico. Nico guardò Briciola, che aspettava fuori dalla sacrestia, con il cappotto dello zio Peppino e il turbante fatto con l'asciugamano."
+        },
+        {
+          "type": "p",
+          "html": "«Noi» disse il nonno «avremmo un cane.»"
+        },
+        {
+          "type": "p",
+          "html": "E fu così che, quella sera, nel presepe vivente di Torre Pinella, accanto alla mangiatoia, al posto dell'asinello, ci fu una renna."
+        },
+        {
+          "type": "p",
+          "html": "Le tolsero il cappotto e il turbante. Le misero sulla schiena una coperta di lana marrone, e sopra le cornine un cappuccio di sacco, con due orecchie lunghe cucite in fretta da Lalla con l'aiuto della mamma. Al buio, alla luce delle fiaccole, sembrava quasi un asinello. Un asinello un po' magro, un po' strano, con le zampe lunghe e un naso che ogni tanto si illuminava."
+        },
+        {
+          "type": "p",
+          "html": "Nico faceva il pastorello, con un bastone e una pelle di pecora sulle spalle. Lalla faceva l'angioletto, con le ali di cartone e un'aureola di fil di ferro storta, e teneva in mano Gino, perché aveva detto che anche i dinosauri dovevano vedere il Bambinello. Il nonno faceva il fornaio, naturalmente, e distribuiva pettole vere a tutti quelli che passavano. La mamma faceva la pescatrice, e non dovette nemmeno travestirsi."
+        },
+        {
+          "type": "p",
+          "html": "E il vigile Spinaci?"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci faceva l'oste. Quello che dice a Maria e Giuseppe «Non c'è posto». Lo faceva da vent'anni, ed era bravissimo, perché dire di no gli veniva naturale. Stava sulla porta della sua locanda di cartone, con un grembiule sopra la divisa e il berretto in testa, e ogni volta che passava qualcuno diceva «Non c'è posto! Tutto pieno!» con una voce così severa che i bambini piccoli si nascondevano dietro le mamme."
+        },
+        {
+          "type": "p",
+          "html": "E accanto alla locanda, appoggiata al muro, c'era la sua bicicletta nera. Con il sonaglio d'argento legato sul manubrio."
+        },
+        {
+          "type": "p",
+          "html": "Brillava, al buio, tra le fiaccole. Come una piccola stella caduta."
+        },
+        {
+          "type": "p",
+          "html": "Nico lo vide e il cuore gli fece un salto. Era lì. A dieci passi. Nessuno lo guardava. Tutti guardavano la capanna, le fiaccole, le pecore. Sarebbe bastato avvicinarsi, piano piano, con il bastone da pastore, sciogliere lo spago, e via. Nessuno se ne sarebbe accorto. Il vigile era girato dall'altra parte. Sarebbe stato facile. Facilissimo."
+        },
+        {
+          "type": "p",
+          "html": "Nico fece un passo. Poi un altro."
+        },
+        {
+          "type": "p",
+          "html": "Poi si fermò."
+        },
+        {
+          "type": "p",
+          "html": "Pensò al nonno, che non diceva mai una bugia ai clienti, nemmeno quando le pettole erano del giorno prima. Pensò alla mamma, che quando trovava nelle reti un pesce troppo piccolo lo ributtava in mare anche se nessuno la vedeva. Pensò al papà, che diceva sempre: le cose belle non si prendono, si ricevono."
+        },
+        {
+          "type": "p",
+          "html": "E tornò indietro."
+        },
+        {
+          "type": "p",
+          "html": "Briciola, dalla capanna, aveva visto tutto. Aveva visto il sonaglio, e aveva visto Nico avvicinarsi, e aveva visto Nico tornare indietro. E le venne un'emozione così grande, così grande, che non sapeva dove metterla. E quando a una renna giovane viene un'emozione così grande, succede sempre la stessa cosa."
+        },
+        {
+          "type": "p",
+          "html": "<em>Hic!</em>"
+        },
+        {
+          "type": "p",
+          "html": "Briciola si sollevò da terra. Una spanna. Due spanne. Un metro. Con la coperta marrone, il cappuccio da asinello e tutto. Si sollevò sopra la mangiatoia, sopra Maria e Giuseppe, sopra il bue, che smise di masticare. E siccome era così emozionata, il suo naso si accese di azzurro, ma non del solito azzurro: di un azzurro luminoso, forte, splendente, che riempì tutta la grotta di luce, come se dentro il presepe fosse spuntata una stella."
+        },
+        {
+          "type": "p",
+          "html": "Il cappuccio scivolò via. Le cornine come rametti di rosmarino apparvero alla luce delle fiaccole."
+        },
+        {
+          "type": "p",
+          "html": "La gente trattenne il fiato. Trecento persone, nei vicoli, smisero di parlare tutte insieme."
+        },
+        {
+          "type": "p",
+          "html": "Poi un bambino in prima fila, uno piccolissimo, sulle spalle del suo papà, indicò in alto e gridò:"
+        },
+        {
+          "type": "p",
+          "html": "«Mamma! L'asinello vola!»"
+        },
+        {
+          "type": "p",
+          "html": "E rise. Rise con tutta la pancia. E dietro di lui rise un altro bambino, e poi un altro, e poi tutti i bambini del presepe, quelli veri e quelli travestiti da pastori, risero insieme, di una risata enorme, felice, che rimbalzò tra le case bianche e salì fino al cielo."
+        },
+        {
+          "type": "p",
+          "html": "E allora, appoggiata al muro della locanda, la bicicletta del vigile Spinaci cominciò a tremare."
+        },
+        {
+          "type": "p",
+          "html": "Il sonaglio, sul manubrio, suonò. <em>Tin.</em> Poi ancora, più forte. <em>Tin tin tin.</em> Poi suonò da solo, senza vento, sempre più forte, una musica piccola e chiarissima, come se qualcuno stesse ridendo dentro una campanella d'argento."
+        },
+        {
+          "type": "p",
+          "html": "Gli adulti applaudirono. Pensavano che fosse uno spettacolo. Dicevano: «Che bravi quest'anno! Che effetti speciali! Una stella cometa a forma di asinello!» E il sindaco, con gli occhiali ritrovati, applaudiva più forte di tutti."
+        },
+        {
+          "type": "p",
+          "html": "Solo una persona non applaudiva."
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci era rimasto immobile sulla porta della sua locanda di cartone. Guardava la sua bicicletta, che tremava e suonava da sola. Poi guardava la renna che galleggiava sopra la mangiatoia con il naso acceso. Poi guardava Nico, il pastorello con il bastone, che era tornato indietro senza toccare niente."
+        },
+        {
+          "type": "p",
+          "html": "Briciola ricadde nella paglia. <em>Pof.</em> Il sonaglio smise di suonare."
+        },
+        {
+          "type": "p",
+          "html": "E il vigile Spinaci, senza dire una parola, si tolse il grembiule da oste, prese la sua bicicletta e se ne andò nel buio, a piedi, spingendola piano piano, con la testa bassa."
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "kind": "chapter",
+      "chapter": 11,
+      "title": "11. Il segreto del vigile Spinaci",
+      "image": "assets/cap11.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "La mattina della Vigilia, la Pasticceria Ferrante era piena come un uovo."
+        },
+        {
+          "type": "p",
+          "html": "C'era la fila fino in strada. Tutti volevano le cartellate, le pettole, i mostaccioli, i sospiri ripieni di crema, il torrone con le mandorle. Il nonno Tonino friggeva e impastava e incartava con le maniche arrotolate, la mamma stava alla cassa con la voce da capitano, e Nico e Lalla correvano avanti e indietro con i vassoi, infarinati fino alle orecchie. Briciola, nel magazzino, era di guardia ai sacchi di zucchero, e ogni tanto infilava il muso fuori dalla porticina per chiedere se avanzava qualche cartellata rotta."
+        },
+        {
+          "type": "p",
+          "html": "Nico non riusciva a smettere di pensare al sonaglio. Mancavano quindici ore alla mezzanotte. Poi quattordici. Poi tredici. E il sonaglio era sul manubrio di una bicicletta nera, chissà dove, con un vigile che non voleva ridarlo indietro."
+        },
+        {
+          "type": "p",
+          "html": "Alle dieci e mezza, la porta della pasticceria si aprì, e la campanella sopra la porta fece <em>dlen</em>."
+        },
+        {
+          "type": "p",
+          "html": "Sulla soglia c'era il vigile Spinaci."
+        },
+        {
+          "type": "p",
+          "html": "La fila si zittì. I clienti si scostarono. Il vigile entrò, piccolo e tondo, con il berretto troppo grande calato sugli occhi e i guanti bianchi. Ma c'era qualcosa di diverso, in lui. Non aveva il blocchetto delle multe in mano. Non aveva il fischietto in bocca. E camminava piano, come uno che ha dormito poco."
+        },
+        {
+          "type": "p",
+          "html": "Si fermò davanti al bancone. Guardò Nico. Poi si tolse il berretto."
+        },
+        {
+          "type": "p",
+          "html": "Nessuno, a Torre Pinella, aveva mai visto il vigile Spinaci senza berretto. Sotto, aveva pochi capelli grigi, tutti spettinati, e una faccia più giovane di quanto ci si aspettasse. Una faccia quasi da bambino."
+        },
+        {
+          "type": "p",
+          "html": "«Posso parlare con il cane?» disse."
+        },
+        {
+          "type": "p",
+          "html": "Il nonno Tonino, per una volta, ci sentì benissimo da tutte e due le orecchie. Lasciò la mamma alla cassa e accompagnò il vigile nel magazzino. Nico e Lalla li seguirono."
+        },
+        {
+          "type": "p",
+          "html": "Briciola era sul suo sacco di zucchero. Quando vide il vigile, il suo naso diventò azzurro, e lei provò a dire «Bau», ma le uscì così piano che sembrò uno sbadiglio."
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci si sedette su una cassa di mandorle. Infilò una mano nella tasca della divisa. E tirò fuori il sonaglio."
+        },
+        {
+          "type": "p",
+          "html": "Era lì, nel suo guanto bianco. Piccolo, tondo, d'argento, con la stellina incisa sopra. Brillava anche nella penombra del magazzino."
+        },
+        {
+          "type": "p",
+          "html": "«Ieri sera ho capito» disse il vigile. «Ho capito tutto. E stanotte non ho dormito.» Si rigirò il sonaglio tra le dita. «Vi devo raccontare una cosa. Una cosa che non ho mai raccontato a nessuno.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico si sedette per terra. Lalla si sedette in braccio a Nico. Il nonno si appoggiò alla porta, a braccia conserte."
+        },
+        {
+          "type": "p",
+          "html": "«Quando avevo sette anni» disse il vigile Spinaci «ero il bambino più piccolo di Torre Pinella. Più piccolo di tutti. Mi chiamavano Pasqualino Mezzo Metro. A scuola mi mettevano sempre in prima fila, alle feste nessuno mi vedeva, quando giocavamo a pallone mi facevano fare il palo. Mio padre faceva il postino, e aveva una bicicletta nera, grande, vecchia. Quando lui non c'era, io la prendevo e ci andavo in giro per il paese. Mi arrivavano i piedi ai pedali solo se stavo in piedi. Ma su quella bicicletta mi sentivo alto. Mi sentivo come un re.»"
+        },
+        {
+          "type": "p",
+          "html": "Sorrise. Era la prima volta che Nico lo vedeva sorridere."
+        },
+        {
+          "type": "p",
+          "html": "«Solo che la bicicletta non aveva il campanello. E io passavo per i vicoli, e nessuno mi sentiva arrivare, e nessuno si spostava. Allora quell'anno scrissi una lettera a Babbo Natale. Gli chiesi un campanello. Uno solo. Un campanello d'argento, così la gente mi avrebbe sentito arrivare. Così, almeno per una volta, si sarebbero accorti di me.»"
+        },
+        {
+          "type": "p",
+          "html": "Si fermò."
+        },
+        {
+          "type": "p",
+          "html": "«E non arrivò mai» disse Lalla, piano. Questa volta lo disse una volta sola."
+        },
+        {
+          "type": "p",
+          "html": "«Non arrivò mai» disse il vigile. «Ho aspettato tutta la mattina di Natale. E quella dopo. E quella dopo ancora. Poi sono cresciuto. Poco, ma sono cresciuto. Mi sono preso la bicicletta di mio padre, e il berretto da vigile, e il fischietto. E ho cominciato a fare le multe. A tutti. Perché, se non potevano sentirmi arrivare, almeno dovevano ascoltarmi.» Abbassò gli occhi. «Ieri mattina, quando ho trovato questo campanello in mezzo al pesce, ho pensato... che stupido. Ho pensato che, finalmente, fosse arrivato. Ho pensato che fosse il mio.»"
+        },
+        {
+          "type": "p",
+          "html": "Allungò la mano. E appoggiò il sonaglio davanti agli zoccoli di Briciola."
+        },
+        {
+          "type": "p",
+          "html": "«Ma non è mio» disse. «È tuo. Ieri sera, quando i bambini hanno riso e lui ha suonato, ho capito che non poteva essere di nessun altro.»"
+        },
+        {
+          "type": "p",
+          "html": "Briciola guardò il sonaglio. Poi guardò il vigile. Poi si alzò dal suo sacco di zucchero, fece due passi, e appoggiò il muso sulla spalla del vigile Spinaci, come aveva fatto con Nico la prima notte."
+        },
+        {
+          "type": "p",
+          "html": "«Pasqualino» disse, con la sua vocina educata. «Le lettere che si perdono, a volte, ritrovano la strada. Ci vuole solo qualcuno che le porti.»"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci rimase immobile. Poi infilò di nuovo la mano in tasca, e tirò fuori un foglio. Era piegato in quattro, ingiallito, consumato agli angoli, con la scrittura storta di un bambino di sette anni. Lo teneva nel portafoglio da cinquant'anni."
+        },
+        {
+          "type": "p",
+          "html": "«Allora portala tu» disse. E la sua voce si incrinò un pochino."
+        },
+        {
+          "type": "p",
+          "html": "Briciola prese la lettera con i denti, delicatamente, e la infilò sotto il collare rosso."
+        },
+        {
+          "type": "p",
+          "html": "Il nonno Tonino si soffiò il naso, fortissimo, <em>prrrrrr</em>, e i baffi gli girarono come le pale di un mulino. Poi disse che era la farina, che gli dava fastidio. Poi andò di là e tornò con un vassoio di pettole e lo mise in mano al vigile."
+        },
+        {
+          "type": "p",
+          "html": "E il vigile Spinaci, seduto su una cassa di mandorle nel magazzino della Pasticceria Ferrante, con una pettola in bocca e lo zucchero sui baffi, tirò fuori il blocchetto delle multe. Strappò tutti i foglietti, uno per uno. Il cane senza museruola. Il cane con le scarpe. Il cane con il naso non regolamentare. E li lanciò in aria, come coriandoli."
+        },
+        {
+          "type": "p",
+          "html": "Poi, per la prima volta in cinquant'anni, rise."
+        },
+        {
+          "type": "p",
+          "html": "Il sonaglio, sul palmo del suo guanto bianco, fece <em>tin</em>. Uno solo, piccolo piccolo, come uno che si gira nel sonno e poi si riaddormenta."
+        },
+        {
+          "type": "p",
+          "html": "Nico aggiunse al collare di Briciola il sonaglio, con le dita che tremavano. Il gancetto d'argento si chiuse con un <em>clic</em>."
+        },
+        {
+          "type": "p",
+          "html": "Il sonaglio era tornato a casa."
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "kind": "chapter",
+      "chapter": 12,
+      "title": "12. Il sonaglio che non suona",
+      "image": "assets/cap12.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Nel pomeriggio della Vigilia, il cortile dietro la pasticceria diventò una pista di decollo."
+        },
+        {
+          "type": "p",
+          "html": "Il nonno spostò le cassette vuote e i vasi del basilico. La mamma stese per terra le reti della <em>Stella di Mare</em>, ripiegate in quattro, nel caso Briciola cadesse. Il vigile Spinaci, che non se n'era più andato, si mise in fondo al cortile con il fischietto, pronto a dare il via, perché disse che un decollo senza fischio non era regolamentare. Lalla e Gino si sedettero sul muretto, a fare il pubblico. Anche la signora Addolorata, dal suo balcone, puntò il binocolo."
+        },
+        {
+          "type": "p",
+          "html": "Briciola si mise al centro del cortile. Con il collare rosso e il sonaglio d'argento che brillava. Era così emozionata che le tremavano le zampe."
+        },
+        {
+          "type": "p",
+          "html": "«Allora» disse Nico. «Come funziona?»"
+        },
+        {
+          "type": "p",
+          "html": "«Il sonaglio suona quando un bambino ride» disse Briciola. «E quando suona, io volo.»"
+        },
+        {
+          "type": "p",
+          "html": "«Facile» disse Nico. «Lalla, ridi.»"
+        },
+        {
+          "type": "p",
+          "html": "Lalla rise. Rise subito, perché Lalla rideva sempre, per qualsiasi cosa: per un gatto che sbadigliava, per una parola buffa, per il nonno che starnutiva. Rise con la pancia, con i codini, con tutta se stessa."
+        },
+        {
+          "type": "p",
+          "html": "Il sonaglio fece: <em>tin</em>."
+        },
+        {
+          "type": "p",
+          "html": "Uno solo. Piccolo piccolo."
+        },
+        {
+          "type": "p",
+          "html": "Briciola si sollevò. Un dito. Due dita. Rimase sospesa per un attimo, con le zampe tese, la faccia piena di speranza. Poi ricadde sulla rete. <em>Pof.</em>"
+        },
+        {
+          "type": "p",
+          "html": "«Ancora!» disse il vigile, e soffiò nel fischietto. <em>Fiiii!</em>"
+        },
+        {
+          "type": "p",
+          "html": "Lalla rise ancora. Il nonno fece la smorfia del pesce palla, quella che faceva ridere tutti i bambini di Torre Pinella da sessant'anni, gonfiando le guance e strabuzzando gli occhi, e Lalla rise così tanto che cadde dal muretto. Il sonaglio fece <em>tin tin</em>. Briciola si alzò di una spanna. E ricadde. <em>Pof.</em>"
+        },
+        {
+          "type": "p",
+          "html": "Riprovarono per un'ora. Il nonno fece la smorfia del pesce palla, la smorfia del polpo, l'imitazione del sindaco al discorso di Ferragosto. La mamma raccontò la storia della <em>Speranza Prima</em>, affondata con sopra solo un carico di cocomeri, che erano tornati a riva galleggiando uno per uno per una settimana. Il vigile Spinaci provò a fare una capriola, e ci riuscì a metà, e restò incastrato con la testa nel berretto. Lalla rise fino alle lacrime, e anche Gino il dinosauro, se avesse potuto, avrebbe riso."
+        },
+        {
+          "type": "p",
+          "html": "Ma il sonaglio faceva solo <em>tin</em>. E Briciola si alzava, e ricadeva. Si alzava, e ricadeva."
+        },
+        {
+          "type": "p",
+          "html": "Alla fine si sedette sulla rete, ansimando, con il naso azzurro e le orecchie tutte e due giù."
+        },
+        {
+          "type": "p",
+          "html": "«Non basta» disse. «Ve l'avevo detto, il primo giorno: un sonaglio caduto si addormenta. Stamattina, quando ha riso il vigile, si è girato nel sonno, ma non era ancora al mio collo. Adesso, per svegliarlo, servono tante risate tutte insieme. Oppure quella di qualcuno che non ride da tanto.» Guardò Nico. «E manca la tua.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico si irrigidì."
+        },
+        {
+          "type": "p",
+          "html": "«Io rido» disse."
+        },
+        {
+          "type": "p",
+          "html": "«No» disse Briciola, piano. «Da quando sono arrivata, tu non hai mai riso. Hai parlato tantissimo. Hai corso, sei salito sul campanile, hai cercato in duecento banchi. Ma non hai mai riso. Nemmeno una volta. Nemmeno quando il polpo si è attaccato ai baffi del nonno.»"
+        },
+        {
+          "type": "p",
+          "html": "Era vero. Nico lo sapeva. Ogni volta che gli veniva da ridere, qualcosa si chiudeva dentro, come una porta. Qualcosa che pesava come un sasso."
+        },
+        {
+          "type": "p",
+          "html": "«Non fa niente» disse."
+        },
+        {
+          "type": "p",
+          "html": "E allora la mamma si inginocchiò davanti a lui."
+        },
+        {
+          "type": "p",
+          "html": "La mamma di Nico, il capitano della <em>Stella di Mare</em>, quella che non aveva paura delle onde alte tre metri, quella che gridava ordini al vento, si inginocchiò sulle reti, gli prese la faccia tra le mani, quelle mani forti che sapevano di sale, e lo guardò negli occhi."
+        },
+        {
+          "type": "p",
+          "html": "«Nico» disse. «Fa qualcosa. Fa tanto. Lo so che ti manca papà. Manca anche a me. Manca anche a Lalla, e al nonno. Non devi tenerlo in tasca da solo.»"
+        },
+        {
+          "type": "p",
+          "html": "E Nico sentì il sasso. Lo sentì tutto, tutto il suo peso, quello che si era portato dietro per giorni. E lo sentì muoversi. E salire su, dalla pancia al petto, dal petto alla gola, dalla gola agli occhi. E il sasso, quando arrivò agli occhi, non era più un sasso. Era acqua."
+        },
+        {
+          "type": "p",
+          "html": "Nico pianse. Pianse forte, come non piangeva da quando era piccolo. Pianse con la faccia nella cerata gialla della mamma, che sapeva di mare e di casa. Pianse per il papà dall'altra parte del mondo, per le lasagne per duemila persone, per le canzoni di Natale che nessuno avrebbe sbagliato, per il posto vuoto a tavola. E la mamma lo tenne stretto, e non gli disse di smettere. Lalla scese dal muretto e lo abbracciò da dietro, con Gino in mezzo. Il nonno li abbracciò tutti e tre, con le braccia grandi come un armadio a due ante. E Briciola infilò il muso in mezzo all'abbraccio, e il vigile Spinaci rimase un po' in disparte, poi decise che il regolamento lo permetteva, e si unì anche lui."
+        },
+        {
+          "type": "p",
+          "html": "Restarono così a lungo, nel cortile della pasticceria, sotto il cielo che diventava rosa."
+        },
+        {
+          "type": "p",
+          "html": "Quando Nico smise di piangere, si sentiva leggero. Leggerissimo. Come se, per un attimo, avesse il singhiozzo anche lui."
+        },
+        {
+          "type": "p",
+          "html": "Il nonno gli asciugò la faccia con il fazzoletto rosso che portava al collo."
+        },
+        {
+          "type": "p",
+          "html": "«Piangere» disse «è come impastare. Fa spazio. Poi, dentro, l'impasto lievita.» Si lisciò i baffi. «E lievita sempre di notte.»"
+        },
+        {
+          "type": "p",
+          "html": "Nico guardò Briciola. Briciola guardò Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Mezzanotte» disse lei. «Sul molo.»"
+        },
+        {
+          "type": "p",
+          "html": "Il vigile Spinaci si rimise il berretto in testa, si raddrizzò per quanto poteva, e soffiò nel fischietto."
+        },
+        {
+          "type": "p",
+          "html": "«Ho un'idea» disse. «Ma mi serve tutto il paese.»"
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "kind": "chapter",
+      "chapter": 13,
+      "title": "13. Mezzanotte sul molo",
+      "image": "assets/cap13.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "L'idea del vigile Spinaci era semplice: andare casa per casa e dire a tutti i bambini di Torre Pinella di venire sul molo a mezzanotte."
+        },
+        {
+          "type": "p",
+          "html": "Il difficile era farlo senza spiegare perché."
+        },
+        {
+          "type": "p",
+          "html": "Così il vigile prese la sua bicicletta nera, e per tutto il pomeriggio della Vigilia girò per il paese, vicolo per vicolo, suonando a tutte le porte. Diceva soltanto: «A mezzanotte, sul molo. Portate i bambini. Ordine del vigile.» E siccome per cinquant'anni il vigile Spinaci non aveva mai chiesto niente a nessuno, se non di pagare le multe, la gente si spaventò un po', poi si incuriosì molto, e alla fine disse di sì."
+        },
+        {
+          "type": "p",
+          "html": "Dopo la cena della Vigilia, quella con i dieci piatti di pesce e il capitone e le cartellate e i fichi secchi, dopo la tombola, dopo i fuochi, Torre Pinella scese al porto."
+        },
+        {
+          "type": "p",
+          "html": "Scesero tutti. Le famiglie con i bambini in pigiama sotto il cappotto. Le nonne con le coperte. I pescatori con le lanterne. Compare Totò e sua moglie Lucia, che si tenevano per mano. Il sindaco con gli occhiali. Zi' Nunzio con il mazzo di chiavi che suonava come una mandria di capre. Mastro Ciccillo, che non vedeva bene ma aveva detto «Questa non me la perdo». Perfino la signora Addolorata, che non scendeva dal suo balcone da undici anni, arrivò sul molo appoggiata al braccio del barista, con il binocolo al collo e lo scialle nero."
+        },
+        {
+          "type": "p",
+          "html": "Il molo era pieno. Duecento persone, cento bambini, la luna sopra il mare come una moneta d'argento, e un silenzio pieno di attesa."
+        },
+        {
+          "type": "p",
+          "html": "In fondo al molo, accanto al faro, c'era Briciola. Senza cappotto, senza turbante, senza travestimenti. Una renna piccola, con le cornine come rametti di rosmarino, l'orecchio storto, il collare rosso e il sonaglio d'argento che brillava alla luna. Sotto il collare, piegata in quattro, la lettera di Pasqualino Mezzo Metro."
+        },
+        {
+          "type": "p",
+          "html": "La gente la vide, e mormorò. Qualcuno disse «È un cane». Qualcuno disse «È un asino». Un bambino disse «È l'asinello che vola!», e la sua mamma gli disse di stare zitto."
+        },
+        {
+          "type": "p",
+          "html": "Nico, Lalla, la mamma e il nonno erano accanto a lei. Il campanile, lassù, cominciò a battere i rintocchi. <em>Don.</em> Mancavano cinque minuti."
+        },
+        {
+          "type": "p",
+          "html": "«E adesso?» sussurrò Nico. «Come facciamo a farli ridere tutti?»"
+        },
+        {
+          "type": "p",
+          "html": "«Ci penso io» disse il vigile Spinaci."
+        },
+        {
+          "type": "p",
+          "html": "Si arrampicò su una bitta, quelle colonnine di ferro dove si legano le barche, per farsi vedere da tutti. Si tirò su il berretto. Prese fiato. Mise il fischietto in bocca. E soffiò, con tutta la forza che aveva."
+        },
+        {
+          "type": "p",
+          "html": "<em>FIIIIIIIIIII!</em>"
+        },
+        {
+          "type": "p",
+          "html": "Il fischio fu così forte che il berretto gli scivolò sugli occhi. Il vigile, accecato, fece un passo per tenersi in equilibrio. Poi un altro. La bitta era piccola, e il vigile cominciò a ondeggiare, avanti e indietro, con le braccia che giravano come le ali di un mulino. E proprio in quel momento, dal buio sopra il mare, con un grido rauco, <em>ah-ah-ah-ah-aaah!</em>, piombò giù l'Ammiraglio."
+        },
+        {
+          "type": "p",
+          "html": "Il gabbiano aveva visto qualcosa che luccicava. Il fischietto d'argento."
+        },
+        {
+          "type": "p",
+          "html": "Lo afferrò con il becco, <em>zac</em>, e volò via. Ma il fischietto era legato al collo del vigile con un cordino, e il vigile, appeso al cordino, fece un saltello sulla bitta, poi un altro, poi si mise a correre in tondo sul molo, con il berretto sugli occhi e il gabbiano che lo tirava come un aquilone al contrario, gridando «Alt! Fermo! Ti faccio la multa! Gabbiano senza patente!», mentre l'Ammiraglio, sopra di lui, sbatteva le ali e gli fischiava in testa a ogni giro, <em>fiii, fiii, fiii</em>."
+        },
+        {
+          "type": "p",
+          "html": "Un bambino rise. Poi un altro. Poi Lalla, naturalmente, che rideva sempre. Poi i bambini dei pescatori, i bambini del sindaco, i nipotini di compare Totò. Poi tutti i bambini del molo, cento bambini, che ridevano con la pancia, con le guance, con le lacrime agli occhi, piegati in due, aggrappati ai cappotti delle mamme."
+        },
+        {
+          "type": "p",
+          "html": "Il sonaglio di Briciola fece <em>tin tin tin</em>."
+        },
+        {
+          "type": "p",
+          "html": "Ma non bastava. Briciola si sollevò di un metro, e restò sospesa lì, tremando, con le zampe tese e gli occhi fissi su Nico."
+        },
+        {
+          "type": "p",
+          "html": "Nico guardava il vigile Spinaci che correva in tondo. Guardava il berretto sugli occhi. Guardava il gabbiano che fischiava. Guardava il nonno, che si teneva la pancia, e i baffi che gli giravano come pale. Guardava la mamma, che rideva con la testa all'indietro come non rideva da settimane. Guardava Lalla, che rotolava per terra con Gino."
+        },
+        {
+          "type": "p",
+          "html": "E dentro di lui, nel posto dove prima c'era il sasso, adesso c'era spazio. Tanto spazio. E in quello spazio, piano piano, come l'impasto del nonno di notte, qualcosa cominciò a lievitare."
+        },
+        {
+          "type": "p",
+          "html": "Prima fu un sorriso. Poi uno sbuffo dal naso. Poi una risatina. E poi, all'improvviso, come un tappo che salta, come un'onda che si rompe sugli scogli, Nico Ferrante scoppiò a ridere. Rise con la pancia. Rise con il buco del dente che non c'era più. Rise fino a piegarsi in due, fino a non respirare, fino a sentire le lacrime calde sulle guance, ma questa volta erano lacrime buone."
+        },
+        {
+          "type": "p",
+          "html": "Il sonaglio di Briciola suonò come non aveva mai suonato."
+        },
+        {
+          "type": "p",
+          "html": "<em>TIN TIN TIN TIN TIIIN!</em>"
+        },
+        {
+          "type": "p",
+          "html": "Una musica d'argento, chiarissima, che riempì il porto, il paese, il cielo. E Briciola salì. Salì dritta, leggera, come una scintilla. Sopra il molo, sopra il faro, sopra le barche colorate. Le sue zampe si muovevano nell'aria come se corresse su una strada invisibile. E il suo naso brillava d'azzurro, fortissimo, come una stella nuova."
+        },
+        {
+          "type": "p",
+          "html": "Il campanile batté la mezzanotte. <em>Don. Don. Don.</em>"
+        },
+        {
+          "type": "p",
+          "html": "E dal mare, lontano, si sentì un altro suono. Tanti sonagli, tutti insieme, che si avvicinavano."
+        },
+        {
+          "type": "p",
+          "html": "Sopra l'orizzonte apparve una luce. Poi un'altra. Poi una fila di luci, e dietro le luci una slitta rossa, grande, carica di sacchi, tirata da otto renne grandi, robuste, con le corna larghe come i rami degli alberi. La slitta scendeva verso Torre Pinella, rallentando, come chi vuole guardare la luna. E alla guida, con il cappuccio bordato di bianco e la barba che il vento muoveva come una vela, c'era lui."
+        },
+        {
+          "type": "p",
+          "html": "Babbo Natale si sporse dalla slitta. Guardò giù, il molo pieno di gente con il naso all'insù. Guardò la piccola renna che saliva verso di lui. Sorrise, e il suo sorriso si vide da laggiù."
+        },
+        {
+          "type": "p",
+          "html": "Briciola fece un ultimo giro sopra il molo. Scese, piano, fino all'altezza di Nico. Si fermò davanti a lui, sospesa nell'aria, e gli appoggiò il muso sulla fronte. Profumava di cartellate e di stelle."
+        },
+        {
+          "type": "p",
+          "html": "«Grazie» disse. «Ogni Vigilia, a mezzanotte, guarda il mare. Ci sarà una luce azzurra, all'ultimo posto a sinistra. Quella sono io.»"
+        },
+        {
+          "type": "p",
+          "html": "Poi salì. Raggiunse la slitta. Si mise al suo posto, il più piccolo, l'ultimo a sinistra. E le altre renne, quelle grandi, quelle che la prendevano in giro, si girarono tutte a guardarla. E per la prima volta nessuna rise di lei."
+        },
+        {
+          "type": "p",
+          "html": "Babbo Natale alzò una mano guantata verso il molo. Poi frugò nel sacco e lanciò giù qualcosa, che cadde dritto dritto nelle mani del vigile Spinaci. Era un pacchettino piccolo, con un fiocco rosso. Il vigile lo aprì con le mani che tremavano. Dentro c'era un campanello da bicicletta. D'argento. E un biglietto, con una scrittura grande e tonda: <em>Per Pasqualino, perché tutti ti sentano arrivare.</em>"
+        },
+        {
+          "type": "p",
+          "html": "La slitta riprese velocità. Fece un giro sopra il paese bianco. E mentre si allontanava, dal sacco aperto cadde qualcosa. Una polvere bianca, leggerissima, che scese piano piano su Torre Pinella, sui tetti, sulle barche, sui cappotti, sui capelli dei bambini."
+        },
+        {
+          "type": "p",
+          "html": "Lalla tirò fuori la lingua e ne prese un po'."
+        },
+        {
+          "type": "p",
+          "html": "«È dolce» disse. «È dolce!»"
+        },
+        {
+          "type": "p",
+          "html": "Quella notte, a Torre Pinella, per la prima volta in tutta la sua storia, nevicò. Nevicò zucchero a velo."
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "kind": "chapter",
+      "chapter": 14,
+      "title": "14. Farina sulle spalle",
+      "image": "assets/cap14.jpg",
+      "blocks": [
+        {
+          "type": "p",
+          "html": "La mattina di Natale, Torre Pinella si svegliò bianca."
+        },
+        {
+          "type": "p",
+          "html": "Bianca più del solito. I tetti, le scale, le barche, i gerani della signora Addolorata, la bicicletta del vigile Spinaci, perfino i gatti del porto: tutto era coperto da un velo sottile, che luccicava al sole e, se ci passavi un dito sopra e te lo mettevi in bocca, sapeva di vaniglia. I bambini uscirono in pigiama a leccare i muretti. Le formiche di tutta la Puglia fecero festa per una settimana."
+        },
+        {
+          "type": "p",
+          "html": "Nico si svegliò tardi. Aveva dormito come un sasso, ma un sasso leggero."
+        },
+        {
+          "type": "p",
+          "html": "Per un attimo, ancora con gli occhi chiusi, pensò che fosse stato tutto un sogno. Il tonfo sulla pasticceria. La renna nella farina. L'Ammiraglio, il campanile, il mercato del pesce, il presepe, il molo. Poi aprì gli occhi e vide, sul cuscino accanto al suo, una cosa che non c'era la sera prima."
+        },
+        {
+          "type": "p",
+          "html": "Era un biglietto. Un pezzo di carta da pacchi, piegato in due. Sopra c'erano dei segni strani, tondi, un po' sbavati, come se qualcuno avesse scritto intingendo uno zoccolo nell'inchiostro. Nico ci mise un po' a leggerli. Dicevano:"
+        },
+        {
+          "type": "p",
+          "html": "<em>Caro Nico,</em> <em>dall'ultimo posto a sinistra si vede tutto il mondo.</em> <em>Stanotte ho visto la tua casa, piccola piccola, con la luce accesa in cucina.</em> <em>Ho detto a Babbo Natale che tu non hai chiesto niente.</em> <em>Lui ha riso. Ha detto che chi non chiede niente, di solito, ha bisogno della cosa più grande.</em> <em>Guarda alla porta.</em> <em>La tua amica Briciola</em> <em>P.S. Le cartellate del nonno sono meglio dei licheni.</em>"
+        },
+        {
+          "type": "p",
+          "html": "Nico lesse il biglietto due volte. Poi una terza. Poi sentì bussare."
+        },
+        {
+          "type": "p",
+          "html": "<em>Toc toc.</em>"
+        },
+        {
+          "type": "p",
+          "html": "Veniva da giù. Dalla porta della pasticceria."
+        },
+        {
+          "type": "p",
+          "html": "Nico saltò giù dal letto. Lalla saltò giù dal letto. Scesero le scale di corsa, senza saltare il settimo gradino, che cigolò come una nonna arrabbiata, ma per una volta non importava a nessuno. In cucina, la mamma era in piedi con la caffettiera in mano, immobile. Il nonno era in piedi accanto a lei, immobile, con un vassoio di cartellate. Si guardavano. Nessuno andava ad aprire."
+        },
+        {
+          "type": "p",
+          "html": "<em>Toc toc</em>, di nuovo."
+        },
+        {
+          "type": "p",
+          "html": "Nico attraversò la pasticceria. Arrivò alla porta. La campanella sopra la porta fece <em>dlen</em>."
+        },
+        {
+          "type": "p",
+          "html": "Sulla soglia, con un borsone in spalla e il cappello da cuoco tutto storto in testa, c'era il papà."
+        },
+        {
+          "type": "p",
+          "html": "Aveva la barba castana più lunga del solito, gli occhi stanchi e lucidi, e il sorriso più grande che Nico avesse mai visto. Sulle spalle del suo giaccone c'era un velo bianco, sottile, che sembrava farina. O zucchero. O neve."
+        },
+        {
+          "type": "p",
+          "html": "Per un attimo nessuno si mosse. Poi Lalla gridò «Papà!» una volta sola, perché due non ce n'era il tempo, e gli si buttò addosso. E Nico gli si buttò addosso. E la mamma lasciò cadere la caffettiera, che fece un rumore terribile, e corse anche lei. E il nonno appoggiò il vassoio sul bancone, con calma, si lisciò i baffi con calma, e poi, con pochissima calma, li abbracciò tutti."
+        },
+        {
+          "type": "p",
+          "html": "Fu un abbraccio lunghissimo. Così lungo che il caffè, per terra, fece in tempo a raffreddarsi."
+        },
+        {
+          "type": "p",
+          "html": "Più tardi, seduti intorno al tavolo della cucina, con le cartellate e il caffè rifatto, il papà raccontò. Raccontò che la nave, all'improvviso, la sera prima, aveva avuto un guasto. Il motore, quello che tossiva, aveva fatto un ultimo colpo di tosse e si era fermato. Un pezzo minuscolo, una cosa da niente, che però andava sostituito subito. E che per sostituirlo la nave aveva dovuto fermarsi nel porto più vicino. E che il porto più vicino, chissà come, chissà perché, era Brindisi."
+        },
+        {
+          "type": "p",
+          "html": "«Brindisi?» disse la mamma. «Ma non eravate ai Caraibi? Non avevate scali per un mese?»"
+        },
+        {
+          "type": "p",
+          "html": "«È quello che ho detto anch'io» disse il papà. «Nessuno se lo spiega. Il capitano dice che dev'essere stato il vento. Un vento fortissimo, che ci ha spinto per tutta la notte, e faceva un rumore strano. Come di campanelli.» Si grattò la barba. «Mi hanno lasciato scendere per Natale. Ma a mezzanotte non c'erano più treni, non c'erano autobus, niente. Allora mi sono messo sulla strada, con il borsone. E dopo un po' si è fermato un furgone.»"
+        },
+        {
+          "type": "p",
+          "html": "«Un furgone?» disse Nico."
+        },
+        {
+          "type": "p",
+          "html": "«Rosso» disse il papà. «Guidato da un signore grosso, con la barba bianca. Non ha detto una parola per tutto il viaggio. Ogni tanto rideva da solo. Dietro, nel furgone, si sentivano dei rumori, come zoccoli. E quando sono sceso, qui davanti, mi ha chiesto solo una cosa in cambio.» Il papà guardò il nonno, perplesso. «Una cartellata. Ha detto che gliene avevano parlato benissimo.»"
+        },
+        {
+          "type": "p",
+          "html": "«Tonino» disse il papà, socchiudendo gli occhi. «Tu ne sai qualcosa?»"
+        },
+        {
+          "type": "p",
+          "html": "«EH?» gridò il nonno, a voce altissima. «COME?»"
+        },
+        {
+          "type": "p",
+          "html": "E diventò improvvisamente sordo da tutte e due le orecchie. Ma sotto i baffi, per un attimo, gli scappò un sorriso."
+        },
+        {
+          "type": "p",
+          "html": "La mamma guardò Nico. Nico guardò Lalla. Lalla guardò Gino. E tutti e tre, anzi tutti e quattro, si misero a ridere, così forte che il papà non capì niente, e rise anche lui, senza sapere perché."
+        },
+        {
+          "type": "p",
+          "html": "Quel pomeriggio, mentre in cucina il papà e il nonno facevano le pettole insieme, litigando su quanto lievito mettere, e la mamma sbagliava apposta le parole delle canzoni di Natale, e Lalla insegnava a Gino a ballare, Nico uscì da solo."
+        },
+        {
+          "type": "p",
+          "html": "Scese per via del Pozzo, passò davanti alla chiesa, sotto l'arco dei Santi, attraverso la piazza con la fontana senz'acqua. In piazza c'era il vigile Spinaci, in bicicletta, che girava in tondo intorno alla fontana. Sul manubrio aveva un campanello d'argento nuovo. E ogni volta che passava davanti a qualcuno, lo suonava, <em>drin drin</em>, e la gente si spostava ridendo, e lui salutava con il guanto bianco. Quando vide Nico, si tolse il berretto e fece un inchino. Poi ripartì, suonando."
+        },
+        {
+          "type": "p",
+          "html": "Nico scese le scale bianche, fino al molo. Il mare era calmo e azzurro, e brillava come se qualcuno ci avesse sparso sopra lo zucchero a velo. Sopra il faro, l'Ammiraglio era seduto con un fischietto d'argento nel becco, e lo guardava con un occhio solo, come per dire: questo me lo tengo."
+        },
+        {
+          "type": "p",
+          "html": "Nico infilò la mano in tasca. La tasca era vuota. Il sasso non c'era più. Non sapeva quando l'aveva perso. Forse nel cortile, tra le braccia della mamma. Forse sul molo, mentre rideva. Forse si era sciolto, come lo zucchero. Ma non c'era più, e Nico capì che non gli serviva."
+        },
+        {
+          "type": "p",
+          "html": "Si sedette sul bordo del molo, con le gambe penzoloni, gli stivali rossi sopra l'acqua."
+        },
+        {
+          "type": "p",
+          "html": "E guardò il mare. E il cielo sopra il mare, dove la sera prima era passata una slitta."
+        },
+        {
+          "type": "p",
+          "html": "Mancava un anno intero alla prossima Vigilia. Trecentosessantacinque giorni. Era tantissimo. Ma Nico sapeva che, a mezzanotte, laggiù, all'ultimo posto a sinistra, ci sarebbe stata una piccola luce azzurra. E che quella luce, anche da così lontano, lo avrebbe cercato."
+        },
+        {
+          "type": "p",
+          "html": "Sorrise."
+        },
+        {
+          "type": "p",
+          "html": "Dal mare, piano piano, portato dal vento, arrivò un suono. Piccolo, piccolissimo. Forse era una barca. Forse era un gabbiano. Forse era soltanto il vento."
+        },
+        {
+          "type": "p",
+          "html": "<em>Tin.</em>"
+        },
+        {
+          "type": "p",
+          "html": "Nico rise."
+        },
+        {
+          "type": "p",
+          "html": "E il vento, da lontano, rise con lui."
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "kind": "augurio",
+      "chapter": null,
+      "title": "Un augurio di Natale",
+      "image": null,
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Cari lettori grandi e piccoli,"
+        },
+        {
+          "type": "p",
+          "html": "a Torre Pinella non nevica mai. Eppure, una notte, è nevicato zucchero. Perché certe cose non scendono dal cielo per il freddo: scendono perché qualcuno, finalmente, ha riso."
+        },
+        {
+          "type": "p",
+          "html": "A voi bambini auguro un sonaglio in tasca. Non importa che si veda. Basta che suoni ogni volta che ridete, e vi ricordi che una risata vera, la vostra, può far volare qualcuno."
+        },
+        {
+          "type": "p",
+          "html": "A voi grandi auguro di frugarvi in tasca, prima di sera, e di trovare il coraggio di tirare fuori il sasso invisibile, quello del «non fa niente». Pesa sempre più di quanto diciamo. E si scioglie, come lo zucchero, appena qualcuno ci abbraccia."
+        },
+        {
+          "type": "p",
+          "html": "A chi aspetta qualcuno lontano, su una nave, in un'altra città, dall'altra parte di un telefono, auguro una porta che bussa la mattina di Natale. E se quest'anno la porta non bussa, auguro una luce accesa in cucina: da lassù si vede, ve lo assicuro."
+        },
+        {
+          "type": "p",
+          "html": "A tutti auguro una casa che profuma di cartellate, una vicina con il binocolo che vi tiene d'occhio con affetto, un nonno che ci sente benissimo proprio quando serve, e un vigile, uno qualunque, che finalmente si sente arrivare."
+        },
+        {
+          "type": "p",
+          "html": "E stanotte, prima di dormire, affacciatevi un momento alla finestra. Guardate in alto, verso l'ultimo posto a sinistra. Se vedete una piccola luce azzurra, salutatela. È Briciola. Vi sta cercando."
+        },
+        {
+          "type": "p",
+          "html": "Buon Natale, con tutto il cuore,"
+        },
+        {
+          "type": "p",
+          "html": "<em>Antonino Campanella</em>"
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "kind": "gioca",
+      "chapter": null,
+      "title": "Gioca con Briciola!",
+      "image": null,
+      "blocks": [
+        {
+          "type": "p",
+          "html": "Bambini, adesso tocca a voi! Toccate il link qui sotto: si apre il sito del libro, dove potete rileggere la storia, ricevere gli auguri di Natale e aiutare Briciola a volare sopra Torre Pinella, un capitolo dopo l'altro. Raccogliete le risate per far suonare il sonaglio, prendete le cartellate del nonno, trovate le lettere perdute e state attenti all'Ammiraglio. Alla fine, a mezzanotte, la slitta di Babbo Natale vi aspetta."
+        },
+        {
+          "type": "p",
+          "html": "<a href=\"#gioca\">Aiuto, è caduta una renna! – Leggi e gioca</a>"
+        },
+        {
+          "type": "p",
+          "html": "Il sito si apre nel browser e funziona sul telefono, sul tablet e sul computer. Contiene il libro intero, gli auguri dell'autore e il gioco completo «Briciola vola!». È gratuito, non ha pubblicità e non raccoglie nessun dato. Grandi, entrate pure anche voi."
+        },
+        {
+          "type": "p",
+          "html": "Se il link non si apre, aprite il libro da un telefono o da un tablet e toccatelo da lì."
+        }
+      ]
+    }
+  ]
+}

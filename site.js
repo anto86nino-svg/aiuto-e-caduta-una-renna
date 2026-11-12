@@ -1,0 +1,967 @@
+(() => {
+  'use strict';
+
+  const VIEWS = ['home', 'leggi', 'auguri', 'gioca'];
+  const STORAGE_KEY = 'renna-lettura-v1';
+  let libro = null;
+  let soundOn = false;
+  let audioCtx = null;
+  let gameLoaded = false;
+  let pendingLevel = null;
+  let readDone = new Set();
+  let bookmark = null; // { sectionId, chapter, title, audioTime, updatedAt }
+  let audioManifest = null;
+  let narrIndex = 0;
+  let narrReady = false;
+  let activeReadingId = null; // una sola sezione aperta per volta (niente cascata)
+
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+  function loadProgress() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      if (Array.isArray(data.done)) readDone = new Set(data.done);
+      if (data.bookmark && data.bookmark.sectionId) bookmark = data.bookmark;
+    } catch (_) {}
+  }
+  function saveProgress() {
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ done: [...readDone], bookmark }),
+      );
+    } catch (_) {}
+  }
+
+  function setBookmark(opts = {}) {
+    const sec =
+      (opts.sectionId && libro?.sections?.find((s) => s.id === opts.sectionId)) ||
+      libro?.sections?.find((s) => s.id === activeReadingId);
+    if (!sec) return;
+    const audio = $('#narr-audio');
+    let audioTime = Number(opts.audioTime);
+    if (!Number.isFinite(audioTime)) {
+      audioTime = audio && Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+    }
+    bookmark = {
+      sectionId: sec.id,
+      chapter: sec.chapter || null,
+      title: sec.title,
+      audioTime: Math.max(0, audioTime),
+      updatedAt: Date.now(),
+    };
+    saveProgress();
+    updateBookmarkUI();
+    if (opts.chime) {
+      soundOn = true;
+      tin(3);
+    }
+  }
+
+  function clearBookmark() {
+    bookmark = null;
+    saveProgress();
+    updateBookmarkUI();
+  }
+
+  function goToBookmark({ play = false } = {}) {
+    if (!bookmark?.sectionId || !libro) return;
+    const sec = libro.sections.find((s) => s.id === bookmark.sectionId);
+    if (!sec) return;
+    openReading(sec, { updateHash: true, play: false });
+    if (play || bookmark.audioTime > 0.5) {
+      const idx = audioManifest?.sections?.findIndex((s) => s.id === sec.id) ?? -1;
+      if (idx >= 0) {
+        loadNarrSection(idx, true);
+        const audio = $('#narr-audio');
+        const t = bookmark.audioTime || 0;
+        const seek = () => {
+          if (t > 0.4 && audio.duration && t < audio.duration) audio.currentTime = t;
+        };
+        if (audio.readyState >= 1) seek();
+        else audio.addEventListener('loadedmetadata', seek, { once: true });
+      }
+    }
+  }
+
+  function updateBookmarkUI() {
+    const btn = $('#btn-vai-segnalibro');
+    if (btn) {
+      if (bookmark?.sectionId) {
+        btn.hidden = false;
+        btn.textContent = `🔖 Segnalibro: ${bookmark.title || 'riprendi'}`;
+      } else {
+        btn.hidden = true;
+      }
+    }
+    $$('#toc-list a').forEach((a) => {
+      const id = a.dataset.openSection;
+      a.classList.toggle('has-bookmark', !!(bookmark && id && id === bookmark.sectionId));
+    });
+    $$('[data-bookmark-toggle]').forEach((b) => {
+      const on = bookmark && bookmark.sectionId === activeReadingId;
+      b.classList.toggle('is-set', !!on);
+      b.textContent = on ? '🔖 Segnalibro salvato' : '🔖 Segna qui';
+      b.title = on
+        ? 'Segnalibro su questo capitolo (clicca di nuovo per aggiornare)'
+        : 'Salva il segnalibro qui (lettura o ascolto)';
+    });
+  }
+
+  function ensureAudio() {
+    if (audioCtx) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+    const A = window.AudioContext || window.webkitAudioContext;
+    if (!A) return null;
+    audioCtx = new A();
+    return audioCtx;
+  }
+
+  function tin(pitch = 0) {
+    if (!soundOn) return;
+    const ac = ensureAudio();
+    if (!ac) return;
+    const t0 = ac.currentTime;
+    const f = 1568 * Math.pow(2, pitch / 12);
+    [[f, 0.9, 0.22], [f * 2.76, 0.5, 0.07], [f * 5.4, 0.25, 0.03]].forEach(([freq, dur, vol]) => {
+      const o = ac.createOscillator();
+      const g = ac.createGain();
+      o.type = 'sine';
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(vol, t0 + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      o.connect(g);
+      g.connect(ac.destination);
+      o.start(t0);
+      o.stop(t0 + dur + 0.05);
+    });
+  }
+
+  function ringButton(btn) {
+    if (!btn) return;
+    btn.classList.remove('ring');
+    void btn.offsetWidth;
+    btn.classList.add('ring');
+    tin();
+  }
+
+  function currentView() {
+    const h = (location.hash || '#home').replace(/^#/, '').split('?')[0];
+    if (h.startsWith('capitolo-')) return 'leggi';
+    if (VIEWS.includes(h)) return h;
+    return 'home';
+  }
+
+  function showView(name) {
+    VIEWS.forEach((v) => {
+      const el = $(`#view-${v}`);
+      if (!el) return;
+      const on = v === name;
+      el.hidden = !on;
+    });
+    $$('.nav a[data-nav]').forEach((a) => {
+      a.setAttribute('aria-current', a.dataset.nav === name ? 'page' : 'false');
+    });
+    if (name === 'gioca') loadGame();
+    if (name === 'leggi') {
+      const s = sectionFromHash();
+      if (s && s.id !== activeReadingId) openReading(s, { updateHash: false, play: false });
+      $('#reader')?.focus({ preventScroll: true });
+    }
+    if (name === 'home' || name === 'auguri') window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function route() {
+    showView(currentView());
+  }
+
+  /** Sezioni leggibili una per volta (niente libro intero in cascata). */
+  function readableSections() {
+    return (libro?.sections || []).filter((s) =>
+      s.kind === 'note' || s.kind === 'chapter' || s.kind === 'titlepage',
+    );
+  }
+
+  function sectionFromHash() {
+    const h = (location.hash || '').replace(/^#/, '').split('?')[0];
+    if (!libro) return null;
+    if (h.startsWith('capitolo-')) {
+      const n = Number(h.split('-')[1]);
+      return libro.sections.find((s) => s.kind === 'chapter' && Number(s.chapter) === n) || null;
+    }
+    if (h === 'leggi' || h === '') {
+      return libro.sections.find((s) => s.kind === 'chapter' && s.chapter === 1)
+        || readableSections()[0]
+        || null;
+    }
+    return libro.sections.find((s) => s.id === h) || null;
+  }
+
+  function hashForSection(s) {
+    if (!s) return 'leggi';
+    if (s.kind === 'chapter') return `capitolo-${s.chapter}`;
+    return s.id;
+  }
+
+  function syncReadingFromHash() {
+    const s = sectionFromHash();
+    if (s) openReading(s, { updateHash: false, play: false });
+  }
+
+  function loadGame(level) {
+    const frame = $('#game-frame');
+    if (!frame) return;
+    if (level != null && level !== '') pendingLevel = Number(level);
+    const q = new URLSearchParams();
+    q.set('from', 'libro');
+    q.set('v', String(Date.now() % 1e9)); // evita cache stantia nell’iframe
+    if (pendingLevel) {
+      q.set('level', String(pendingLevel));
+      pendingLevel = null;
+      gameLoaded = false;
+    }
+    const src = `gioca/index.html?${q.toString()}`;
+    const blank = !frame.src || frame.src === 'about:blank' || frame.getAttribute('src') === 'about:blank';
+    if (!gameLoaded || q.has('level') || blank || !String(frame.src).includes('gioca/index.html')) {
+      frame.src = src;
+      gameLoaded = true;
+    }
+  }
+
+  function markChapter(n) {
+    if (!n) return;
+    readDone.add(Number(n));
+    saveProgress();
+    updateProgressUI();
+  }
+
+  function updateProgressUI() {
+    const chapters = (libro?.sections || []).filter((s) => s.kind === 'chapter');
+    const total = chapters.length || 14;
+    const done = [...readDone].filter((n) => n >= 1 && n <= total).length;
+    const pct = Math.round((done / total) * 100);
+    const pctEl = $('#progress-pct');
+    const bar = $('#progress-bar');
+    if (pctEl) pctEl.textContent = `${pct}%`;
+    if (bar) bar.style.width = `${pct}%`;
+    $$('#toc-list a[data-chapter]').forEach((a) => {
+      const n = Number(a.dataset.chapter);
+      a.classList.toggle('done', readDone.has(n));
+    });
+  }
+
+  function renderToc() {
+    const list = $('#toc-list');
+    if (!list || !libro) return;
+    list.innerHTML = '';
+    libro.sections.forEach((s) => {
+      if (s.kind === 'titlepage') return;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      if (s.kind === 'chapter') {
+        a.href = `#capitolo-${s.chapter}`;
+        a.dataset.chapter = String(s.chapter);
+        a.dataset.openSection = s.id;
+        a.className = 'toc-chapter';
+        a.textContent = s.title;
+        a.title = 'Apri questo capitolo';
+      } else if (s.kind === 'augurio') {
+        a.href = '#auguri';
+        a.dataset.nav = 'auguri';
+        a.textContent = s.title;
+        a.title = 'Apri gli auguri';
+      } else if (s.kind === 'gioca') {
+        a.href = '#gioca';
+        a.dataset.nav = 'gioca';
+        a.textContent = s.title;
+      } else if (s.kind === 'note') {
+        a.href = `#${s.id}`;
+        a.dataset.openSection = s.id;
+        a.textContent = s.title;
+        a.title = 'Apri la nota dell’autore';
+      } else {
+        a.href = `#${s.id}`;
+        a.dataset.openSection = s.id;
+        a.textContent = s.title;
+      }
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    highlightToc();
+  }
+
+  function highlightToc() {
+    $$('#toc-list a').forEach((a) => {
+      const open = a.dataset.openSection;
+      const ch = a.dataset.chapter;
+      let on = false;
+      if (ch && activeReadingId) {
+        const cur = libro?.sections?.find((s) => s.id === activeReadingId);
+        on = cur && String(cur.chapter) === String(ch);
+      } else if (open) on = open === activeReadingId;
+      a.setAttribute('aria-current', on ? 'true' : 'false');
+      a.classList.toggle('is-open', on);
+    });
+  }
+
+  function neighborSections(section) {
+    const list = readableSections();
+    const i = list.findIndex((s) => s.id === section.id);
+    return {
+      prev: i > 0 ? list[i - 1] : null,
+      next: i >= 0 && i < list.length - 1 ? list[i + 1] : null,
+      index: i,
+      total: list.length,
+    };
+  }
+
+  function openReading(section, opts = {}) {
+    if (!section || !libro) return;
+    const { updateHash = true, play = false } = opts;
+    activeReadingId = section.id;
+    if (section.kind === 'chapter') markChapter(section.chapter);
+
+    const body = $('#reader-body');
+    if (!body) return;
+    body.innerHTML = '';
+
+    const { prev, next } = neighborSections(section);
+
+    // Banner segnalibro (se diverso dal capitolo aperto)
+    if (bookmark?.sectionId && bookmark.sectionId !== section.id) {
+      const ban = document.createElement('div');
+      ban.className = 'bookmark-banner';
+      ban.innerHTML = `<span>Segnalibro salvato: <strong>${escapeHtml(bookmark.title || '')}</strong></span>
+        <span class="row">
+          <button type="button" class="btn btn-bookmark btn-sm" data-go-bookmark>Apri segnalibro</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-clear-bookmark>Rimuovi</button>
+        </span>`;
+      body.appendChild(ban);
+    }
+
+    const sec = document.createElement('section');
+    sec.className = `section-block kind-${section.kind} is-alone`;
+    sec.id = section.kind === 'chapter' ? `capitolo-${section.chapter}` : section.id;
+    sec.dataset.kind = section.kind;
+    sec.dataset.sectionId = section.id;
+    if (section.chapter) sec.dataset.chapter = String(section.chapter);
+
+    // CONTROLLI IN ALTO: ascolta / prev / next / segnalibro / gioca
+    const tool = document.createElement('div');
+    tool.className = 'chapter-toolbar';
+    const listenBtn =
+      section.kind === 'augurio' || section.kind === 'gioca'
+        ? ''
+        : `<button type="button" class="btn btn-listen btn-sm" data-listen-section="${section.id}">▶ Ascolta</button>`;
+    const playBtn =
+      section.kind === 'chapter'
+        ? `<button type="button" class="btn btn-secondary btn-sm" data-play-level="${section.chapter}">Gioca</button>`
+        : '';
+    const prevBtn = prev
+      ? `<button type="button" class="btn btn-ghost btn-sm" data-open-section="${prev.id}">‹ ${escapeHtml(
+          prev.kind === 'chapter' ? `Cap. ${prev.chapter}` : prev.title,
+        )}</button>`
+      : '';
+    let nextBtn = '';
+    if (next) {
+      nextBtn = `<button type="button" class="btn btn-primary btn-sm" data-open-section="${next.id}">${
+        next.kind === 'chapter' ? `Capitolo ${next.chapter}` : escapeHtml(next.title)
+      } ›</button>`;
+    } else if (section.kind === 'chapter') {
+      nextBtn = `<a class="btn btn-primary btn-sm" href="#auguri" data-nav="auguri">Auguri ›</a>`;
+    }
+    const label =
+      section.kind === 'chapter'
+        ? `Capitolo ${section.chapter} di 14 · sessione`
+        : section.kind === 'note'
+          ? 'Nota dell’autore · sessione'
+          : 'Frontespizio · sessione';
+    tool.innerHTML = `
+      <p class="toolbar-title">${escapeHtml(label)}</p>
+      <div class="row">
+        ${prevBtn}
+        ${listenBtn}
+        ${nextBtn}
+        <button type="button" class="btn btn-bookmark btn-sm" data-bookmark-toggle>🔖 Segna qui</button>
+        ${playBtn}
+      </div>`;
+    sec.appendChild(tool);
+
+    const crumb = document.createElement('p');
+    crumb.className = 'chapter-crumb';
+    crumb.textContent =
+      section.kind === 'chapter'
+        ? `Capitolo ${section.chapter} di 14`
+        : section.kind === 'note'
+          ? 'Prima del racconto'
+          : 'Frontespizio';
+    sec.appendChild(crumb);
+
+    const h = document.createElement('h2');
+    h.textContent = section.title;
+    sec.appendChild(h);
+
+    if (section.image) {
+      const fig = document.createElement('figure');
+      fig.className = 'illust';
+      fig.innerHTML = `<img src="${section.image}" alt="Illustrazione: ${escapeAttr(section.title)}" loading="eager">`;
+      sec.appendChild(fig);
+    }
+
+    const blocks = document.createElement('div');
+    blocks.className = 'blocks';
+    (section.blocks || []).forEach((b) => {
+      if (b.type === 'p') {
+        const p = document.createElement('p');
+        p.innerHTML = b.html;
+        blocks.appendChild(p);
+      } else if (b.type === 'quote') {
+        const p = document.createElement('p');
+        p.innerHTML = `<em>${b.html}</em>`;
+        blocks.appendChild(p);
+      }
+    });
+    sec.appendChild(blocks);
+
+    // piede leggero: solo avanti
+    if (next || section.kind === 'chapter') {
+      const foot = document.createElement('div');
+      foot.className = 'chapter-foot';
+      if (next) {
+        foot.innerHTML = `<button type="button" class="btn btn-primary btn-sm" data-open-section="${next.id}">Continua: ${
+          next.kind === 'chapter' ? `capitolo ${next.chapter}` : escapeHtml(next.title)
+        } ›</button>`;
+      } else {
+        foot.innerHTML = `<a class="btn btn-primary btn-sm" href="#auguri" data-nav="auguri">Leggi gli auguri ›</a>`;
+      }
+      sec.appendChild(foot);
+    }
+
+    body.appendChild(sec);
+
+    highlightToc();
+    updateProgressUI();
+    updateBookmarkUI();
+
+    VIEWS.forEach((v) => {
+      const el = $(`#view-${v}`);
+      if (el) el.hidden = v !== 'leggi';
+    });
+    $$('.nav a[data-nav]').forEach((a) => {
+      a.setAttribute('aria-current', a.dataset.nav === 'leggi' ? 'page' : 'false');
+    });
+
+    const wantHash = hashForSection(section);
+    if (updateHash && location.hash.replace(/^#/, '') !== wantHash) {
+      location.hash = wantHash;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    const reader = $('#reader');
+    if (reader) reader.scrollTop = 0;
+
+    if (play) playAudioForSection(section.id);
+  }
+
+  function renderReader() {
+    // Compat: all’avvio apre dal hash (una sola pagina)
+    const s = sectionFromHash() || readableSections()[0];
+    if (s) openReading(s, { updateHash: false, play: false });
+  }
+
+  function renderAuguri() {
+    const box = $('#auguri-body');
+    if (!box || !libro) return;
+    const s = libro.sections.find((x) => x.kind === 'augurio');
+    if (!s) return;
+    box.innerHTML = (s.blocks || [])
+      .filter((b) => b.type === 'p')
+      .map((b) => `<p>${b.html}</p>`)
+      .join('');
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+  function escapeAttr(s) {
+    return escapeHtml(s).replace(/"/g, '&quot;');
+  }
+
+  function observeReading() {
+    const nodes = $$('.section-block[data-chapter]');
+    if (!nodes.length || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          const n = Number(en.target.dataset.chapter);
+          markChapter(n);
+          $$('#toc-list a[data-chapter]').forEach((a) => {
+            a.setAttribute('aria-current', Number(a.dataset.chapter) === n ? 'true' : 'false');
+          });
+        });
+      },
+      { rootMargin: '-35% 0px -45% 0px', threshold: 0.01 }
+    );
+    nodes.forEach((n) => io.observe(n));
+  }
+
+  function fmtTime(sec) {
+    sec = Math.max(0, Math.floor(sec || 0));
+    const m = Math.floor(sec / 60);
+    const s = String(sec % 60).padStart(2, '0');
+    return `${m}:${s}`;
+  }
+
+  function clearReadingHighlight() {
+    $$('.blocks p.reading').forEach((p) => p.classList.remove('reading'));
+  }
+
+  function highlightCue(sectionId, blockIndex) {
+    clearReadingHighlight();
+    const sec = document.getElementById(
+      sectionId.startsWith('s') && audioManifest
+        ? (() => {
+            const meta = audioManifest.sections.find((x) => x.id === sectionId);
+            if (meta?.kind === 'chapter') return `capitolo-${meta.chapter}`;
+            return sectionId;
+          })()
+        : sectionId,
+    );
+    // prefer chapter DOM id
+    let root = null;
+    const meta = audioManifest?.sections.find((x) => x.id === sectionId);
+    if (meta?.kind === 'chapter') root = document.getElementById(`capitolo-${meta.chapter}`);
+    if (!root) root = document.getElementById(sectionId);
+    if (!root) return;
+    const ps = $$('.blocks p', root);
+    const p = ps[blockIndex];
+    if (!p) return;
+    p.classList.add('reading');
+    const rect = p.getBoundingClientRect();
+    if (rect.top < 90 || rect.bottom > window.innerHeight - 120) {
+      p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function showNarratorBar(show) {
+    const bar = $('#narrator-bar');
+    if (!bar) return;
+    bar.hidden = !show;
+    document.body.classList.toggle('has-narrator', show);
+  }
+
+  function currentNarrSection() {
+    return audioManifest?.sections?.[narrIndex] || null;
+  }
+
+  function updateNarrUI() {
+    const s = currentNarrSection();
+    const audio = $('#narr-audio');
+    if (!s || !audio) return;
+    $('#narr-title').textContent = s.title;
+    const sub = $('#narr-sub');
+    if (sub && !audio.ended) {
+      sub.textContent = audio.paused
+        ? `${audioManifest.voiceLabel || 'Narratore Scripto'} · in pausa`
+        : `${audioManifest.voiceLabel || 'Narratore Scripto'} · solo questo capitolo`;
+    }
+    $('#narr-cur').textContent = fmtTime(audio.currentTime);
+    $('#narr-dur').textContent = fmtTime(audio.duration || s.durationSec || 0);
+    const max = audio.duration || s.durationSec || 1;
+    $('#narr-seek').value = String(Math.round((audio.currentTime / max) * 1000));
+    $('#narr-play').textContent = audio.paused ? '▶' : '❚❚';
+    $$('#toc-list a[data-listen-section]').forEach((a) => {
+      a.setAttribute('aria-current', a.dataset.listenSection === s.id ? 'true' : 'false');
+    });
+  }
+
+  function loadNarrSection(index, autoplay = true) {
+    if (!audioManifest?.sections?.length) return;
+    narrIndex = Math.max(0, Math.min(audioManifest.sections.length - 1, index));
+    const s = currentNarrSection();
+    const audio = $('#narr-audio');
+    if (!s || !audio) return;
+    showNarratorBar(true);
+    clearReadingHighlight();
+    audio.playbackRate = 1;
+    audio.defaultPlaybackRate = 1;
+    audio.src = s.src;
+    audio.load();
+    updateNarrUI();
+    // Apri la pagina del capitolo (una sola), non scorrere la cascata
+    if (s.kind === 'augurio') {
+      location.hash = 'auguri';
+      showView('auguri');
+    } else {
+      const bookSec = libro?.sections?.find((x) => x.id === s.id);
+      if (bookSec && bookSec.id !== activeReadingId) {
+        openReading(bookSec, { updateHash: true, play: false });
+      }
+    }
+    const start = () => {
+      if (autoplay) {
+        audio.play().catch(() => {});
+      }
+      updateNarrUI();
+    };
+    if (audio.readyState >= 1) start();
+    else audio.addEventListener('loadedmetadata', start, { once: true });
+  }
+
+  function goToSection(sectionId, chapterNum) {
+    if (chapterNum) {
+      const sec = libro?.sections?.find((s) => s.kind === 'chapter' && Number(s.chapter) === Number(chapterNum));
+      if (sec) {
+        openReading(sec, { updateHash: true, play: false });
+        return;
+      }
+    }
+    const sec = libro?.sections?.find((s) => s.id === sectionId);
+    if (!sec) return;
+    if (sec.kind === 'augurio') {
+      if (location.hash.replace(/^#/, '') !== 'auguri') location.hash = 'auguri';
+      showView('auguri');
+      return;
+    }
+    if (sec.kind === 'gioca') {
+      location.hash = 'gioca';
+      showView('gioca');
+      loadGame();
+      return;
+    }
+    openReading(sec, { updateHash: true, play: false });
+  }
+
+  function playAudioForSection(sectionId) {
+    if (!audioManifest?.sections?.length) {
+      showNarratorBar(true);
+      const title = $('#narr-title');
+      const sub = $('#narr-sub');
+      if (title) title.textContent = 'Audiolibro in preparazione';
+      if (sub) sub.textContent = 'La voce di Cesare sta arrivando… riprova tra poco';
+      return;
+    }
+    const idx = audioManifest.sections.findIndex((s) => s.id === sectionId);
+    if (idx < 0) {
+      // magari il capitolo non è ancora sintetizzato: prova il primo capitolo pronto
+      const fallback = audioManifest.sections.findIndex((s) => s.kind === 'chapter');
+      if (fallback >= 0) {
+        const sub = $('#narr-sub');
+        if (sub) sub.textContent = 'Questo capitolo arriva presto · ascolto un altro disponibile';
+        loadNarrSection(fallback, true);
+        return;
+      }
+      showNarratorBar(true);
+      const sub = $('#narr-sub');
+      if (sub) sub.textContent = 'Capitolo audio non ancora pronto';
+      return;
+    }
+    loadNarrSection(idx, true);
+  }
+
+  function playFromSectionId(sectionId) {
+    const sec = libro?.sections?.find((s) => s.id === sectionId);
+    if (sec && sec.kind !== 'augurio') openReading(sec, { updateHash: true, play: false });
+    else if (sec?.kind === 'augurio') {
+      location.hash = 'auguri';
+      showView('auguri');
+    }
+    playAudioForSection(sectionId);
+  }
+
+  function playFromVisibleChapter() {
+    if (activeReadingId) {
+      playAudioForSection(activeReadingId);
+      return;
+    }
+    const sec = sectionFromHash();
+    if (sec) playFromSectionId(sec.id);
+    else if (audioManifest?.sections?.length) loadNarrSection(0, true);
+  }
+
+  function wireNarrator() {
+    const audio = $('#narr-audio');
+    if (!audio || !audioManifest) return;
+    narrReady = true;
+
+    $('#narr-play')?.addEventListener('click', () => {
+      if (!audio.src) {
+        loadNarrSection(0, true);
+        return;
+      }
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+      updateNarrUI();
+    });
+    // Prev/next in alto = capitolo precedente/successivo + ascolto
+    $('#narr-prev')?.addEventListener('click', () => {
+      if (narrIndex > 0) loadNarrSection(narrIndex - 1, true);
+    });
+    $('#narr-next')?.addEventListener('click', () => {
+      if (narrIndex < audioManifest.sections.length - 1) loadNarrSection(narrIndex + 1, true);
+    });
+    $('#narr-close')?.addEventListener('click', () => {
+      audio.pause();
+      showNarratorBar(false);
+      clearReadingHighlight();
+    });
+    $('#narr-seek')?.addEventListener('input', (e) => {
+      const s = currentNarrSection();
+      if (!s) return;
+      const max = audio.duration || s.durationSec || 1;
+      audio.currentTime = (Number(e.target.value) / 1000) * max;
+    });
+    let lastBookmarkSave = 0;
+    audio.addEventListener('timeupdate', () => {
+      updateNarrUI();
+      const s = currentNarrSection();
+      if (s?.cues?.length) {
+        const t = audio.currentTime;
+        const cue = s.cues.find((c) => t >= c.start && t < c.end) || s.cues[s.cues.length - 1];
+        if (cue && cue.blockIndex >= 0) highlightCue(s.id, cue.blockIndex);
+      }
+      // aggiorna segnalibro durante l’ascolto (ogni ~8s)
+      if (s && !audio.paused && Date.now() - lastBookmarkSave > 8000) {
+        lastBookmarkSave = Date.now();
+        setBookmark({ sectionId: s.id, audioTime: audio.currentTime });
+      }
+    });
+    // Fine capitolo → STOP. Si passa al successivo solo scegliendolo dall'indice.
+    audio.addEventListener('ended', () => {
+      clearReadingHighlight();
+      updateNarrUI();
+      const s = currentNarrSection();
+      if (s) setBookmark({ sectionId: s.id, audioTime: 0 });
+      const sub = $('#narr-sub');
+      if (sub) {
+        sub.textContent = s
+          ? `Fine di «${s.title}» · usa i controlli in alto per il prossimo`
+          : 'Capitolo finito · scegli il prossimo dall\'indice';
+      }
+      tin(1);
+    });
+    audio.addEventListener('play', updateNarrUI);
+    audio.addEventListener('pause', () => {
+      updateNarrUI();
+      const s = currentNarrSection();
+      if (s) setBookmark({ sectionId: s.id, audioTime: audio.currentTime });
+    });
+
+    // Home: apre il capitolo 1 (non tutta la cascata)
+    $('#btn-ascolta-tutto')?.addEventListener('click', () => {
+      const idx = audioManifest.sections.findIndex((s) => s.kind === 'chapter' && s.chapter === 1);
+      location.hash = 'capitolo-1';
+      loadNarrSection(idx >= 0 ? idx : 0, true);
+    });
+    $('#btn-ascolta-qui')?.addEventListener('click', () => playFromVisibleChapter());
+    $('#btn-ascolta-auguri')?.addEventListener('click', () => {
+      const idx = audioManifest.sections.findIndex((s) => s.kind === 'augurio');
+      loadNarrSection(idx >= 0 ? idx : 0, true);
+    });
+    $('#btn-vai-segnalibro')?.addEventListener('click', () => goToBookmark({ play: true }));
+  }
+
+  function snow() {
+    const cv = $('#neve');
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    let flakes = [];
+    let w = 0;
+    let h = 0;
+    function resize() {
+      w = cv.width = window.innerWidth * devicePixelRatio;
+      h = cv.height = window.innerHeight * devicePixelRatio;
+      cv.style.width = window.innerWidth + 'px';
+      cv.style.height = window.innerHeight + 'px';
+      flakes = Array.from({ length: Math.min(90, Math.floor(window.innerWidth / 12)) }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: (1 + Math.random() * 2.2) * devicePixelRatio,
+        v: (0.4 + Math.random() * 1.1) * devicePixelRatio,
+        drift: (Math.random() - 0.5) * 0.4 * devicePixelRatio,
+      }));
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    function tick() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = 'rgba(255,255,255,0.78)';
+      flakes.forEach((f) => {
+        f.y += f.v;
+        f.x += f.drift + Math.sin(f.y * 0.01) * 0.2;
+        if (f.y > h) {
+          f.y = -5;
+          f.x = Math.random() * w;
+        }
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  async function init() {
+    loadProgress();
+    snow();
+
+    const res = await fetch('libro.json');
+    libro = await res.json();
+    try {
+      const ar = await fetch('audio/manifest.json');
+      if (ar.ok) audioManifest = await ar.json();
+    } catch (_) {}
+    renderToc();
+    renderReader();
+    renderAuguri();
+    updateProgressUI();
+    updateBookmarkUI();
+    if (audioManifest) wireNarrator();
+    else {
+      ['btn-ascolta-tutto', 'btn-ascolta-qui'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.disabled = true;
+          el.title = 'Audiolibro in preparazione…';
+        }
+      });
+    }
+    route();
+    // Se arrivi a #leggi senza capitolo e c’è segnalibro, riprendi
+    const h0 = (location.hash || '').replace(/^#/, '');
+    if ((!h0 || h0 === 'leggi' || h0 === 'home') && bookmark?.sectionId) {
+      // resta su home se home; su leggi riprendi
+      if (h0 === 'leggi') goToBookmark({ play: false });
+    }
+
+    document.body.addEventListener('click', (e) => {
+      // Indice: ENTRA nel capitolo (pagina intera), senza cascata
+      const tocItem = e.target.closest('#toc-list a');
+      if (tocItem) {
+        e.preventDefault();
+        if (tocItem.dataset.nav === 'gioca') {
+          location.hash = 'gioca';
+          showView('gioca');
+          loadGame();
+          return;
+        }
+        if (tocItem.dataset.nav === 'auguri') {
+          location.hash = 'auguri';
+          showView('auguri');
+          return;
+        }
+        const openId = tocItem.dataset.openSection;
+        const chapter = tocItem.dataset.chapter ? Number(tocItem.dataset.chapter) : null;
+        if (openId) {
+          const sec = libro.sections.find((s) => s.id === openId);
+          if (sec) openReading(sec, { updateHash: true, play: false });
+          return;
+        }
+        if (chapter) {
+          goToSection(null, chapter);
+          return;
+        }
+        return;
+      }
+      const openBtn = e.target.closest('[data-open-section]');
+      if (openBtn) {
+        e.preventDefault();
+        const sec = libro?.sections?.find((s) => s.id === openBtn.dataset.openSection);
+        if (sec) {
+          openReading(sec, { updateHash: true, play: false });
+          setBookmark({ sectionId: sec.id, audioTime: 0 });
+        }
+        return;
+      }
+      if (e.target.closest('[data-bookmark-toggle]')) {
+        e.preventDefault();
+        setBookmark({ chime: true });
+        updateBookmarkUI();
+        const sub = $('#narr-sub');
+        if (sub) sub.textContent = 'Segnalibro salvato qui';
+        return;
+      }
+      if (e.target.closest('[data-go-bookmark]')) {
+        e.preventDefault();
+        goToBookmark({ play: true });
+        return;
+      }
+      if (e.target.closest('[data-clear-bookmark]')) {
+        e.preventDefault();
+        clearBookmark();
+        openReading(
+          libro.sections.find((s) => s.id === activeReadingId) || readableSections()[0],
+          { updateHash: false, play: false },
+        );
+        return;
+      }
+      const listen = e.target.closest('button[data-listen-section]');
+      if (listen) {
+        e.preventDefault();
+        // Ascolta = avvia lettura vocale di QUESTO capitolo
+        playFromSectionId(listen.dataset.listenSection);
+        setBookmark({ sectionId: listen.dataset.listenSection, audioTime: 0 });
+        return;
+      }
+      const play = e.target.closest('[data-play-level]');
+      if (play) {
+        e.preventDefault();
+        const level = Number(play.dataset.playLevel);
+        markChapter(level);
+        tin(2);
+        location.hash = 'gioca';
+        showView('gioca');
+        loadGame(level);
+        return;
+      }
+      const nav = e.target.closest('a[data-nav]');
+      if (nav && VIEWS.includes(nav.dataset.nav)) {
+        tin(-2);
+        if (nav.dataset.nav === 'gioca') {
+          // forza caricamento iframe anche se hash già #gioca
+          setTimeout(() => loadGame(), 0);
+        }
+      }
+      // Il sonaglio in copertina apre il pentagramma (tin-game.js). Qui solo chip data-tin generici.
+      if (e.target.closest('[data-tin]')) {
+        e.preventDefault();
+        soundOn = true;
+        $('#btn-suono')?.setAttribute('aria-pressed', 'true');
+        ringButton(e.target.closest('.sonaglio') || e.target);
+        tin();
+      }
+    });
+
+    $('#btn-suono')?.addEventListener('click', () => {
+      soundOn = !soundOn;
+      $('#btn-suono').setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+      if (soundOn) {
+        ensureAudio();
+        tin();
+      }
+    });
+
+    $('#btn-fullscreen')?.addEventListener('click', () => {
+      const frame = $('#game-frame');
+      if (!frame) return;
+      if (frame.requestFullscreen) frame.requestFullscreen();
+      else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
+    });
+
+    window.addEventListener('hashchange', route);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
