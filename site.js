@@ -14,6 +14,7 @@
   let narrIndex = 0;
   let narrReady = false;
   let activeReadingId = null; // una sola sezione aperta per volta (niente cascata)
+  let activeCueKey = null; // `${sectionId}:${blockIndex}` — evita flicker/scroll continui
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -416,15 +417,14 @@
 
     const blocks = document.createElement('div');
     blocks.className = 'blocks';
+    let blockIdx = 0;
     (section.blocks || []).forEach((b) => {
-      if (b.type === 'p') {
+      if (b.type === 'p' || b.type === 'quote') {
         const p = document.createElement('p');
-        p.innerHTML = b.html;
+        p.dataset.blockIndex = String(blockIdx);
+        p.innerHTML = b.type === 'quote' ? `<em>${b.html}</em>` : b.html;
         blocks.appendChild(p);
-      } else if (b.type === 'quote') {
-        const p = document.createElement('p');
-        p.innerHTML = `<em>${b.html}</em>`;
-        blocks.appendChild(p);
+        blockIdx += 1;
       }
     });
     sec.appendChild(blocks);
@@ -482,7 +482,7 @@
     if (!s) return;
     box.innerHTML = (s.blocks || [])
       .filter((b) => b.type === 'p')
-      .map((b) => `<p>${b.html}</p>`)
+      .map((b, i) => `<p data-block-index="${i}">${b.html}</p>`)
       .join('');
   }
 
@@ -523,32 +523,58 @@
   }
 
   function clearReadingHighlight() {
-    $$('.blocks p.reading').forEach((p) => p.classList.remove('reading'));
+    $$('.blocks p.reading, #auguri-body p.reading').forEach((p) => {
+      p.classList.remove('reading');
+      p.removeAttribute('aria-current');
+    });
+    activeCueKey = null;
   }
 
-  function highlightCue(sectionId, blockIndex) {
-    clearReadingHighlight();
-    const sec = document.getElementById(
-      sectionId.startsWith('s') && audioManifest
-        ? (() => {
-            const meta = audioManifest.sections.find((x) => x.id === sectionId);
-            if (meta?.kind === 'chapter') return `capitolo-${meta.chapter}`;
-            return sectionId;
-          })()
-        : sectionId,
-    );
-    // prefer chapter DOM id
-    let root = null;
+  /** Cue attivo: tiene il paragrafo anche nei piccoli silenzi tra un pezzo e l’altro. */
+  function cueAtTime(cues, t) {
+    if (!cues?.length) return null;
+    let active = cues[0];
+    for (const c of cues) {
+      if (t + 0.05 >= c.start) active = c;
+      else break;
+    }
+    return active;
+  }
+
+  function readingRootForSection(sectionId) {
     const meta = audioManifest?.sections.find((x) => x.id === sectionId);
-    if (meta?.kind === 'chapter') root = document.getElementById(`capitolo-${meta.chapter}`);
-    if (!root) root = document.getElementById(sectionId);
+    if (meta?.kind === 'augurio') return $('#auguri-body') || $('#view-auguri');
+    if (meta?.kind === 'chapter') {
+      return document.getElementById(`capitolo-${meta.chapter}`) || document.getElementById(sectionId);
+    }
+    return document.getElementById(sectionId) || $('#reader-body .section-block');
+  }
+
+  function highlightCue(sectionId, blockIndex, opts = {}) {
+    const key = `${sectionId}:${blockIndex}`;
+    if (!opts.force && activeCueKey === key) return;
+    const root = readingRootForSection(sectionId);
     if (!root) return;
-    const ps = $$('.blocks p', root);
-    const p = ps[blockIndex];
+    const ps = $$('p[data-block-index], .blocks p, #auguri-body p', root);
+    // prefer data-block-index match (allineato ai cue del manifesto)
+    let p =
+      ps.find((el) => Number(el.dataset.blockIndex) === Number(blockIndex)) ||
+      ps[blockIndex];
     if (!p) return;
+
+    $$('.blocks p.reading, #auguri-body p.reading').forEach((el) => {
+      if (el !== p) {
+        el.classList.remove('reading');
+        el.removeAttribute('aria-current');
+      }
+    });
     p.classList.add('reading');
+    p.setAttribute('aria-current', 'true');
+    activeCueKey = key;
+
+    const topPad = document.body.classList.contains('has-narrator') ? 160 : 90;
     const rect = p.getBoundingClientRect();
-    if (rect.top < 90 || rect.bottom > window.innerHeight - 120) {
+    if (rect.top < topPad || rect.bottom > window.innerHeight - 100) {
       p.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
@@ -593,6 +619,7 @@
     if (!s || !audio) return;
     showNarratorBar(true);
     clearReadingHighlight();
+    activeCueKey = null;
     audio.playbackRate = 1;
     audio.defaultPlaybackRate = 1;
     audio.src = s.src;
@@ -726,8 +753,7 @@
       updateNarrUI();
       const s = currentNarrSection();
       if (s?.cues?.length) {
-        const t = audio.currentTime;
-        const cue = s.cues.find((c) => t >= c.start && t < c.end) || s.cues[s.cues.length - 1];
+        const cue = cueAtTime(s.cues, audio.currentTime);
         if (cue && cue.blockIndex >= 0) highlightCue(s.id, cue.blockIndex);
       }
       // aggiorna segnalibro durante l’ascolto (ogni ~8s)
@@ -735,6 +761,13 @@
         lastBookmarkSave = Date.now();
         setBookmark({ sectionId: s.id, audioTime: audio.currentTime });
       }
+    });
+    // anche al seek manuale: evidenzia subito il pezzo giusto
+    audio.addEventListener('seeked', () => {
+      const s = currentNarrSection();
+      if (!s?.cues?.length) return;
+      const cue = cueAtTime(s.cues, audio.currentTime);
+      if (cue && cue.blockIndex >= 0) highlightCue(s.id, cue.blockIndex, { force: true });
     });
     // Fine capitolo → STOP. Si passa al successivo solo scegliendolo dall'indice.
     audio.addEventListener('ended', () => {

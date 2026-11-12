@@ -529,14 +529,37 @@ main { position: relative; z-index: 1; min-height: 70vh; }
   width: 100%;
   accent-color: var(--gold);
 }
-.blocks p.reading {
-  background: linear-gradient(90deg, rgba(230,193,90,.28), rgba(230,193,90,.08));
-  border-radius: 8px;
-  outline: 1px solid rgba(201,160,58,.35);
-  padding: .15rem .35rem;
+.blocks p,
+#auguri-body p {
+  border-left: 3px solid transparent;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.blocks p.reading,
+#auguri-body p.reading {
+  position: relative;
+  background: linear-gradient(90deg, rgba(230,193,90,.42), rgba(255,248,220,.55) 55%, rgba(230,193,90,.12));
+  border-radius: 12px;
+  border-left: 3px solid #c9a03a;
+  outline: 1px solid rgba(201,160,58,.55);
+  box-shadow: 0 8px 22px rgba(90,60,10,.12), inset 0 0 0 1px rgba(255,255,255,.35);
+  padding: .55rem .7rem .55rem .85rem;
   margin-left: -.35rem;
   margin-right: -.35rem;
-  transition: background .2s ease;
+  transform: translateX(2px);
+}
+.blocks p.reading::before,
+#auguri-body p.reading::before {
+  content: 'In lettura';
+  display: inline-block;
+  margin: 0 .45rem .35rem 0;
+  padding: .12rem .5rem;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #5a3a08;
+  background: #ffe08a;
+  vertical-align: middle;
 }
 body.has-narrator .view-leggi { scroll-margin-top: 0; }
 .btn-listen {
