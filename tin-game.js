@@ -289,8 +289,8 @@
   ];
 
   const HIT_X = 0.22;
-  const PERFECT = 36;
-  const GOOD = 72; // finestra più generosa: si giudica l’allineamento, non il pixel sulla testa
+  const PERFECT = 48;
+  const GOOD = 110; // finestra ampia: basta cliccare vicino alla linea d’oro al momento giusto
   const KEY_ROOT = { C: 60, G: 67, F: 65, D: 62, A: 69, E: 64 };
   const MIDI_LO = 55;
   const MIDI_HI = 81;
@@ -638,7 +638,7 @@
     setBriMood('walk', 0);
     if (titleEl()) titleEl().textContent = `Tin! · ${song.title}`;
     if (helpEl()) {
-      helpEl().innerHTML = `<strong>${song.title}</strong> — ${song.composer} (${song.cat}). Clicca (o Spazio) <strong>sulla linea d’oro</strong> quando arriva la nota. Briciola reagisce solo se clicchi <em>fuori</em> dall’allineamento.`;
+      helpEl().innerHTML = `<strong>${song.title}</strong> — ${song.composer} (${song.cat}). Clicca (o Spazio) <strong>quando la nota è sulla fascia d’oro</strong>: conta il tempo, non dove tocchi. Briciola reagisce solo se clicchi a vuoto.`;
     }
   }
 
@@ -711,43 +711,67 @@
 
   function judgeAt(fromSpace = false) {
     const { best, bestDist, hitLine } = nearestNoteToHitLine();
+    // Colpo valido: la nota è sulla / vicino alla linea d’oro
     if (best && bestDist <= GOOD) {
       markHit(best, bestDist <= PERFECT);
-      return;
+      return true;
     }
-    // nella zona di gioco ma nessuna nota allineata: invito, non punizione pesante
-    if (best && bestDist <= GOOD * 2.2) {
-      msg = best.x > hitLine ? 'Ancora un attimo…' : 'Un filo in ritardo…';
-      msgT = 0.45;
-      return;
+    // Quasi: nessun punto, nessun “fuori allineamento”
+    if (best && bestDist <= GOOD * 2.5) {
+      msg = best.x > hitLine ? 'Ancora un attimo…' : 'Un filo tardi…';
+      msgT = 0.4;
+      return false;
     }
     msg = fromSpace ? 'Aspetta la nota…' : 'Aspetta la linea d’oro…';
-    msgT = 0.4;
+    msgT = 0.35;
+    return false;
+  }
+
+  function pointerToCanvas(ev, cv) {
+    const rect = cv.getBoundingClientRect();
+    const scaleX = cv.width / Math.max(1, rect.width);
+    const scaleY = cv.height / Math.max(1, rect.height);
+    const src = ev.touches && ev.touches[0] ? ev.touches[0] : ev;
+    const clientX = Number(src.clientX);
+    const clientY = Number(src.clientY);
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY,
+    };
   }
 
   function clickNote(mx, my) {
     const cv = canvas();
+    if (!cv) return;
     const W = cv.width;
     const H = cv.height;
-    const hitLine = W * HIT_X;
-    const layout = staffLayout(H);
 
-    // click sulla renna: ignora del tutto (non è un errore)
+    // click sulla renna: ignora (non influenza il gioco)
     if (pointInBri(mx, my, W, H)) return;
 
-    const inHitColumn = Math.abs(mx - hitLine) <= GOOD * 2.4;
-    const inStaffBand = my >= layout.minY - 24 && my <= layout.maxY + 28;
-    const inPlayZone = inHitColumn || inStaffBand;
-
-    if (inPlayZone) {
-      // si giudica SOLO l’allineamento con la linea d’oro (come Space)
-      judgeAt(false);
+    // Come Spazio: conta SOLO il tempo (nota vs linea d’oro).
+    // Dove clicchi sul pentagramma non importa — così cliccando sulla nota
+    // non viene più segnalato «Fuori allineamento».
+    const { best, bestDist, hitLine } = nearestNoteToHitLine();
+    if (best && bestDist <= GOOD) {
+      markHit(best, bestDist <= PERFECT);
       return;
     }
-
-    // fuori dall’allineamento / fuori dal rigo: qui sì errore + Briciola reagisce
+    if (best && bestDist <= GOOD * 2.8) {
+      // quasi: niente punti ma niente penale, Briciola resta calma
+      msg = best.x > hitLine ? 'Ancora un attimo…' : 'Un filo tardi…';
+      msgT = 0.4;
+      return;
+    }
+    // click a vuoto (nessuna nota vicina): piccolo richiamo + Briciola
     whiffs += 1;
-    penalize(25, 'Fuori allineamento! −25', mx, my);
+    if (whiffs >= 2) {
+      penalize(10, 'Fuori tempo! −10', mx, my);
+      whiffs = 0;
+    } else {
+      msg = 'Aspetta che la nota sia sulla linea d’oro';
+      msgT = 0.55;
+    }
   }
 
   function drawNoteHead(ctx, n, r, gap, hx) {
@@ -928,7 +952,9 @@
     ctx.fillText('𝄞', W * 0.085, top + gap * 3.35);
 
     const hx = W * HIT_X;
-    ctx.fillStyle = 'rgba(230,193,90,0.10)';
+    ctx.fillStyle = 'rgba(230,193,90,0.12)';
+    ctx.fillRect(hx - GOOD, layout.minY, GOOD * 2, layout.maxY - layout.minY);
+    ctx.fillStyle = 'rgba(230,193,90,0.22)';
     ctx.fillRect(hx - PERFECT, layout.minY, PERFECT * 2, layout.maxY - layout.minY);
     ctx.strokeStyle = 'rgba(230,193,90,0.95)';
     ctx.lineWidth = 3;
@@ -1146,15 +1172,14 @@
   function onPointer(ev) {
     const cv = canvas();
     if (!cv || !open) return;
-    const rect = cv.getBoundingClientRect();
-    const x = ((ev.clientX || ev.touches?.[0]?.clientX) - rect.left) * (cv.width / rect.width);
-    const y = ((ev.clientY || ev.touches?.[0]?.clientY) - rect.top) * (cv.height / rect.height);
+    ev.preventDefault?.();
+    const { x, y } = pointerToCanvas(ev, cv);
     if (!started) {
       started = true;
       ensureAC();
       playChordPad();
-      msg = 'L’orchestra inizia…';
-      msgT = 0.9;
+      msg = 'L’orchestra inizia… clicca sulla linea d’oro!';
+      msgT = 1.1;
       return;
     }
     if (finished) {
