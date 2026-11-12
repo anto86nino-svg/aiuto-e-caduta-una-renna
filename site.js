@@ -9,7 +9,7 @@
   let gameLoaded = false;
   let pendingLevel = null;
   let readDone = new Set();
-  let bookmark = null; // { sectionId, chapter, title, audioTime, updatedAt }
+  let bookmark = null; // { sectionId, chapter, title, audioTime, blockIndex, updatedAt }
   let audioManifest = null;
   let narrIndex = 0;
   let narrReady = false;
@@ -47,15 +47,20 @@
     if (!Number.isFinite(audioTime)) {
       audioTime = audio && Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
     }
+    let blockIndex = opts.blockIndex;
+    if (!Number.isFinite(blockIndex)) blockIndex = bookmark?.sectionId === sec.id ? bookmark.blockIndex : 0;
+    if (!Number.isFinite(blockIndex)) blockIndex = 0;
     bookmark = {
       sectionId: sec.id,
       chapter: sec.chapter || null,
       title: sec.title,
       audioTime: Math.max(0, audioTime),
+      blockIndex: Math.max(0, Number(blockIndex)),
       updatedAt: Date.now(),
     };
     saveProgress();
     updateBookmarkUI();
+    placeBookmarkRibbon();
     if (opts.chime) {
       soundOn = true;
       tin(3);
@@ -66,6 +71,7 @@
     bookmark = null;
     saveProgress();
     updateBookmarkUI();
+    placeBookmarkRibbon();
   }
 
   function goToBookmark({ play = false } = {}) {
@@ -73,6 +79,9 @@
     const sec = libro.sections.find((s) => s.id === bookmark.sectionId);
     if (!sec) return;
     openReading(sec, { updateHash: true, play: false });
+    requestAnimationFrame(() => {
+      placeBookmarkRibbon({ scroll: true, pulse: true });
+    });
     if (play || bookmark.audioTime > 0.5) {
       const idx = audioManifest?.sections?.findIndex((s) => s.id === sec.id) ?? -1;
       if (idx >= 0) {
@@ -85,6 +94,22 @@
         if (audio.readyState >= 1) seek();
         else audio.addEventListener('loadedmetadata', seek, { once: true });
       }
+    } else if (Number.isFinite(bookmark.blockIndex)) {
+      // se non c’è audioTime, cerca di allineare l’ascolto al paragrafo
+      const meta = audioManifest?.sections?.find((s) => s.id === sec.id);
+      const cue = meta?.cues?.find((c) => c.blockIndex === bookmark.blockIndex);
+      if (cue && meta) {
+        const idx = audioManifest.sections.findIndex((s) => s.id === sec.id);
+        if (idx >= 0) {
+          loadNarrSection(idx, false);
+          const audio = $('#narr-audio');
+          const seek = () => {
+            audio.currentTime = Math.max(0, cue.start);
+          };
+          if (audio.readyState >= 1) seek();
+          else audio.addEventListener('loadedmetadata', seek, { once: true });
+        }
+      }
     }
   }
 
@@ -93,7 +118,11 @@
     if (btn) {
       if (bookmark?.sectionId) {
         btn.hidden = false;
-        btn.textContent = `🔖 Segnalibro: ${bookmark.title || 'riprendi'}`;
+        const where =
+          Number.isFinite(bookmark.blockIndex) && bookmark.blockIndex > 0
+            ? ` · §${bookmark.blockIndex + 1}`
+            : '';
+        btn.textContent = `🔖 ${bookmark.title || 'Segnalibro'}${where}`;
       } else {
         btn.hidden = true;
       }
@@ -105,10 +134,167 @@
     $$('[data-bookmark-toggle]').forEach((b) => {
       const on = bookmark && bookmark.sectionId === activeReadingId;
       b.classList.toggle('is-set', !!on);
-      b.textContent = on ? '🔖 Segnalibro salvato' : '🔖 Segna qui';
       b.title = on
-        ? 'Segnalibro su questo capitolo (clicca di nuovo per aggiornare)'
-        : 'Salva il segnalibro qui (lettura o ascolto)';
+        ? 'Segnalibro su questa pagina — puoi trascinarlo sui paragrafi'
+        : 'Trascina il nastro sul paragrafo che vuoi segnare';
+    });
+    const hint = $('#bookmark-dock-hint');
+    if (hint) {
+      hint.textContent = bookmark?.sectionId === activeReadingId
+        ? 'Nastro posato — trascinalo dove vuoi'
+        : 'Trascina il nastro sul testo';
+    }
+  }
+
+  function placeBookmarkRibbon(opts = {}) {
+    $$('.bookmark-ribbon, .bookmark-drop-glow').forEach((el) => el.remove());
+    $$('.blocks p.is-bookmarked').forEach((p) => p.classList.remove('is-bookmarked'));
+    if (!bookmark?.sectionId || bookmark.sectionId !== activeReadingId) return;
+    const root =
+      document.getElementById(
+        bookmark.chapter ? `capitolo-${bookmark.chapter}` : bookmark.sectionId,
+      ) || $('#reader-body .section-block');
+    if (!root) return;
+    const ps = $$('.blocks p', root);
+    const idx = Math.max(0, Math.min(ps.length - 1, Number(bookmark.blockIndex) || 0));
+    const p = ps[idx];
+    if (!p) return;
+    p.classList.add('is-bookmarked');
+    const ribbon = document.createElement('button');
+    ribbon.type = 'button';
+    ribbon.className = 'bookmark-ribbon';
+    ribbon.draggable = true;
+    ribbon.dataset.bookmarkRibbon = '1';
+    ribbon.title = 'Trascina il segnalibro su un altro paragrafo';
+    ribbon.setAttribute('aria-label', 'Segnalibro — trascina per spostarlo');
+    ribbon.innerHTML = '<span class="bookmark-ribbon-tab">Segna</span>';
+    p.prepend(ribbon);
+    if (opts.pulse) {
+      ribbon.classList.add('is-pulse');
+      setTimeout(() => ribbon.classList.remove('is-pulse'), 1200);
+    }
+    if (opts.scroll) {
+      const topPad = document.body.classList.contains('has-narrator') ? 130 : 80;
+      const rect = p.getBoundingClientRect();
+      if (rect.top < topPad || rect.bottom > window.innerHeight - 80) {
+        p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
+
+  function nearestParagraphFromPoint(x, y) {
+    const root = $('#reader-body .section-block') || $('#reader-body');
+    if (!root) return null;
+    const ps = $$('.blocks p', root);
+    if (!ps.length) return null;
+    let best = null;
+    let bestDist = Infinity;
+    for (const p of ps) {
+      const r = p.getBoundingClientRect();
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return p;
+      const cx = clampNum(x, r.left, r.right);
+      const cy = clampNum(y, r.top, r.bottom);
+      const d = (x - cx) * (x - cx) + (y - cy) * (y - cy);
+      if (d < bestDist) {
+        bestDist = d;
+        best = p;
+      }
+    }
+    return best;
+  }
+
+  function clampNum(v, a, b) {
+    return Math.max(a, Math.min(b, v));
+  }
+
+  function audioTimeForBlock(sectionId, blockIndex) {
+    const meta = audioManifest?.sections?.find((s) => s.id === sectionId);
+    const cue = meta?.cues?.find((c) => c.blockIndex === Number(blockIndex));
+    return cue ? cue.start : undefined;
+  }
+
+  function wireBookmarkDrag() {
+    const body = $('#reader-body');
+    if (!body || body.dataset.bookmarkDragWired === '1') return;
+    body.dataset.bookmarkDragWired = '1';
+
+    let dragging = false;
+
+    const clearGlow = () => $$('.bookmark-drop-glow').forEach((el) => el.classList.remove('bookmark-drop-glow'));
+
+    body.addEventListener('dragstart', (e) => {
+      const handle = e.target.closest('[data-bookmark-handle], [data-bookmark-ribbon]');
+      if (!handle) return;
+      dragging = true;
+      document.body.classList.add('is-dragging-bookmark');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', 'bookmark');
+      try {
+        const ghost = document.createElement('div');
+        ghost.className = 'bookmark-drag-ghost';
+        ghost.textContent = '🔖';
+        document.body.appendChild(ghost);
+        e.dataTransfer.setDragImage(ghost, 18, 28);
+        setTimeout(() => ghost.remove(), 0);
+      } catch (_) {}
+    });
+
+    body.addEventListener('dragend', () => {
+      dragging = false;
+      document.body.classList.remove('is-dragging-bookmark');
+      clearGlow();
+    });
+
+    body.addEventListener('dragover', (e) => {
+      if (!dragging && !document.body.classList.contains('is-dragging-bookmark')) return;
+      e.preventDefault();
+      const p = nearestParagraphFromPoint(e.clientX, e.clientY);
+      clearGlow();
+      if (p) p.classList.add('bookmark-drop-glow');
+    });
+
+    body.addEventListener('drop', (e) => {
+      e.preventDefault();
+      document.body.classList.remove('is-dragging-bookmark');
+      const p = nearestParagraphFromPoint(e.clientX, e.clientY);
+      clearGlow();
+      if (!p || !activeReadingId) return;
+      const blockIndex = Number(p.dataset.blockIndex);
+      if (!Number.isFinite(blockIndex)) return;
+      setBookmark({
+        sectionId: activeReadingId,
+        blockIndex,
+        audioTime: audioTimeForBlock(activeReadingId, blockIndex),
+        chime: true,
+      });
+      const sub = $('#narr-sub');
+      if (sub) sub.textContent = `Segnalibro al paragrafo ${blockIndex + 1}`;
+    });
+
+    // touch fallback: tap lungo sul nastro dock → poi tap sul paragrafo
+    let armPlace = false;
+    body.addEventListener('pointerup', (e) => {
+      const dock = e.target.closest('[data-bookmark-handle]');
+      if (dock && e.pointerType === 'touch') {
+        armPlace = true;
+        document.body.classList.add('is-placing-bookmark');
+        const hint = $('#bookmark-dock-hint');
+        if (hint) hint.textContent = 'Tocca il paragrafo da segnare';
+        return;
+      }
+      if (!armPlace) return;
+      const p = e.target.closest('.blocks p');
+      armPlace = false;
+      document.body.classList.remove('is-placing-bookmark');
+      if (!p || !activeReadingId) return;
+      const blockIndex = Number(p.dataset.blockIndex);
+      if (!Number.isFinite(blockIndex)) return;
+      setBookmark({
+        sectionId: activeReadingId,
+        blockIndex,
+        audioTime: audioTimeForBlock(activeReadingId, blockIndex),
+        chime: true,
+      });
     });
   }
 
@@ -166,6 +352,7 @@
       const on = v === name;
       el.hidden = !on;
     });
+    document.body.classList.toggle('on-leggi', name === 'leggi');
     $$('.nav a[data-nav]').forEach((a) => {
       a.setAttribute('aria-current', a.dataset.nav === name ? 'page' : 'false');
     });
@@ -334,18 +521,6 @@
 
     const { prev, next } = neighborSections(section);
 
-    // Banner segnalibro (se diverso dal capitolo aperto)
-    if (bookmark?.sectionId && bookmark.sectionId !== section.id) {
-      const ban = document.createElement('div');
-      ban.className = 'bookmark-banner';
-      ban.innerHTML = `<span>Segnalibro salvato: <strong>${escapeHtml(bookmark.title || '')}</strong></span>
-        <span class="row">
-          <button type="button" class="btn btn-bookmark btn-sm" data-go-bookmark>Apri segnalibro</button>
-          <button type="button" class="btn btn-ghost btn-sm" data-clear-bookmark>Rimuovi</button>
-        </span>`;
-      body.appendChild(ban);
-    }
-
     const sec = document.createElement('section');
     sec.className = `section-block kind-${section.kind} is-alone`;
     sec.id = section.kind === 'chapter' ? `capitolo-${section.chapter}` : section.id;
@@ -353,56 +528,57 @@
     sec.dataset.sectionId = section.id;
     if (section.chapter) sec.dataset.chapter = String(section.chapter);
 
-    // CONTROLLI IN ALTO: ascolta / prev / next / segnalibro / gioca
+    // CONTROLLI COMPATTI: una sola riga, poco spazio sottratto al testo
     const tool = document.createElement('div');
     tool.className = 'chapter-toolbar';
     const listenBtn =
       section.kind === 'augurio' || section.kind === 'gioca'
         ? ''
-        : `<button type="button" class="btn btn-listen btn-sm" data-listen-section="${section.id}">▶ Ascolta</button>`;
+        : `<button type="button" class="tool-btn tool-listen" data-listen-section="${section.id}" title="Ascolta questo capitolo">▶ Ascolta</button>`;
     const playBtn =
       section.kind === 'chapter'
-        ? `<button type="button" class="btn btn-secondary btn-sm" data-play-level="${section.chapter}">Gioca</button>`
+        ? `<button type="button" class="tool-btn tool-play" data-play-level="${section.chapter}" title="Gioca il livello">Gioca</button>`
         : '';
     const prevBtn = prev
-      ? `<button type="button" class="btn btn-ghost btn-sm" data-open-section="${prev.id}">‹ ${escapeHtml(
-          prev.kind === 'chapter' ? `Cap. ${prev.chapter}` : prev.title,
-        )}</button>`
-      : '';
+      ? `<button type="button" class="tool-btn tool-nav" data-open-section="${prev.id}" title="Precedente">‹</button>`
+      : `<span class="tool-btn tool-nav is-disabled" aria-hidden="true">‹</span>`;
     let nextBtn = '';
     if (next) {
-      nextBtn = `<button type="button" class="btn btn-primary btn-sm" data-open-section="${next.id}">${
-        next.kind === 'chapter' ? `Capitolo ${next.chapter}` : escapeHtml(next.title)
-      } ›</button>`;
+      nextBtn = `<button type="button" class="tool-btn tool-nav tool-next" data-open-section="${next.id}" title="Successivo">›</button>`;
     } else if (section.kind === 'chapter') {
-      nextBtn = `<a class="btn btn-primary btn-sm" href="#auguri" data-nav="auguri">Auguri ›</a>`;
+      nextBtn = `<a class="tool-btn tool-nav tool-next" href="#auguri" data-nav="auguri" title="Auguri">›</a>`;
+    } else {
+      nextBtn = `<span class="tool-btn tool-nav is-disabled" aria-hidden="true">›</span>`;
     }
     const label =
       section.kind === 'chapter'
-        ? `Capitolo ${section.chapter} di 14 · sessione`
+        ? `Cap. ${section.chapter}/14`
         : section.kind === 'note'
-          ? 'Nota dell’autore · sessione'
-          : 'Frontespizio · sessione';
+          ? 'Nota'
+          : 'Inizio';
+    const otherBm =
+      bookmark?.sectionId && bookmark.sectionId !== section.id
+        ? `<button type="button" class="tool-btn tool-ghost" data-go-bookmark title="Vai al segnalibro">↩ Segna</button>`
+        : '';
     tool.innerHTML = `
-      <p class="toolbar-title">${escapeHtml(label)}</p>
-      <div class="row">
+      <div class="toolbar-cluster">
         ${prevBtn}
-        ${listenBtn}
+        <span class="toolbar-label">${escapeHtml(label)}</span>
         ${nextBtn}
-        <button type="button" class="btn btn-bookmark btn-sm" data-bookmark-toggle>🔖 Segna qui</button>
+      </div>
+      <div class="toolbar-cluster toolbar-actions">
+        ${listenBtn}
         ${playBtn}
-      </div>`;
+        ${otherBm}
+        <button type="button" class="bookmark-dock" data-bookmark-handle draggable="true" title="Trascina il nastro sul paragrafo da segnare" aria-label="Segnalibro trascinabile">
+          <span class="bookmark-dock-ribbon" aria-hidden="true"></span>
+          <span class="bookmark-dock-text">Nastro</span>
+        </button>
+        <button type="button" class="tool-btn tool-ghost" data-bookmark-toggle title="Fissa qui (o trascina il nastro)">📌</button>
+        ${bookmark?.sectionId === section.id ? `<button type="button" class="tool-btn tool-ghost" data-clear-bookmark title="Rimuovi segnalibro">✕</button>` : ''}
+      </div>
+      <p class="bookmark-dock-hint" id="bookmark-dock-hint">Trascina il nastro sul testo</p>`;
     sec.appendChild(tool);
-
-    const crumb = document.createElement('p');
-    crumb.className = 'chapter-crumb';
-    crumb.textContent =
-      section.kind === 'chapter'
-        ? `Capitolo ${section.chapter} di 14`
-        : section.kind === 'note'
-          ? 'Prima del racconto'
-          : 'Frontespizio';
-    sec.appendChild(crumb);
 
     const h = document.createElement('h2');
     h.textContent = section.title;
@@ -448,11 +624,14 @@
     highlightToc();
     updateProgressUI();
     updateBookmarkUI();
+    wireBookmarkDrag();
+    placeBookmarkRibbon();
 
     VIEWS.forEach((v) => {
       const el = $(`#view-${v}`);
       if (el) el.hidden = v !== 'leggi';
     });
+    document.body.classList.add('on-leggi');
     $$('.nav a[data-nav]').forEach((a) => {
       a.setAttribute('aria-current', a.dataset.nav === 'leggi' ? 'page' : 'false');
     });
@@ -919,10 +1098,20 @@
       }
       if (e.target.closest('[data-bookmark-toggle]')) {
         e.preventDefault();
-        setBookmark({ chime: true });
-        updateBookmarkUI();
+        // fissa sul paragrafo in lettura (evidenziato) oppure il primo visibile
+        const reading = $('.blocks p.reading');
+        let blockIndex = reading ? Number(reading.dataset.blockIndex) : 0;
+        if (!Number.isFinite(blockIndex)) {
+          const first = $('.blocks p[data-block-index]');
+          blockIndex = first ? Number(first.dataset.blockIndex) || 0 : 0;
+        }
+        setBookmark({
+          blockIndex,
+          audioTime: audioTimeForBlock(activeReadingId, blockIndex),
+          chime: true,
+        });
         const sub = $('#narr-sub');
-        if (sub) sub.textContent = 'Segnalibro salvato qui';
+        if (sub) sub.textContent = `Segnalibro al paragrafo ${blockIndex + 1}`;
         return;
       }
       if (e.target.closest('[data-go-bookmark]')) {
