@@ -165,9 +165,10 @@
     ribbon.className = 'bookmark-ribbon';
     ribbon.draggable = true;
     ribbon.dataset.bookmarkRibbon = '1';
-    ribbon.title = 'Trascina il segnalibro su un altro paragrafo';
-    ribbon.setAttribute('aria-label', 'Segnalibro — trascina per spostarlo');
-    ribbon.innerHTML = '<span class="bookmark-ribbon-tab">Segna</span>';
+    ribbon.title = 'Segnalibro qui — trascina su un altro paragrafo';
+    ribbon.setAttribute('aria-label', 'Segnalibro sul margine — trascina per spostarlo');
+    // solo nastro nel margine: nessuna etichetta sopra le parole
+    ribbon.innerHTML = '<span class="visually-hidden">Segnalibro</span>';
     p.prepend(ribbon);
     if (opts.pulse) {
       ribbon.classList.add('is-pulse');

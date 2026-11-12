@@ -205,12 +205,95 @@
         [60,1],[60,1],[67,1],[67,1],[69,1],[69,1],[67,2],[65,1],[65,1],[64,1],[64,1],[62,1],[62,1],[60,2],
       ],
     },
+    // Altri orchestrali / temi celebri (pubblico dominio)
+    {
+      id: 'adeste', title: 'Adeste Fideles', composer: 'Tradizionale', cat: 'Natale', key: 'G', bpm: 96,
+      notes: [
+        [67,2],[67,1],[64,1],[67,1],[69,1],[71,2],[71,1],[71,1],[72,1],[71,1],[69,1],[67,1],[69,1],[67,1],[66,1],[64,2],
+        [67,2],[67,1],[64,1],[67,1],[69,1],[71,2],[71,1],[71,1],[72,1],[71,1],[69,1],[67,1],[69,1],[67,1],[66,1],[64,2],
+        [74,2],[74,1],[74,1],[74,1],[72,1],[71,2],[69,2],[72,1],[71,1],[69,1],[67,1],[69,1],[66,1],[64,2],
+      ],
+    },
+    {
+      id: 'greensleeves', title: 'Greensleeves', composer: 'Tradizionale inglese', cat: 'Classica', key: 'A', bpm: 88,
+      notes: [
+        [69,2],[71,1],[72,2],[74,1],[76,2],[74,1],[72,2],[71,1],[69,2],[68,1],[69,3],
+        [69,2],[71,1],[72,2],[74,1],[76,2],[74,1],[72,1],[71,1],[69,1],[68,1],[66,1],[68,1],[69,3],
+        [81,2],[79,1],[76,2],[74,1],[72,2],[71,1],[69,2],[68,1],[69,3],
+      ],
+    },
+    {
+      id: 'moonlight', title: 'Chiaro di luna', composer: 'L. van Beethoven', cat: 'Classica', key: 'C', bpm: 60,
+      notes: [
+        [60,1],[64,1],[67,1],[60,1],[64,1],[67,1],[60,1],[64,1],[67,1],[60,1],[64,1],[67,1],
+        [62,1],[65,1],[69,1],[62,1],[65,1],[69,1],[60,1],[64,1],[67,1],[60,1],[64,1],[67,1],
+        [59,1],[62,1],[67,1],[59,1],[62,1],[67,1],[60,1],[64,1],[67,1],[72,3],
+      ],
+    },
+    {
+      id: 'turkish', title: 'Marcia turca', composer: 'W. A. Mozart', cat: 'Classica', key: 'A', bpm: 120,
+      notes: [
+        [69,0.5],[71,0.5],[72,0.5],[74,0.5],[76,1],[74,1],[72,0.5],[71,0.5],[69,1],[68,1],[69,2],
+        [76,0.5],[78,0.5],[79,0.5],[81,0.5],[83,1],[81,1],[79,0.5],[78,0.5],[76,1],[74,1],[76,2],
+        [69,0.5],[71,0.5],[72,0.5],[74,0.5],[76,1],[74,1],[72,0.5],[71,0.5],[69,1],[68,1],[69,2],
+      ],
+    },
+    {
+      id: 'newworld', title: 'Dal Nuovo Mondo (Largo)', composer: 'A. Dvořák', cat: 'Classica', key: 'D', bpm: 72,
+      notes: [
+        [69,2],[66,2],[62,3],[64,1],[66,2],[69,2],[66,4],
+        [69,2],[71,2],[73,3],[71,1],[69,2],[66,2],[62,4],
+        [66,2],[69,2],[71,3],[69,1],[66,2],[64,2],[62,4],
+      ],
+    },
+    {
+      id: 'swan', title: 'Il lago dei cigni', composer: 'P. I. Tchaikovsky', cat: 'Classica', key: 'A', bpm: 84,
+      notes: [
+        [69,2],[76,2],[74,1],[72,1],[71,2],[69,2],[68,2],[69,4],
+        [71,2],[72,2],[74,2],[76,2],[77,2],[76,1],[74,1],[72,4],
+        [69,2],[76,2],[74,1],[72,1],[71,2],[72,1],[71,1],[69,4],
+      ],
+    },
+    {
+      id: 'hallelujah', title: 'Hallelujah (Messiah)', composer: 'G. F. Handel', cat: 'Classica', key: 'D', bpm: 100,
+      notes: [
+        [69,1],[69,1],[69,1],[69,1],[71,1],[73,1],[74,2],[74,1],[74,1],[73,1],[71,1],[69,2],
+        [73,1],[73,1],[73,1],[73,1],[74,1],[76,1],[78,2],[74,1],[73,1],[71,1],[69,1],[71,2],
+        [69,1],[71,1],[73,1],[74,1],[76,2],[74,1],[73,1],[71,2],[69,4],
+      ],
+    },
+    {
+      id: 'entertainer', title: 'The Entertainer', composer: 'S. Joplin', cat: 'Classica', key: 'C', bpm: 112,
+      notes: [
+        [64,0.5],[65,0.5],[67,1],[72,1],[64,0.5],[65,0.5],[67,1],[72,1],[67,1],[64,1],[60,2],
+        [62,0.5],[64,0.5],[65,1],[69,1],[62,0.5],[64,0.5],[65,1],[69,1],[65,1],[62,1],[59,2],
+        [64,0.5],[65,0.5],[67,1],[72,1],[76,1],[74,1],[72,1],[71,1],[69,1],[67,1],[64,2],
+      ],
+    },
+    {
+      id: 'tantauguri', title: 'Tanti auguri a te', composer: 'Tradizionale', cat: 'Filastrocca', key: 'C', bpm: 96,
+      notes: [
+        [60,0.75],[60,0.25],[62,1],[60,1],[65,1],[64,2],
+        [60,0.75],[60,0.25],[62,1],[60,1],[67,1],[65,2],
+        [60,0.75],[60,0.25],[72,1],[69,1],[65,1],[64,1],[62,2],
+        [70,0.75],[70,0.25],[69,1],[65,1],[67,1],[65,2],
+      ],
+    },
+    {
+      id: 'ohquand', title: 'Oh! quando i gatti', composer: 'Tradizionale italiano', cat: 'Filastrocca', key: 'F', bpm: 108,
+      notes: [
+        [65,1],[65,1],[65,1],[67,1],[69,2],[65,2],[67,1],[69,1],[70,1],[69,1],[67,4],
+        [65,1],[65,1],[65,1],[67,1],[69,2],[65,2],[64,1],[65,1],[67,1],[64,1],[60,4],
+      ],
+    },
   ];
 
   const HIT_X = 0.22;
   const PERFECT = 28;
   const GOOD = 54;
   const KEY_ROOT = { C: 60, G: 67, F: 65, D: 62, A: 69, E: 64 };
+  const MIDI_LO = 55;
+  const MIDI_HI = 81;
 
   let ac = null;
   let master = null;
@@ -222,9 +305,11 @@
   let notes = [];
   let score = 0;
   let combo = 0;
+  let bestCombo = 0;
   let perfects = 0;
   let goods = 0;
   let misses = 0;
+  let whiffs = 0;
   let songTitle = '';
   let songMeta = '';
   let scrollSpeed = 180;
@@ -236,11 +321,30 @@
   let beatAcc = 0;
   let chordStep = 0;
   let ambient = null;
+  let shake = 0;
+  let flashRed = 0;
+  let time = 0;
+  let briImg = null;
+  let briReady = false;
+  let bri = {
+    mood: 'walk', // walk | happy | dance | proud | oops | sad
+    moodT: 0,
+    phase: 0,
+    bounce: 0,
+    ear: 0,
+  };
 
   const overlay = () => document.getElementById('tin-overlay');
   const canvas = () => document.getElementById('tin-canvas');
   const helpEl = () => document.querySelector('.tin-help');
   const titleEl = () => document.getElementById('tin-title');
+
+  function loadBriImage() {
+    if (briImg) return;
+    briImg = new Image();
+    briImg.onload = () => { briReady = true; };
+    briImg.src = 'gioca/assets/briciola.png';
+  }
 
   function ensureAC() {
     if (!ac) {
@@ -267,111 +371,117 @@
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur + release);
   }
 
-  /** Orchestra: piano + archi + basso + campanella — melodia riconoscibile */
+  /** Voce orchestrale singola */
+  function voice(ctx, bus, midi, t0, dur, type, peak, attack, soft = 1) {
+    const g = ctx.createGain();
+    envGain(g, t0, attack, peak * soft, dur, Math.min(0.45, dur * 0.35));
+    g.connect(bus);
+    const o = ctx.createOscillator();
+    o.type = type;
+    o.frequency.value = freq(midi);
+    if (type === 'sawtooth' || type === 'square') {
+      const f = ctx.createBiquadFilter();
+      f.type = 'lowpass';
+      f.frequency.value = type === 'sawtooth' ? 1400 : 900;
+      o.connect(f); f.connect(g);
+    } else {
+      o.connect(g);
+    }
+    o.start(t0);
+    o.stop(t0 + dur + 0.5);
+  }
+
+  /** Melodia ricca: piano + archi + corni + flauto — base musicale piena */
   function playOrchestra(midi, beats = 1, accent = false) {
     const ctx = ensureAC();
     if (!ctx || !master) return;
+    const bpm = currentSong?.bpm || 100;
+    const dur = Math.max(0.24, Math.min(2.2, beats * (60 / bpm) * 0.95));
     const t0 = ctx.currentTime;
-    const dur = Math.max(0.22, Math.min(1.8, beats * (60 / (currentSong?.bpm || 100)) * 0.92));
-    const f = freq(midi);
     const bus = ctx.createGain();
-    bus.gain.value = accent ? 1 : 0.72;
+    bus.gain.value = accent ? 1 : 0.78;
     bus.connect(master);
+    const m = midi;
 
-    // piano (fondamentale + ottava soft)
-    const piano = ctx.createGain();
-    envGain(piano, t0, 0.012, accent ? 0.22 : 0.14, dur, 0.2);
-    piano.connect(bus);
-    const p1 = ctx.createOscillator();
-    p1.type = 'triangle';
-    p1.frequency.value = f;
-    const p2 = ctx.createOscillator();
-    p2.type = 'sine';
-    p2.frequency.value = f * 2;
-    const p2g = ctx.createGain();
-    p2g.gain.value = 0.22;
-    p1.connect(piano);
-    p2.connect(p2g);
-    p2g.connect(piano);
-    p1.start(t0); p2.start(t0);
-    p1.stop(t0 + dur + 0.25); p2.stop(t0 + dur + 0.25);
+    // sezione archi (melodia)
+    voice(ctx, bus, m, t0, dur + 0.12, 'sawtooth', accent ? 0.07 : 0.055, 0.07);
+    voice(ctx, bus, m + 12, t0, dur * 0.9, 'sine', 0.03, 0.05, 0.8);
+    // piano
+    voice(ctx, bus, m, t0, dur, 'triangle', accent ? 0.2 : 0.13, 0.012);
+    voice(ctx, bus, m + 12, t0, dur * 0.7, 'sine', 0.05, 0.01, 0.7);
+    // corno / legno
+    voice(ctx, bus, m - 12, t0, Math.min(dur, 0.7), 'sine', 0.06, 0.03);
+    voice(ctx, bus, m, t0, dur * 0.85, 'sine', accent ? 0.07 : 0.045, 0.04);
 
-    // archi (pad lento)
-    const strings = ctx.createGain();
-    envGain(strings, t0, 0.08, accent ? 0.09 : 0.07, dur + 0.15, 0.35);
-    strings.connect(bus);
-    const s1 = ctx.createOscillator();
-    s1.type = 'sawtooth';
-    s1.frequency.value = f;
-    const sFilter = ctx.createBiquadFilter();
-    sFilter.type = 'lowpass';
-    sFilter.frequency.value = 1200;
-    sFilter.Q.value = 0.6;
-    const sSoft = ctx.createGain();
-    sSoft.gain.value = 0.12;
-    s1.connect(sFilter);
-    sFilter.connect(sSoft);
-    sSoft.connect(strings);
-    s1.start(t0); s1.stop(t0 + dur + 0.4);
+    // armonia interna (terza/quinta sotto) = più “orchestra”
+    voice(ctx, bus, m - 3, t0, dur * 0.8, 'triangle', 0.03, 0.05, 0.7);
+    voice(ctx, bus, m - 7, t0, dur * 0.75, 'sine', 0.035, 0.06, 0.7);
 
-    // flauto / legno dolce
-    const wood = ctx.createGain();
-    envGain(wood, t0, 0.03, accent ? 0.08 : 0.05, dur * 0.9, 0.15);
-    wood.connect(bus);
-    const w1 = ctx.createOscillator();
-    w1.type = 'sine';
-    w1.frequency.value = f * 1.003;
-    w1.connect(wood);
-    w1.start(t0); w1.stop(t0 + dur + 0.2);
-
-    // basso (un'ottava sotto, corto)
-    if (!accent || beats >= 1) {
-      const bass = ctx.createGain();
-      envGain(bass, t0, 0.02, 0.08, Math.min(dur, 0.55), 0.12);
-      bass.connect(bus);
-      const b1 = ctx.createOscillator();
-      b1.type = 'sine';
-      b1.frequency.value = f / 2;
-      b1.connect(bass);
-      b1.start(t0); b1.stop(t0 + 0.7);
-    }
-
-    // campanella solo sull'accento del giocatore
     if (accent) {
       const bell = ctx.createGain();
-      envGain(bell, t0, 0.005, 0.16, 0.55, 0.35);
+      envGain(bell, t0, 0.004, 0.15, 0.5, 0.35);
       bell.connect(bus);
-      [1, 2.01, 3.01, 4.04].forEach((mul, i) => {
+      [1, 2.005, 3.01, 4.04].forEach((mul, i) => {
         const o = ctx.createOscillator();
         o.type = 'sine';
-        o.frequency.value = f * mul;
+        o.frequency.value = freq(m) * mul;
         const g = ctx.createGain();
-        g.gain.value = i === 0 ? 1 : 0.18 / i;
+        g.gain.value = i === 0 ? 1 : 0.16 / i;
         o.connect(g); g.connect(bell);
-        o.start(t0); o.stop(t0 + 0.7);
+        o.start(t0); o.stop(t0 + 0.65);
       });
     }
   }
 
+  /** Base armonica continua: basso + pad + arpeggio (come un arrangiamento) */
   function playChordPad() {
     const ctx = ensureAC();
     if (!ctx || !master || !currentSong) return;
     const root = KEY_ROOT[currentSong.key] || 60;
-    const triad = [root, root + 4, root + 7].map((m) => (m > 72 ? m - 12 : m));
+    const prog = [
+      [0, 4, 7],
+      [5, 9, 12],
+      [7, 11, 14],
+      [0, 4, 7],
+    ];
+    const degrees = prog[chordStep % prog.length];
     const t0 = ctx.currentTime;
     const bus = ctx.createGain();
-    bus.gain.value = 0.55;
+    bus.gain.value = 0.7;
     bus.connect(master);
-    triad.forEach((midi, i) => {
-      const g = ctx.createGain();
-      envGain(g, t0, 0.12, 0.045 - i * 0.008, 1.4, 0.5);
-      g.connect(bus);
-      const o = ctx.createOscillator();
-      o.type = 'sine';
-      o.frequency.value = freq(midi - 12);
-      o.connect(g);
-      o.start(t0); o.stop(t0 + 2);
+    const beat = 60 / (currentSong.bpm || 100);
+
+    // basso lungo
+    voice(ctx, bus, root - 24 + degrees[0], t0, beat * 2.1, 'sine', 0.1, 0.03);
+    voice(ctx, bus, root - 12 + degrees[0], t0, beat * 2.0, 'triangle', 0.05, 0.04);
+
+    // pad archi sull'accordo
+    degrees.forEach((d, i) => {
+      voice(ctx, bus, root - 12 + d, t0, beat * 2.2, 'sawtooth', 0.028 - i * 0.004, 0.12);
+      voice(ctx, bus, root + d, t0, beat * 2.0, 'sine', 0.03 - i * 0.005, 0.1);
     });
+
+    // arpeggio delicato (base musicale)
+    degrees.forEach((d, i) => {
+      voice(ctx, bus, root + d, t0 + i * beat * 0.22, beat * 0.55, 'sine', 0.04, 0.01);
+    });
+    // pizzicato alto
+    voice(ctx, bus, root + 12 + degrees[0], t0 + beat * 0.5, beat * 0.4, 'triangle', 0.035, 0.005);
+  }
+
+  /** Pulsazione morbida da sala (non batteria secca) */
+  function playSoftPulse(strong) {
+    const ctx = ensureAC();
+    if (!ctx || !master) return;
+    const t0 = ctx.currentTime;
+    const g = ctx.createGain();
+    envGain(g, t0, 0.005, strong ? 0.045 : 0.025, 0.12, 0.08);
+    g.connect(master);
+    const o = ctx.createOscillator();
+    o.type = 'sine';
+    o.frequency.value = strong ? 55 : 70;
+    o.connect(g);
+    o.start(t0); o.stop(t0 + 0.2);
   }
 
   function startAmbientHall() {
@@ -402,12 +512,68 @@
     ambient = null;
   }
 
+  function staffLayout(H) {
+    // Lascia spazio HUD sopra e Briciola sotto: il rigo resta centrato e compatto
+    const top = H * 0.26;
+    const gap = H * 0.048;
+    const bottom = top + 4 * gap;
+    return {
+      top,
+      gap,
+      bottom,
+      // ledger consentiti ma entro area sicura
+      minY: top - gap * 1.15,
+      maxY: bottom + gap * 1.15,
+    };
+  }
+
   function midiToStaffY(midi, H) {
-    const top = H * 0.30;
-    const lineGap = H * 0.052;
-    const ref = 64;
-    const steps = midi - ref;
-    return top + 2.2 * lineGap - steps * (lineGap * 0.42);
+    const { minY, maxY } = staffLayout(H);
+    const m = Math.max(MIDI_LO, Math.min(MIDI_HI, midi));
+    const t = (m - MIDI_LO) / (MIDI_HI - MIDI_LO); // 0 grave → 1 acuto
+    return maxY - t * (maxY - minY);
+  }
+
+  function setBriMood(mood, dur = 0.7) {
+    bri.mood = mood;
+    bri.moodT = dur;
+  }
+
+  function refreshBriMood() {
+    if (bri.moodT > 0) return;
+    if (combo >= 10) bri.mood = 'dance';
+    else if (combo >= 5) bri.mood = 'happy';
+    else if (combo >= 2) bri.mood = 'proud';
+    else if (misses + whiffs > perfects + goods && started) bri.mood = 'sad';
+    else bri.mood = 'walk';
+  }
+
+  function playMissSound() {
+    const ctx = ensureAC();
+    if (!ctx || !master) return;
+    const t0 = ctx.currentTime;
+    const g = ctx.createGain();
+    envGain(g, t0, 0.01, 0.14, 0.22, 0.08);
+    g.connect(master);
+    const o = ctx.createOscillator();
+    o.type = 'square';
+    o.frequency.setValueAtTime(180, t0);
+    o.frequency.exponentialRampToValueAtTime(70, t0 + 0.2);
+    o.connect(g);
+    o.start(t0); o.stop(t0 + 0.28);
+  }
+
+  function penalize(amount, text, x, y) {
+    score = Math.max(0, score - amount);
+    combo = 0;
+    misses += 1;
+    msg = text;
+    msgT = 0.75;
+    shake = Math.max(shake, 0.28);
+    flashRed = 0.22;
+    setBriMood('oops', 0.85);
+    playMissSound();
+    if (Number.isFinite(x) && Number.isFinite(y)) spawnSpark(x, y, false);
   }
 
   function pickSong() {
@@ -444,19 +610,24 @@
     songMeta = `${song.composer} · ${song.cat}`;
     score = 0;
     combo = 0;
+    bestCombo = 0;
     perfects = 0;
     goods = 0;
     misses = 0;
+    whiffs = 0;
     started = false;
     finished = false;
     beatAcc = 0;
     chordStep = 0;
-    msg = 'Ascolta l’orchestra e clicca sulla linea d’oro';
+    shake = 0;
+    flashRed = 0;
+    msg = 'Clicca le note sulla linea d’oro — i click a vuoto tolgono punti!';
     msgT = 2.8;
     particles = [];
+    setBriMood('walk', 0);
     if (titleEl()) titleEl().textContent = `Tin! · ${song.title}`;
     if (helpEl()) {
-      helpEl().innerHTML = `<strong>${song.title}</strong> — ${song.composer} (${song.cat}). L’orchestra suona sempre la melodia: tu la “conduci” cliccando le note sulla <strong>linea d’oro</strong> (o Spazio).`;
+      helpEl().innerHTML = `<strong>${song.title}</strong> — ${song.composer} (${song.cat}). L’orchestra suona la melodia; tu la conduci sulla <strong>linea d’oro</strong>. Click sbagliati: −25 ★ e Briciola inciampa!`;
     }
   }
 
@@ -488,17 +659,27 @@
       combo += 1;
       perfects += 1;
       msg = combo > 3 ? `Bravissimo! x${combo}` : 'Perfetto!';
+      setBriMood(combo >= 8 ? 'dance' : 'happy', 0.9);
     } else {
-      score += 40;
-      combo = 0;
+      score += 45;
+      combo += 1;
       goods += 1;
       msg = 'Bene!';
+      setBriMood('proud', 0.6);
     }
+    bestCombo = Math.max(bestCombo, combo);
     msgT = 0.7;
     spawnSpark(best.x, best.y, true);
   }
 
-  function judgeAt() {
+  function markLateMiss(n) {
+    if (n.judged) return;
+    n.judged = true;
+    n.miss = true;
+    penalize(15, 'Persa! −15', n.x, n.y);
+  }
+
+  function judgeAt(fromSpace = false) {
     const cv = canvas();
     const hitLine = cv.width * HIT_X;
     let best = null;
@@ -512,8 +693,10 @@
       }
     });
     if (!best || bestDist > GOOD) {
-      msg = '…';
-      msgT = 0.3;
+      whiffs += 1;
+      const hx = hitLine;
+      const hy = staffLayout(cv.height).top + staffLayout(cv.height).gap * 2;
+      penalize(25, fromSpace ? 'Vuoto! −25' : 'Click a vuoto! −25', hx, hy);
       return;
     }
     markHit(best, bestDist <= PERFECT);
@@ -522,12 +705,21 @@
   function clickNote(mx, my) {
     const cv = canvas();
     const hitLine = cv.width * HIT_X;
+    const layout = staffLayout(cv.height);
+    // click troppo lontano dal rigo = errore
+    if (my < layout.minY - 30 || my > layout.maxY + 40) {
+      whiffs += 1;
+      penalize(25, 'Fuori dal rigo! −25', mx, my);
+      return;
+    }
     let best = null;
     let bestScore = 1e9;
     notes.forEach((n) => {
       if (n.judged) return;
+      // solo note vicine alla linea d'oro contano come bersaglio
+      if (Math.abs(n.x - hitLine) > GOOD * 1.35) return;
       const dist = Math.hypot(n.x - mx, n.y - my);
-      if (dist < 46 && dist < bestScore) {
+      if (dist < 52 && dist < bestScore) {
         bestScore = dist;
         best = n;
       }
@@ -538,15 +730,13 @@
       else {
         best.judged = true;
         best.miss = true;
-        combo = 0;
-        misses += 1;
-        msg = 'Fuori tempo';
-        msgT = 0.55;
-        spawnSpark(best.x, best.y, false);
+        penalize(20, 'Fuori tempo! −20', best.x, best.y);
       }
       return;
     }
-    judgeAt();
+    // nessun bersaglio valido vicino al click
+    whiffs += 1;
+    penalize(25, 'Click a vuoto! −25', mx, my);
   }
 
   function drawNoteHead(ctx, n, r, gap, hx) {
@@ -593,12 +783,104 @@
     ctx.restore();
   }
 
+  function drawLedgerLines(ctx, n, layout, W) {
+    const { top, gap, bottom } = layout;
+    ctx.strokeStyle = 'rgba(232,240,255,0.4)';
+    ctx.lineWidth = 1.5;
+    // sopra
+    for (let y = top - gap; y >= n.y - 1; y -= gap) {
+      if (y < top - 0.5) {
+        ctx.beginPath();
+        ctx.moveTo(n.x - 14, y);
+        ctx.lineTo(n.x + 14, y);
+        ctx.stroke();
+      }
+    }
+    // sotto
+    for (let y = bottom + gap; y <= n.y + 1; y += gap) {
+      if (y > bottom + 0.5) {
+        ctx.beginPath();
+        ctx.moveTo(n.x - 14, y);
+        ctx.lineTo(n.x + 14, y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  function updateBri(dt) {
+    bri.phase += dt;
+    if (bri.moodT > 0) bri.moodT -= dt;
+    else refreshBriMood();
+    const speed =
+      bri.mood === 'dance' ? 10 :
+      bri.mood === 'happy' ? 7 :
+      bri.mood === 'oops' ? 14 :
+      bri.mood === 'sad' ? 3 : 5;
+    bri.bounce = Math.sin(bri.phase * speed) * (
+      bri.mood === 'dance' ? 10 :
+      bri.mood === 'happy' ? 7 :
+      bri.mood === 'oops' ? 4 :
+      bri.mood === 'sad' ? 2 : 5
+    );
+    bri.ear = Math.sin(bri.phase * (speed * 0.7)) * 0.08;
+  }
+
+  function drawBriciola(ctx, W, H) {
+    const x = W * 0.11;
+    const y = H * 0.88 + (bri.mood === 'oops' ? Math.sin(bri.phase * 20) * 3 : 0) - bri.bounce;
+    const s = Math.min(0.42, W / 1100);
+    const bw = 240 * s;
+    const bh = 212 * s;
+    ctx.save();
+    ctx.translate(x, y);
+    if (bri.mood === 'dance') ctx.rotate(Math.sin(bri.phase * 8) * 0.12);
+    else if (bri.mood === 'oops') ctx.rotate(-0.18 + Math.sin(bri.phase * 18) * 0.05);
+    else if (bri.mood === 'sad') ctx.rotate(-0.08);
+    else ctx.rotate(bri.ear * 0.4);
+    if (bri.mood === 'dance' || bri.mood === 'happy') {
+      ctx.shadowColor = 'rgba(230,193,90,0.55)';
+      ctx.shadowBlur = 18;
+    }
+    if (briReady && briImg) {
+      ctx.drawImage(briImg, -bw / 2, -bh / 2, bw, bh);
+    } else {
+      ctx.fillStyle = '#c9a07a';
+      ctx.beginPath();
+      ctx.ellipse(0, 0, bw * 0.35, bh * 0.28, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+    // alone umore
+    ctx.fillStyle =
+      bri.mood === 'dance' ? '#ffe08a' :
+      bri.mood === 'happy' ? '#b6f0c8' :
+      bri.mood === 'oops' ? '#ff9a9a' :
+      bri.mood === 'sad' ? '#9fb0cc' : '#e6c15a';
+    ctx.font = `800 ${Math.round(H * 0.028)}px "Avenir Next", sans-serif`;
+    ctx.textAlign = 'center';
+    const label =
+      bri.mood === 'dance' ? '✦ saltella!' :
+      bri.mood === 'happy' ? 'brava!' :
+      bri.mood === 'proud' ? 'così!' :
+      bri.mood === 'oops' ? 'ahi…' :
+      bri.mood === 'sad' ? 'riprova' : 'tin tin';
+    ctx.fillText(label, 0, bh * 0.55);
+    ctx.restore();
+  }
+
   function draw() {
     const cv = canvas();
     if (!cv) return;
     const ctx = cv.getContext('2d');
     const W = cv.width;
     const H = cv.height;
+    const layout = staffLayout(H);
+    const { top, gap, bottom } = layout;
+
+    ctx.save();
+    if (shake > 0) {
+      ctx.translate((Math.random() - 0.5) * 10 * shake, (Math.random() - 0.5) * 8 * shake);
+    }
 
     const g = ctx.createLinearGradient(0, 0, 0, H);
     g.addColorStop(0, '#08142c');
@@ -607,20 +889,21 @@
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, W, H);
 
-    // sala da concerto: alone caldo
     const glow = ctx.createRadialGradient(W * 0.5, H * 0.42, 20, W * 0.5, H * 0.42, W * 0.45);
     glow.addColorStop(0, 'rgba(230,193,90,0.14)');
     glow.addColorStop(1, 'rgba(230,193,90,0)');
     ctx.fillStyle = glow;
     ctx.fillRect(0, 0, W, H);
 
-    // tendaggi laterali
     ctx.fillStyle = 'rgba(90,20,40,0.22)';
     ctx.fillRect(0, 0, W * 0.035, H);
     ctx.fillRect(W * 0.965, 0, W * 0.035, H);
 
-    const top = H * 0.30;
-    const gap = H * 0.052;
+    // palco sotto Briciola
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    roundRect(ctx, W * 0.04, H * 0.78, W * 0.2, H * 0.16, 16);
+    ctx.fill();
+
     ctx.strokeStyle = 'rgba(232,240,255,0.5)';
     ctx.lineWidth = 2;
     for (let i = 0; i < 5; i++) {
@@ -632,29 +915,30 @@
     }
 
     ctx.fillStyle = '#e6c15a';
-    ctx.font = `700 ${Math.round(H * 0.13)}px "Palatino Linotype", Georgia, serif`;
+    ctx.font = `700 ${Math.round(H * 0.12)}px "Palatino Linotype", Georgia, serif`;
     ctx.textAlign = 'left';
     ctx.fillText('𝄞', W * 0.085, top + gap * 3.35);
 
     const hx = W * HIT_X;
     ctx.fillStyle = 'rgba(230,193,90,0.10)';
-    ctx.fillRect(hx - PERFECT, top - gap * 0.8, PERFECT * 2, gap * 6.2);
+    ctx.fillRect(hx - PERFECT, layout.minY, PERFECT * 2, layout.maxY - layout.minY);
     ctx.strokeStyle = 'rgba(230,193,90,0.95)';
     ctx.lineWidth = 3;
     ctx.setLineDash([5, 5]);
     ctx.beginPath();
-    ctx.moveTo(hx, top - gap * 0.8);
-    ctx.lineTo(hx, top + gap * 5.2);
+    ctx.moveTo(hx, layout.minY);
+    ctx.lineTo(hx, layout.maxY);
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = '#ffe08a';
-    ctx.font = `700 ${Math.round(H * 0.028)}px "Avenir Next", sans-serif`;
+    ctx.font = `700 ${Math.round(H * 0.026)}px "Avenir Next", sans-serif`;
     ctx.textAlign = 'center';
-    ctx.fillText('BATTA', hx, top - gap * 1.05);
+    ctx.fillText('BATTA', hx, top - gap * 0.85);
 
-    const r = Math.max(10, H * 0.026);
+    const r = Math.max(10, H * 0.024);
     notes.forEach((n) => {
       if (n.x < -50 || n.x > W + 50) return;
+      if (n.y < top - 1 || n.y > bottom + 1) drawLedgerLines(ctx, n, layout, W);
       drawNoteHead(ctx, n, r, gap, hx);
     });
 
@@ -667,70 +951,79 @@
       ctx.globalAlpha = 1;
     });
 
-    // HUD premium
+    drawBriciola(ctx, W, H);
+
     ctx.fillStyle = 'rgba(8,18,40,0.45)';
-    roundRect(ctx, W * 0.05, H * 0.05, W * 0.28, H * 0.14, 12);
+    roundRect(ctx, W * 0.05, H * 0.045, W * 0.28, H * 0.135, 12);
     ctx.fill();
     ctx.fillStyle = 'rgba(8,18,40,0.45)';
-    roundRect(ctx, W * 0.52, H * 0.05, W * 0.43, H * 0.14, 12);
+    roundRect(ctx, W * 0.52, H * 0.045, W * 0.43, H * 0.135, 12);
     ctx.fill();
 
     ctx.fillStyle = '#ffe08a';
-    ctx.font = `800 ${Math.round(H * 0.042)}px "Avenir Next", "Segoe UI", sans-serif`;
+    ctx.font = `800 ${Math.round(H * 0.04)}px "Avenir Next", "Segoe UI", sans-serif`;
     ctx.textAlign = 'left';
-    ctx.fillText(`★ ${score}`, W * 0.07, H * 0.105);
+    ctx.fillText(`★ ${score}`, W * 0.07, H * 0.1);
     ctx.fillStyle = '#b7c6df';
-    ctx.font = `600 ${Math.round(H * 0.026)}px "Avenir Next", sans-serif`;
-    ctx.fillText(`combo ${combo}`, W * 0.07, H * 0.155);
+    ctx.font = `600 ${Math.round(H * 0.024)}px "Avenir Next", sans-serif`;
+    ctx.fillText(`combo ${combo} · best ${bestCombo}`, W * 0.07, H * 0.145);
 
     ctx.textAlign = 'right';
     ctx.fillStyle = '#fff';
-    ctx.font = `800 ${Math.round(H * 0.036)}px "Palatino Linotype", Georgia, serif`;
-    ctx.fillText(songTitle, W * 0.93, H * 0.1);
+    ctx.font = `800 ${Math.round(H * 0.034)}px "Palatino Linotype", Georgia, serif`;
+    ctx.fillText(songTitle, W * 0.93, H * 0.095);
     ctx.fillStyle = '#c9d7f0';
-    ctx.font = `600 ${Math.round(H * 0.024)}px "Avenir Next", sans-serif`;
-    ctx.fillText(songMeta, W * 0.93, H * 0.145);
-    ctx.fillText(`Perfetti ${perfects} · Bene ${goods} · Fuori ${misses}`, W * 0.93, H * 0.175);
+    ctx.font = `600 ${Math.round(H * 0.022)}px "Avenir Next", sans-serif`;
+    ctx.fillText(songMeta, W * 0.93, H * 0.135);
+    ctx.fillText(`Perfetti ${perfects} · Bene ${goods} · Errori ${misses}`, W * 0.93, H * 0.165);
 
     if (msgT > 0) {
-      ctx.fillStyle = '#ffe08a';
-      ctx.font = `800 ${Math.round(H * 0.05)}px "Palatino Linotype", Georgia, serif`;
+      ctx.fillStyle = msg.includes('−') || msg.includes('Ops') || msg.includes('vuoto') || msg.includes('Persa') || msg.includes('Fuori')
+        ? '#ffb4b4' : '#ffe08a';
+      ctx.font = `800 ${Math.round(H * 0.048)}px "Palatino Linotype", Georgia, serif`;
       ctx.textAlign = 'center';
-      ctx.fillText(msg, W * 0.5, H * 0.86);
+      ctx.fillText(msg, W * 0.58, H * 0.86);
+    }
+
+    if (flashRed > 0) {
+      ctx.fillStyle = `rgba(180,40,50,${flashRed * 0.35})`;
+      ctx.fillRect(0, 0, W, H);
     }
 
     if (!started) {
       ctx.fillStyle = 'rgba(6,12,28,0.55)';
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = '#fff';
-      ctx.font = `800 ${Math.round(H * 0.055)}px "Palatino Linotype", Georgia, serif`;
+      ctx.font = `800 ${Math.round(H * 0.052)}px "Palatino Linotype", Georgia, serif`;
       ctx.textAlign = 'center';
-      ctx.fillText('Orchestra del sonaglio', W / 2, H * 0.38);
+      ctx.fillText('Orchestra del sonaglio', W / 2, H * 0.36);
       ctx.fillStyle = '#e6c15a';
-      ctx.font = `700 ${Math.round(H * 0.04)}px "Palatino Linotype", Georgia, serif`;
-      ctx.fillText(songTitle, W / 2, H * 0.48);
+      ctx.font = `700 ${Math.round(H * 0.038)}px "Palatino Linotype", Georgia, serif`;
+      ctx.fillText(songTitle, W / 2, H * 0.46);
       ctx.fillStyle = '#dce6f8';
-      ctx.font = `600 ${Math.round(H * 0.03)}px "Avenir Next", sans-serif`;
-      ctx.fillText(songMeta, W / 2, H * 0.55);
-      ctx.fillText('Piano, archi e campanelle suonano la melodia', W / 2, H * 0.62);
-      ctx.fillText('Tu la guidhi sulla linea d’oro', W / 2, H * 0.68);
+      ctx.font = `600 ${Math.round(H * 0.028)}px "Avenir Next", sans-serif`;
+      ctx.fillText(songMeta, W / 2, H * 0.53);
+      ctx.fillText('Base orchestrale + melodia riconoscibile', W / 2, H * 0.6);
+      ctx.fillText('Clicca sulla linea d’oro · i click a vuoto tolgono punti', W / 2, H * 0.66);
       ctx.fillStyle = '#ffe08a';
-      ctx.fillText('Clicca per alzare il sipario', W / 2, H * 0.78);
+      ctx.fillText('Clicca per alzare il sipario', W / 2, H * 0.76);
     }
 
     if (finished) {
       ctx.fillStyle = 'rgba(6,12,28,0.58)';
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = '#fff';
-      ctx.font = `800 ${Math.round(H * 0.05)}px "Palatino Linotype", Georgia, serif`;
+      ctx.font = `800 ${Math.round(H * 0.048)}px "Palatino Linotype", Georgia, serif`;
       ctx.textAlign = 'center';
-      ctx.fillText('Che bel concerto!', W / 2, H * 0.4);
+      ctx.fillText('Che bel concerto!', W / 2, H * 0.38);
       ctx.fillStyle = '#e6c15a';
-      ctx.fillText(`★ ${score} · ${songTitle}`, W / 2, H * 0.5);
+      ctx.fillText(`★ ${score} · combo max ${bestCombo}`, W / 2, H * 0.48);
       ctx.fillStyle = '#dce6f8';
-      ctx.font = `600 ${Math.round(H * 0.03)}px "Avenir Next", sans-serif`;
-      ctx.fillText('Clicca per la prossima melodia (classici, Natale, filastrocche)', W / 2, H * 0.6);
+      ctx.font = `600 ${Math.round(H * 0.028)}px "Avenir Next", sans-serif`;
+      ctx.fillText(songTitle, W / 2, H * 0.56);
+      ctx.fillText('Clicca per la prossima melodia', W / 2, H * 0.64);
     }
+    ctx.restore();
   }
 
   function roundRect(ctx, x, y, w, h, r) {
@@ -753,34 +1046,40 @@
     tick.last = ts;
     const hitLine = cv.width * HIT_X;
 
+    time += dt;
+    shake = Math.max(0, shake - dt * 1.8);
+    flashRed = Math.max(0, flashRed - dt * 1.6);
+    updateBri(dt);
+
     if (started && !finished) {
-      // pad armonico ogni ~2 beat
       beatAcc += dt;
       const beatSec = 60 / (currentSong?.bpm || 100);
-      if (beatAcc >= beatSec * 2) {
-        beatAcc = 0;
+      // ogni beat: pulse; ogni 2 beat: accordo/base orchestrale
+      if (beatAcc >= beatSec) {
+        const strong = chordStep % 2 === 0;
+        playSoftPulse(strong);
+        if (strong) {
+          playChordPad();
+        }
         chordStep += 1;
-        playChordPad();
+        beatAcc -= beatSec;
       }
 
       notes.forEach((n) => {
         n.x -= scrollSpeed * dt;
-        // L'orchestra suona SEMPRE la melodia al passaggio della linea
         if (!n.autoPlayed && n.x <= hitLine) {
           n.autoPlayed = true;
           playOrchestra(n.midi, n.beats, false);
         }
         if (!n.judged && n.x < hitLine - GOOD) {
-          n.judged = true;
-          n.miss = true;
-          combo = 0;
-          misses += 1;
+          markLateMiss(n);
         }
       });
       if (notes.length && notes.every((n) => n.judged) && notes[notes.length - 1].x < cv.width * 0.04) {
         finished = true;
         msg = 'Bis!';
         msgT = 2;
+        setBriMood('dance', 2.2);
         [72, 76, 79, 84].forEach((m, i) => setTimeout(() => playOrchestra(m, 0.8, true), i * 140));
       }
     }
@@ -813,6 +1112,7 @@
   function openGame() {
     const el = overlay();
     if (!el) return;
+    loadBriImage();
     ensureAC();
     startAmbientHall();
     open = true;
@@ -901,7 +1201,7 @@
           playChordPad();
           return;
         }
-        judgeAt();
+        judgeAt(true);
       }
     });
   }
