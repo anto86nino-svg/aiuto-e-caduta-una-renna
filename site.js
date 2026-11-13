@@ -42,11 +42,6 @@
       (opts.sectionId && libro?.sections?.find((s) => s.id === opts.sectionId)) ||
       libro?.sections?.find((s) => s.id === activeReadingId);
     if (!sec) return;
-    const audio = $('#narr-audio');
-    let audioTime = Number(opts.audioTime);
-    if (!Number.isFinite(audioTime)) {
-      audioTime = audio && Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
-    }
     let blockIndex = opts.blockIndex;
     if (!Number.isFinite(blockIndex)) blockIndex = bookmark?.sectionId === sec.id ? bookmark.blockIndex : 0;
     if (!Number.isFinite(blockIndex)) blockIndex = 0;
@@ -54,17 +49,32 @@
       sectionId: sec.id,
       chapter: sec.chapter || null,
       title: sec.title,
-      audioTime: Math.max(0, audioTime),
+      audioTime: 0,
       blockIndex: Math.max(0, Number(blockIndex)),
       updatedAt: Date.now(),
     };
     saveProgress();
     updateBookmarkUI();
-    placeBookmarkRibbon();
+    placeBookmarkRibbon({ pulse: !!opts.chime });
     if (opts.chime) {
       soundOn = true;
       tin(3);
     }
+  }
+
+  function flashBookmarkSaved(blockIndex) {
+    let toast = $('#bookmark-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'bookmark-toast';
+      toast.className = 'bookmark-toast';
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = `Segnalibro al paragrafo ${Number(blockIndex) + 1}`;
+    toast.classList.add('is-visible');
+    clearTimeout(flashBookmarkSaved._t);
+    flashBookmarkSaved._t = setTimeout(() => toast.classList.remove('is-visible'), 1800);
   }
 
   function clearBookmark() {
@@ -74,7 +84,7 @@
     placeBookmarkRibbon();
   }
 
-  function goToBookmark({ play = false } = {}) {
+  function goToBookmark() {
     if (!bookmark?.sectionId || !libro) return;
     const sec = libro.sections.find((s) => s.id === bookmark.sectionId);
     if (!sec) return;
@@ -82,35 +92,6 @@
     requestAnimationFrame(() => {
       placeBookmarkRibbon({ scroll: true, pulse: true });
     });
-    if (play || bookmark.audioTime > 0.5) {
-      const idx = audioManifest?.sections?.findIndex((s) => s.id === sec.id) ?? -1;
-      if (idx >= 0) {
-        loadNarrSection(idx, true);
-        const audio = $('#narr-audio');
-        const t = bookmark.audioTime || 0;
-        const seek = () => {
-          if (t > 0.4 && audio.duration && t < audio.duration) audio.currentTime = t;
-        };
-        if (audio.readyState >= 1) seek();
-        else audio.addEventListener('loadedmetadata', seek, { once: true });
-      }
-    } else if (Number.isFinite(bookmark.blockIndex)) {
-      // se non c’è audioTime, cerca di allineare l’ascolto al paragrafo
-      const meta = audioManifest?.sections?.find((s) => s.id === sec.id);
-      const cue = meta?.cues?.find((c) => c.blockIndex === bookmark.blockIndex);
-      if (cue && meta) {
-        const idx = audioManifest.sections.findIndex((s) => s.id === sec.id);
-        if (idx >= 0) {
-          loadNarrSection(idx, false);
-          const audio = $('#narr-audio');
-          const seek = () => {
-            audio.currentTime = Math.max(0, cue.start);
-          };
-          if (audio.readyState >= 1) seek();
-          else audio.addEventListener('loadedmetadata', seek, { once: true });
-        }
-      }
-    }
   }
 
   function updateBookmarkUI() {
@@ -265,11 +246,10 @@
       setBookmark({
         sectionId: activeReadingId,
         blockIndex,
-        audioTime: audioTimeForBlock(activeReadingId, blockIndex),
+        audioTime: 0,
         chime: true,
       });
-      const sub = $('#narr-sub');
-      if (sub) sub.textContent = `Segnalibro al paragrafo ${blockIndex + 1}`;
+      flashBookmarkSaved(blockIndex);
     });
 
     // touch fallback: tap lungo sul nastro dock → poi tap sul paragrafo
@@ -293,9 +273,10 @@
       setBookmark({
         sectionId: activeReadingId,
         blockIndex,
-        audioTime: audioTimeForBlock(activeReadingId, blockIndex),
+        audioTime: 0,
         chime: true,
       });
+      flashBookmarkSaved(blockIndex);
     });
   }
 
@@ -548,10 +529,6 @@
     // CONTROLLI COMPATTI: una sola riga, poco spazio sottratto al testo
     const tool = document.createElement('div');
     tool.className = 'chapter-toolbar';
-    const listenBtn =
-      section.kind === 'augurio' || section.kind === 'gioca'
-        ? ''
-        : `<button type="button" class="tool-btn tool-listen" data-listen-section="${section.id}" title="Ascolta questo capitolo">▶ Ascolta</button>`;
     const playBtn =
       section.kind === 'chapter'
         ? `<button type="button" class="tool-btn tool-play" data-play-level="${section.chapter}" title="Gioca il livello">Gioca</button>`
@@ -584,7 +561,6 @@
         ${nextBtn}
       </div>
       <div class="toolbar-cluster toolbar-actions">
-        ${listenBtn}
         ${playBtn}
         ${otherBm}
         <button type="button" class="bookmark-dock" data-bookmark-handle draggable="true" title="Trascina il nastro sul paragrafo da segnare" aria-label="Segnalibro trascinabile">
@@ -682,7 +658,7 @@
     const reader = $('#reader');
     if (reader) reader.scrollTop = 0;
 
-    if (play) playAudioForSection(section.id);
+    void play;
   }
 
   function renderReader() {
@@ -795,70 +771,8 @@
     }
   }
 
-  function showNarratorBar(show) {
-    const bar = $('#narrator-bar');
-    if (!bar) return;
-    bar.hidden = !show;
-    document.body.classList.toggle('has-narrator', show);
-  }
-
-  function currentNarrSection() {
-    return audioManifest?.sections?.[narrIndex] || null;
-  }
-
-  function updateNarrUI() {
-    const s = currentNarrSection();
-    const audio = $('#narr-audio');
-    if (!s || !audio) return;
-    $('#narr-title').textContent = s.title;
-    const sub = $('#narr-sub');
-    if (sub && !audio.ended) {
-      sub.textContent = audio.paused
-        ? `${audioManifest.voiceLabel || 'Narratore Scripto'} · in pausa`
-        : `${audioManifest.voiceLabel || 'Narratore Scripto'} · solo questo capitolo`;
-    }
-    $('#narr-cur').textContent = fmtTime(audio.currentTime);
-    $('#narr-dur').textContent = fmtTime(audio.duration || s.durationSec || 0);
-    const max = audio.duration || s.durationSec || 1;
-    $('#narr-seek').value = String(Math.round((audio.currentTime / max) * 1000));
-    $('#narr-play').textContent = audio.paused ? '▶' : '❚❚';
-    $$('#toc-list a[data-listen-section]').forEach((a) => {
-      a.setAttribute('aria-current', a.dataset.listenSection === s.id ? 'true' : 'false');
-    });
-  }
-
-  function loadNarrSection(index, autoplay = true) {
-    if (!audioManifest?.sections?.length) return;
-    narrIndex = Math.max(0, Math.min(audioManifest.sections.length - 1, index));
-    const s = currentNarrSection();
-    const audio = $('#narr-audio');
-    if (!s || !audio) return;
-    showNarratorBar(true);
-    clearReadingHighlight();
-    activeCueKey = null;
-    audio.playbackRate = 1;
-    audio.defaultPlaybackRate = 1;
-    audio.src = s.src;
-    audio.load();
-    updateNarrUI();
-    // Apri la pagina del capitolo (una sola), non scorrere la cascata
-    if (s.kind === 'augurio') {
-      location.hash = 'auguri';
-      showView('auguri');
-    } else {
-      const bookSec = libro?.sections?.find((x) => x.id === s.id);
-      if (bookSec && bookSec.id !== activeReadingId) {
-        openReading(bookSec, { updateHash: true, play: false });
-      }
-    }
-    const start = () => {
-      if (autoplay) {
-        audio.play().catch(() => {});
-      }
-      updateNarrUI();
-    };
-    if (audio.readyState >= 1) start();
-    else audio.addEventListener('loadedmetadata', start, { once: true });
+  function showNarratorBar() {
+    document.body.classList.remove('has-narrator');
   }
 
   function goToSection(sectionId, chapterNum) {
@@ -885,139 +799,9 @@
     openReading(sec, { updateHash: true, play: false });
   }
 
-  function playAudioForSection(sectionId) {
-    if (!audioManifest?.sections?.length) {
-      showNarratorBar(true);
-      const title = $('#narr-title');
-      const sub = $('#narr-sub');
-      if (title) title.textContent = 'Audiolibro in preparazione';
-      if (sub) sub.textContent = 'La voce di Cesare sta arrivando… riprova tra poco';
-      return;
-    }
-    const idx = audioManifest.sections.findIndex((s) => s.id === sectionId);
-    if (idx < 0) {
-      // magari il capitolo non è ancora sintetizzato: prova il primo capitolo pronto
-      const fallback = audioManifest.sections.findIndex((s) => s.kind === 'chapter');
-      if (fallback >= 0) {
-        const sub = $('#narr-sub');
-        if (sub) sub.textContent = 'Questo capitolo arriva presto · ascolto un altro disponibile';
-        loadNarrSection(fallback, true);
-        return;
-      }
-      showNarratorBar(true);
-      const sub = $('#narr-sub');
-      if (sub) sub.textContent = 'Capitolo audio non ancora pronto';
-      return;
-    }
-    loadNarrSection(idx, true);
-  }
-
-  function playFromSectionId(sectionId) {
-    const sec = libro?.sections?.find((s) => s.id === sectionId);
-    if (sec && sec.kind !== 'augurio') openReading(sec, { updateHash: true, play: false });
-    else if (sec?.kind === 'augurio') {
-      location.hash = 'auguri';
-      showView('auguri');
-    }
-    playAudioForSection(sectionId);
-  }
-
-  function playFromVisibleChapter() {
-    if (activeReadingId) {
-      playAudioForSection(activeReadingId);
-      return;
-    }
-    const sec = sectionFromHash();
-    if (sec) playFromSectionId(sec.id);
-    else if (audioManifest?.sections?.length) loadNarrSection(0, true);
-  }
-
-  function wireNarrator() {
-    const audio = $('#narr-audio');
-    if (!audio || !audioManifest) return;
-    narrReady = true;
-
-    $('#narr-play')?.addEventListener('click', () => {
-      if (!audio.src) {
-        loadNarrSection(0, true);
-        return;
-      }
-      if (audio.paused) audio.play().catch(() => {});
-      else audio.pause();
-      updateNarrUI();
-    });
-    // Prev/next in alto = capitolo precedente/successivo + ascolto
-    $('#narr-prev')?.addEventListener('click', () => {
-      if (narrIndex > 0) loadNarrSection(narrIndex - 1, true);
-    });
-    $('#narr-next')?.addEventListener('click', () => {
-      if (narrIndex < audioManifest.sections.length - 1) loadNarrSection(narrIndex + 1, true);
-    });
-    $('#narr-close')?.addEventListener('click', () => {
-      audio.pause();
-      showNarratorBar(false);
-      clearReadingHighlight();
-    });
-    $('#narr-seek')?.addEventListener('input', (e) => {
-      const s = currentNarrSection();
-      if (!s) return;
-      const max = audio.duration || s.durationSec || 1;
-      audio.currentTime = (Number(e.target.value) / 1000) * max;
-    });
-    let lastBookmarkSave = 0;
-    audio.addEventListener('timeupdate', () => {
-      updateNarrUI();
-      const s = currentNarrSection();
-      if (s?.cues?.length) {
-        const cue = cueAtTime(s.cues, audio.currentTime);
-        if (cue && cue.blockIndex >= 0) highlightCue(s.id, cue.blockIndex);
-      }
-      // aggiorna segnalibro durante l’ascolto (ogni ~8s)
-      if (s && !audio.paused && Date.now() - lastBookmarkSave > 8000) {
-        lastBookmarkSave = Date.now();
-        setBookmark({ sectionId: s.id, audioTime: audio.currentTime });
-      }
-    });
-    // anche al seek manuale: evidenzia subito il pezzo giusto
-    audio.addEventListener('seeked', () => {
-      const s = currentNarrSection();
-      if (!s?.cues?.length) return;
-      const cue = cueAtTime(s.cues, audio.currentTime);
-      if (cue && cue.blockIndex >= 0) highlightCue(s.id, cue.blockIndex, { force: true });
-    });
-    // Fine capitolo → STOP. Si passa al successivo solo scegliendolo dall'indice.
-    audio.addEventListener('ended', () => {
-      clearReadingHighlight();
-      updateNarrUI();
-      const s = currentNarrSection();
-      if (s) setBookmark({ sectionId: s.id, audioTime: 0 });
-      const sub = $('#narr-sub');
-      if (sub) {
-        sub.textContent = s
-          ? `Fine di «${s.title}» · usa i controlli in alto per il prossimo`
-          : 'Capitolo finito · scegli il prossimo dall\'indice';
-      }
-      tin(1);
-    });
-    audio.addEventListener('play', updateNarrUI);
-    audio.addEventListener('pause', () => {
-      updateNarrUI();
-      const s = currentNarrSection();
-      if (s) setBookmark({ sectionId: s.id, audioTime: audio.currentTime });
-    });
-
-    // Home: apre il capitolo 1 (non tutta la cascata)
-    $('#btn-ascolta-tutto')?.addEventListener('click', () => {
-      const idx = audioManifest.sections.findIndex((s) => s.kind === 'chapter' && s.chapter === 1);
-      location.hash = 'capitolo-1';
-      loadNarrSection(idx >= 0 ? idx : 0, true);
-    });
-    $('#btn-ascolta-qui')?.addEventListener('click', () => playFromVisibleChapter());
-    $('#btn-ascolta-auguri')?.addEventListener('click', () => {
-      const idx = audioManifest.sections.findIndex((s) => s.kind === 'augurio');
-      loadNarrSection(idx >= 0 ? idx : 0, true);
-    });
-    $('#btn-vai-segnalibro')?.addEventListener('click', () => goToBookmark({ play: true }));
+  function wireReadingChrome() {
+    showNarratorBar();
+    $('#btn-vai-segnalibro')?.addEventListener('click', () => goToBookmark());
   }
 
   function snow() {
@@ -1067,31 +851,18 @@
 
     const res = await fetch('libro.json');
     libro = await res.json();
-    try {
-      const ar = await fetch('audio/manifest.json');
-      if (ar.ok) audioManifest = await ar.json();
-    } catch (_) {}
+    audioManifest = null;
     renderToc();
     renderReader();
     renderAuguri();
     updateProgressUI();
     updateBookmarkUI();
-    if (audioManifest) wireNarrator();
-    else {
-      ['btn-ascolta-tutto', 'btn-ascolta-qui'].forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.disabled = true;
-          el.title = 'Audiolibro in preparazione…';
-        }
-      });
-    }
+    wireReadingChrome();
     route();
     // Se arrivi a #leggi senza capitolo e c’è segnalibro, riprendi
     const h0 = (location.hash || '').replace(/^#/, '');
-    if ((!h0 || h0 === 'leggi' || h0 === 'home') && bookmark?.sectionId) {
-      // resta su home se home; su leggi riprendi
-      if (h0 === 'leggi') goToBookmark({ play: false });
+    if (h0 === 'leggi' && bookmark?.sectionId) {
+      goToBookmark();
     }
 
     document.body.addEventListener('click', (e) => {
@@ -1135,25 +906,35 @@
       }
       if (e.target.closest('[data-bookmark-toggle]')) {
         e.preventDefault();
-        // fissa sul paragrafo in lettura (evidenziato) oppure il primo visibile
         const reading = $('.blocks p.reading');
-        let blockIndex = reading ? Number(reading.dataset.blockIndex) : 0;
+        let blockIndex = reading ? Number(reading.dataset.blockIndex) : NaN;
         if (!Number.isFinite(blockIndex)) {
-          const first = $('.blocks p[data-block-index]');
-          blockIndex = first ? Number(first.dataset.blockIndex) || 0 : 0;
+          // paragrafo più vicino al centro viewport
+          const paras = $$('.blocks p[data-block-index]');
+          const mid = window.innerHeight * 0.35;
+          let best = paras[0];
+          let bestDist = Infinity;
+          paras.forEach((p) => {
+            const r = p.getBoundingClientRect();
+            const d = Math.abs(r.top + r.height / 2 - mid);
+            if (d < bestDist) {
+              bestDist = d;
+              best = p;
+            }
+          });
+          blockIndex = best ? Number(best.dataset.blockIndex) || 0 : 0;
         }
         setBookmark({
           blockIndex,
-          audioTime: audioTimeForBlock(activeReadingId, blockIndex),
+          audioTime: 0,
           chime: true,
         });
-        const sub = $('#narr-sub');
-        if (sub) sub.textContent = `Segnalibro al paragrafo ${blockIndex + 1}`;
+        flashBookmarkSaved(blockIndex);
         return;
       }
       if (e.target.closest('[data-go-bookmark]')) {
         e.preventDefault();
-        goToBookmark({ play: true });
+        goToBookmark();
         return;
       }
       if (e.target.closest('[data-clear-bookmark]')) {
@@ -1163,14 +944,6 @@
           libro.sections.find((s) => s.id === activeReadingId) || readableSections()[0],
           { updateHash: false, play: false },
         );
-        return;
-      }
-      const listen = e.target.closest('button[data-listen-section]');
-      if (listen) {
-        e.preventDefault();
-        // Ascolta = avvia lettura vocale di QUESTO capitolo
-        playFromSectionId(listen.dataset.listenSection);
-        setBookmark({ sectionId: listen.dataset.listenSection, audioTime: 0 });
         return;
       }
       const play = e.target.closest('[data-play-level]');
