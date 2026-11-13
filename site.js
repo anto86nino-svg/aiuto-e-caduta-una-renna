@@ -597,8 +597,18 @@
       <p class="bookmark-dock-hint" id="bookmark-dock-hint">Trascina il nastro sul testo</p>`;
     sec.appendChild(tool);
 
+    if (section.kind === 'chapter' && section.chapter) {
+      const opener = document.createElement('div');
+      opener.className = 'chapter-opener';
+      opener.innerHTML = `
+        <p class="chapter-opener-kicker">Capitolo</p>
+        <div class="chapter-opener-num">${escapeHtml(String(section.chapter))}</div>
+        <div class="chapter-opener-ornament" aria-hidden="true"></div>`;
+      sec.appendChild(opener);
+    }
+
     const h = document.createElement('h2');
-    h.textContent = section.title;
+    h.textContent = section.title.replace(/^\d+\.\s*/, '');
     sec.appendChild(h);
 
     if (section.image) {
@@ -611,11 +621,21 @@
     const blocks = document.createElement('div');
     blocks.className = 'blocks';
     let blockIdx = 0;
+    let firstPara = true;
     (section.blocks || []).forEach((b) => {
       if (b.type === 'p' || b.type === 'quote') {
         const p = document.createElement('p');
         p.dataset.blockIndex = String(blockIdx);
-        p.innerHTML = b.type === 'quote' ? `<em>${b.html}</em>` : b.html;
+        if (b.type === 'quote') {
+          p.className = 'is-quote';
+          p.innerHTML = `<em>${b.html}</em>`;
+        } else {
+          p.innerHTML = b.html;
+          if (firstPara && section.kind === 'chapter') {
+            p.classList.add('is-lead');
+            firstPara = false;
+          }
+        }
         blocks.appendChild(p);
         blockIdx += 1;
       }
