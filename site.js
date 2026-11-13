@@ -116,14 +116,14 @@
       const on = bookmark && bookmark.sectionId === activeReadingId;
       b.classList.toggle('is-set', !!on);
       b.title = on
-        ? 'Segnalibro su questa pagina — puoi trascinarlo sui paragrafi'
-        : 'Trascina il nastro sul paragrafo che vuoi segnare';
+        ? 'Segnalibro su questa pagina — doppio clic su un altro paragrafo per spostarlo'
+        : 'Doppio clic su un paragrafo per segnarlo';
     });
     const hint = $('#bookmark-dock-hint');
     if (hint) {
       hint.textContent = bookmark?.sectionId === activeReadingId
-        ? 'Nastro posato — trascinalo dove vuoi'
-        : 'Trascina il nastro sul testo';
+        ? 'Segnato — doppio clic su un altro paragrafo per spostarlo'
+        : 'Doppio clic sul paragrafo da segnare';
     }
   }
 
@@ -241,6 +241,23 @@
       const p = nearestParagraphFromPoint(e.clientX, e.clientY);
       clearGlow();
       if (!p || !activeReadingId) return;
+      const blockIndex = Number(p.dataset.blockIndex);
+      if (!Number.isFinite(blockIndex)) return;
+      setBookmark({
+        sectionId: activeReadingId,
+        blockIndex,
+        audioTime: 0,
+        chime: true,
+      });
+      flashBookmarkSaved(blockIndex);
+    });
+
+    // Doppio clic sul paragrafo → segnalibro
+    body.addEventListener('dblclick', (e) => {
+      const p = e.target.closest('.blocks p[data-block-index]');
+      if (!p || !activeReadingId) return;
+      if (e.target.closest('a, button, .bookmark-ribbon, .chapter-toolbar')) return;
+      e.preventDefault();
       const blockIndex = Number(p.dataset.blockIndex);
       if (!Number.isFinite(blockIndex)) return;
       setBookmark({
@@ -570,7 +587,7 @@
         <button type="button" class="tool-btn tool-ghost" data-bookmark-toggle title="Fissa qui (o trascina il nastro)">📌</button>
         ${bookmark?.sectionId === section.id ? `<button type="button" class="tool-btn tool-ghost" data-clear-bookmark title="Rimuovi segnalibro">✕</button>` : ''}
       </div>
-      <p class="bookmark-dock-hint" id="bookmark-dock-hint">Trascina il nastro sul testo</p>`;
+      <p class="bookmark-dock-hint" id="bookmark-dock-hint">Doppio clic sul paragrafo da segnare</p>`;
     sec.appendChild(tool);
 
     if (section.kind === 'chapter' && section.chapter) {
